@@ -3,7 +3,7 @@
 ## 
 
 ## About
-The social web app for building community with women in software engineering and their allies.
+a social web app that builds community for women in software engineering and their allies.
 ## Wiki
 
 ## Screenshots
