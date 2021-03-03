@@ -1,5 +1,5 @@
 # [Collab*HER*ative]
-![Figure 1-1](https://raw.github.com/amberjolie/repo/master/images/figure 1-1.png "Figure 1-1")
+![Figure 1-1](https://github.com/amberjolie/CollabHERative-React-Flask-Python-Web-App/react-app/public/CollabHERativelogo2.svg 1-1.png "Figure 1-1")
 ## 
 
 ## About
