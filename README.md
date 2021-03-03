@@ -1,5 +1,5 @@
 # [Collab*HER*ative]
-![CollabHERativelogo-2](https://user-images.githubusercontent.com/67670488/109873122-f1b03c80-7c32-11eb-82ba-2613e1770bda.png)
+![CollabHERative logo3](https://user-images.githubusercontent.com/67670488/109873733-c8dc7700-7c33-11eb-9d1c-030db104f7ab.png)
 
 
 ## About
