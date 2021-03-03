@@ -1,6 +1,6 @@
 # [Collab*HER*ative]
-![Figure 1-1](https://github.com/amberjolie/CollabHERative-React-Flask-Python-Web-App/react-app/public/CollabHERativelogo2.svg 1-1.png "Figure 1-1")
-## 
+![CollabHERativelogo-2](https://user-images.githubusercontent.com/67670488/109873122-f1b03c80-7c32-11eb-82ba-2613e1770bda.png)
+
 
 ## About
 a social web app that builds community for women in tech and their allies.
