@@ -8,7 +8,7 @@ const NavBar = ({ setAuthenticated }) => {
       <ul>
         <li>
           <NavLink to="/" exact={true} activeClassName="active">
-            <img src={logo} alt="React Logo" style={{ marginTop: "-1rem",marginLeft:"30rem" }} />
+            <img src={logo} alt="React Logo" style={{ display:"flex", }} />
           </NavLink>
         </li>
         <li>

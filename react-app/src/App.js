@@ -46,7 +46,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <h1>My Home Page</h1>
+          <h1>CollabHERative</h1>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
