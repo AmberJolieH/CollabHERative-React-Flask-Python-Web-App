@@ -1,5 +1,5 @@
-import db from db
-import datetime from datetime
+from .db import db
+from datetime import datetime
 
 class DirectMessage (db.Model):
     __tablename__ = "directmessages"
