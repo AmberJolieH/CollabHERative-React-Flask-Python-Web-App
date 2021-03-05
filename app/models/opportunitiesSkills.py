@@ -1,8 +1,8 @@
 from .db import db
 
 
-class Opportunity (db.Model):
-    __tablename__ = "opportunities"
+class Opportunityskill (db.Model):
+    __tablename__ = "opportunitityskills"
 
     id = db.Column(db.Integer, primary_key=True)
     opportunitiesId = db.Column(db.Integer, db.ForeignKey("opportunities.id"), nullable=False)
