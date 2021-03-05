@@ -24,8 +24,8 @@ showcases = db.relationship(
   "Showcase", back_populates = "user"
 )
 
-opportunity = db.relationship(
-  "Opportunity", back_populates = "user"
+opportunities = db.relationship(
+  "Opportunity", back_populates = "recruiter"
 )
 
 skills = db.relationship(

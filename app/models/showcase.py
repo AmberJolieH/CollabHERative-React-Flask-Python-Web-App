@@ -14,7 +14,8 @@ class Showcase(db.Model):
     timeStamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     showcaseImgUrl = db.Column(db.String(2000))
     
-
+    user = db.relationship("User", back_populates = "showcases")
+    techCategory = db.relationship("TechCategory")
 
 
 
@@ -28,4 +29,6 @@ class Showcase(db.Model):
             "updatedat": self.updatedat,
             "timestamp": self.timestamp,
             "showcaseImgUrl": self.showcaseImgUrl,
+            "user": self.user.to_dict(),
+            "techcategory": self.techCategory.name
         }

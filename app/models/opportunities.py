@@ -14,8 +14,9 @@ class Opportunity(db.Model):
     timeStamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     companyImgUrl = db.Column(db.String(2000))
     
-
-
+    recruiter = db.relationship("User".back_populates = "opportunities")
+    techCategory = db.relationship("TechCategory")
+    company = db.relationship("Company")
 
 
     def to_dict(self):
@@ -29,4 +30,7 @@ class Opportunity(db.Model):
             "updatedat": self.updatedat.to_dict(),
             "timestamp": self.timestamp,
             "companyImgUrl": self.companyImgUrl,
+            "recruiter": self.recruiter.to_dict(),
+            "techcategory": self.techCategory.name,
+            "company": self.company.name
         }
