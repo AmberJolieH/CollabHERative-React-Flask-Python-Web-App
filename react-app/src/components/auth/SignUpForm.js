@@ -7,6 +7,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  // const [githuburl, setGithuburl] = useState("")
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -68,7 +69,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label>Repeat Password:</label>
         <input
           type="password"
           name="repeat_password"
@@ -77,6 +78,16 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           required={true}
         ></input>
       </div>
+       {/* <div>
+        <label>Github url:</label>
+        <input
+          type="text"
+          name="githuburl"
+          onChange={updateGithuburl}
+          value={repeatPassword}
+          required={true}
+        ></input>
+      </div> */}
       <button type="submit">Sign Up</button>
     </form>
   );

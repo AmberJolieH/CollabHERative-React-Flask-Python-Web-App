@@ -56,6 +56,8 @@ def logout():
     return {'message': 'User logged out'}
 
 # use as blueprint for opportunities and showcase
+
+
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
     """

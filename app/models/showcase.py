@@ -7,17 +7,17 @@ class Showcase(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    techCategoryId = db.Column(db.Integer, db.ForeignKey("techCategories.id"), nullable=False)
+    techCategoryId = db.Column(db.Integer, db.ForeignKey(
+        "techcategories.id"), nullable=False)
     description = db.Column(db.String(5000))
     createdat = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     updatedat = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     timeStamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     showcaseImgUrl = db.Column(db.String(2000))
-    
-    user = db.relationship("User", back_populates = "showcases")
+    skill = db.Column(db.String(5000))
+
+    user = db.relationship("User", back_populates="showcases")
     techCategory = db.relationship("TechCategory")
-
-
 
     def to_dict(self):
         return {
@@ -30,5 +30,6 @@ class Showcase(db.Model):
             "timestamp": self.timestamp,
             "showcaseImgUrl": self.showcaseImgUrl,
             "user": self.user.to_dict(),
-            "techcategory": self.techCategory.name
+            "techcategory": self.techCategory.name,
+            "skill": self.skill
         }

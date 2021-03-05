@@ -1,7 +1,7 @@
 from .db import db
 
 
-class likedShowcases(db.Model):
+class LikedShowcase(db.Model):
     __tablename__ = "likedShowcases"
 
     id = db.Column(db.Integer, primary_key=True)
