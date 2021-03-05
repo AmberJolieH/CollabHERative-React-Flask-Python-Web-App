@@ -15,7 +15,7 @@ class Skillshowcase(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "showcaseid": showcaseid,
+            "showcaseid": self.showcaseid,
             "skillsid": self.skillsid
             
         }
