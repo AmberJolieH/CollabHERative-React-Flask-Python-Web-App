@@ -57,3 +57,14 @@ def techCategories(id):
     print('=====================', [showcase.to_dict()
                                     for showcase in showcase])
     return {"showcase": [showcase.to_dict() for showcase in showcase]}
+
+
+# delete a showcase
+
+@showcase_routes.route('/showcase/<int:id>', methods=['DELETE'])
+def delete_showcase(id):
+    showcase = Showcase.query.get(id)
+    db.session.delete(showcase)
+    db.session.commit()
+    showcases = Showcase.query.all()
+    return {"showcases": [showcase.to_dict() for showcase in showcases]}
