@@ -4,7 +4,11 @@
 
 ## About
 a social web app that builds community for women in tech and their allies.
-## Wiki
+## Functionality
+* Users 
+* Allies 
+* Recruiters 
+
 
 ## Screenshots
 

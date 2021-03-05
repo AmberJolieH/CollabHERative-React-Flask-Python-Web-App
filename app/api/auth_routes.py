@@ -37,6 +37,7 @@ def login():
     print(request.get_json())
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
+    # dont forget csurf
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
@@ -54,7 +55,7 @@ def logout():
     logout_user()
     return {'message': 'User logged out'}
 
-
+# use as blueprint for opportunities and showcase
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
     """
@@ -63,11 +64,8 @@ def sign_up():
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        user = User(
-            username=form.data['username'],
-            email=form.data['email'],
-            password=form.data['password']
-        )
+        user = User()
+        form.populate_obj(user)
         db.session.add(user)
         db.session.commit()
         login_user(user)

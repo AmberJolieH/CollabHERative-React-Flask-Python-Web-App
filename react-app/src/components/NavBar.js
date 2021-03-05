@@ -1,14 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-
+import logo from "/Users/amberjolie/CollabHerative/react-app/src/images/CollabHERativelogo2.svg"
 const NavBar = ({ setAuthenticated }) => {
   return (
     <nav>
       <ul>
         <li>
           <NavLink to="/" exact={true} activeClassName="active">
-            Home
+            <img src={logo} alt="React Logo" style={{ display:"flex", }} />
           </NavLink>
         </li>
         <li>
