@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
+import ListShowcases from "./components/showcase/ListShowcases"
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -44,11 +45,18 @@ function App() {
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute
-              path="/showcase/create_showcase"
+              path="/create_showcase"
               exact={true}
               authenticated={authenticated}
             >
               <CreateShowcase/>
+            </ProtectedRoute>
+            <ProtectedRoute
+              path="/all_showcases"
+              exact={true}
+              authenticated={authenticated}
+            >
+              <ListShowcases/>
             </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
           <User />

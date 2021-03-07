@@ -11,6 +11,24 @@ const one = showcase => ({
     showcase
 });
 
+export const createShowcase = ({userId, techCategoryId, description, skill, showcaseImgUrl, title}) => async dispatch => {
+    const response = await fetch('/api/showcases/create_showcase', {
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            techCategoryId,
+            description,
+            skill,
+            showcaseImgUrl,
+            title,
+            userId
+        })
+    })
+   const create = await response.json();
+   dispatch(one(create))
+}
 export const listshowcases = () => async dispatch => {
     const response = await fetch('/api/showcases/', {
         method: 'GET',
@@ -44,7 +62,7 @@ export const getCategories = (id) => async dispatch => {
 }
 
 const initialState = {
-    list: []
+    // list: []
 };
 
 const showcaseReducer = (state = initialState, action) => {
@@ -57,7 +75,7 @@ const showcaseReducer = (state = initialState, action) => {
             return {
                 ...showcaseList,
                 ...state,
-                list: action.list
+                // list: action.list
             }
         }
         case ONE: {
@@ -66,12 +84,13 @@ const showcaseReducer = (state = initialState, action) => {
                     ...state,
                     [action.showcase.id]: action.showcase
                 }
-                const showcaseList = newState.list.map(id => newState[id])
-                showcaseList.push(action.showcase)
-                newState.list = showcaseList
+                // const showcaseList = newState.list.map(id => newState[id])
+                // showcaseList.push(action.showcase)
+                // newState.list = showcaseList
                 return newState
             }
         }
+
         default:
             return state;
     }

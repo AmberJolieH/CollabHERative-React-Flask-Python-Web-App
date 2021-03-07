@@ -1,28 +1,31 @@
 /** @jsx jsx */
 import React, {useState} from "react";
 import { jsx } from "@emotion/react";
-import { createshowcase } from "../../services/showcase";
+import { createShowcase } from "../../store/showcase";
+import {useDispatch} from "react-redux"
 
 const CreateShowcase = () => {
+    const dispatch = useDispatch();
     const [techCategoryId, setTechCategoryId] = useState('')
     const [description, setDescription] = useState('')
     const [skill,setSkills] = useState('')
     const [showcaseImgUrl, setshowcaseImgUrl] = useState('')
+    const [title, setTitle] = useState('')
 
 
 const onSubmit = async (e)=> {
     e.preventDefault()
-    const showcase = await createshowcase({
-        techCategoryId,
+    const showcase = await dispatch(createShowcase({
+        techCategoryId:1,
         description,
-        skill,
-        showcaseImgUrl
-    })
+        skill:"language",
+        showcaseImgUrl,
+        title,
+        userId:1
+    }))
+    console.log('test showcase create working', showcase)
 }
-    console.log('test showcase create working')
-
     
-
     const cat = [
         'UX/UI Design',
         'Product Marketing/Product Management',
@@ -42,6 +45,14 @@ const onSubmit = async (e)=> {
             onSubmit={onSubmit}
                 
                 >
+                    <label>Title: </label>
+                <input
+                    name="title"
+                    type="text"
+                    placeholder="showcase title"
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                />
                     <label>Description: </label>
                 <input
                     name="description"
@@ -50,14 +61,15 @@ const onSubmit = async (e)=> {
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                 />
+                
                 <label>Select a relative tech category: </label>
                 <select
                     name="techCatName"
                     type="text"
-                    value={cat}
+                    value={CatName}
                     onChange={e => setCatName(e.target.value)}
                 >
-                {techCategoryId.map((cat)=> {
+                {cat.map((cat)=> {
                     return (
                         <option
                         key={cat}
@@ -74,4 +86,4 @@ const onSubmit = async (e)=> {
     )
 }
 
-export default createshowcase;
+export default CreateShowcase;

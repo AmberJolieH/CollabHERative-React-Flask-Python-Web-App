@@ -13,15 +13,11 @@ def create_showcase():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         showcase = Showcase(
-            posterId=2,
             userId=form.data['userId'],
             techCategoryId=form.data['techCategoryId'],
             description=form.data['description'],
-            createdat=form.data['createdat'],
-            updatedat=form.data['updatedat'],
-            timestamp=form.data['timestamp'],
-            showcaseImgUrl=form.data['showcaseImgUrl'],
-            skill=form.data['skill']
+            skill=form.data['skill'],
+            title=form.data['title']
         )
         db.session.add(showcase)
         db.session.commit()
@@ -30,7 +26,7 @@ def create_showcase():
     return {'errors': form.errors}
 
 
-# get all showcase
+# get all showcases
 
 @showcase_routes.route('/')
 def showcase():
@@ -68,3 +64,8 @@ def delete_showcase(id):
     db.session.commit()
     showcases = Showcase.query.all()
     return {"showcases": [showcase.to_dict() for showcase in showcases]}
+
+# update a showcase 
+# form w/ same values 
+# route -> put method -> query -> db session commit ** 
+
