@@ -26,6 +26,16 @@ const NavBar = ({ setAuthenticated }) => {
             Users
           </NavLink>
         </li>
+          <li>
+          <NavLink to="/create_showcase" exact={true} activeClassName="active">
+            Create a Showcase
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/all_showcases" exact={true} activeClassName="active">
+            view all Showcases
+          </NavLink>
+        </li>
         <li>
           <LogoutButton setAuthenticated={setAuthenticated} />
         </li>
@@ -35,3 +45,4 @@ const NavBar = ({ setAuthenticated }) => {
 }
 
 export default NavBar;
+

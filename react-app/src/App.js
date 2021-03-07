@@ -3,10 +3,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
+import CreateShowcase from "./components/showcase/createShowcase"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
+import ListShowcases from "./components/showcase/ListShowcases"
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -42,6 +44,20 @@ function App() {
         <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
           <UsersList/>
         </ProtectedRoute>
+        <ProtectedRoute
+              path="/create_showcase"
+              exact={true}
+              authenticated={authenticated}
+            >
+              <CreateShowcase/>
+            </ProtectedRoute>
+            <ProtectedRoute
+              path="/all_showcases"
+              exact={true}
+              authenticated={authenticated}
+            >
+              <ListShowcases/>
+            </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
           <User />
         </ProtectedRoute>

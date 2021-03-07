@@ -9,6 +9,7 @@ class Showcase(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     techCategoryId = db.Column(db.Integer, db.ForeignKey(
         "techcategories.id"), nullable=False)
+    title = db.Column(db.String(1000))
     description = db.Column(db.String(5000))
     createdat = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     updatedat = db.Column(db.DateTime, index=True, default=datetime.utcnow)
@@ -24,10 +25,11 @@ class Showcase(db.Model):
             "id": self.id,
             "userId": self.userId,
             "techCategoryId": self.techCategoryId,
+            "title": self.title,
             "description": self.description,
             "createdat": self.createdat,
             "updatedat": self.updatedat,
-            "timestamp": self.timestamp,
+            "timestamp": self.timeStamp,
             "showcaseImgUrl": self.showcaseImgUrl,
             "user": self.user.to_dict(),
             "techcategory": self.techCategory.name,

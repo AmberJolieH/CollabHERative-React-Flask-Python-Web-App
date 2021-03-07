@@ -8,11 +8,11 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    username = db.Column(db.String(40), unique=True)
     firstname = db.Column(db.String(40), nullable=False)
     lastname = db.Column(db.String(40), nullable=False)
-    middleinitial = db.Column(db.String(40), nullable=False)
-    driverslicense = db.Column(db.Integer)
+    middleinitial = db.Column(db.String(40))
+    driverslicense = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     githuburl = db.Column(db.String(2000))
@@ -56,8 +56,8 @@ class User(db.Model, UserMixin):
             "middle": self.middleinitial,
             "driverslicense": self.driverslicense,
             "githuburl": self.githuburl,
-            "allies": self.allies,
-            "recruiter": self.recruiter,
+            "isallies": self.isallies,
+            "isrecruiter": self.isrecruiter,
             "techcategoryid": self.techcategoryid,
             "imgurl": self.imgurl,
             "resumeUrl": self.resumeUrl

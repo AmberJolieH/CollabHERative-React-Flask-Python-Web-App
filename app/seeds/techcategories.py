@@ -1,13 +1,12 @@
 from werkzeug.security import generate_password_hash
-from app.models import db, User
+from app.models import db, TechCategory
 
 # Adds a demo user, you can add other users here if you want
 
 
-def seed_users():
+def seed_techcategories():
 
-    demo = User(username='Demo', email='demo@aa.io',
-                password='password', firstname="Zesty", lastname="tester", driverslicense=34525684)
+    demo = TechCategory(name='Software (Full Stack/Front End/Back End)')
 
     db.session.add(demo)
 
@@ -19,6 +18,6 @@ def seed_users():
 # the auto incrementing primary key
 
 
-def undo_users():
-    db.session.execute('TRUNCATE users CASCADE;')
+def undo_techcategories():
+    db.session.execute('TRUNCATE techcategories CASCADE;')
     db.session.commit()
