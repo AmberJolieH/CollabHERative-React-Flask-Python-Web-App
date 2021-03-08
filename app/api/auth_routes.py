@@ -68,6 +68,8 @@ def sign_up():
     if form.validate_on_submit():
         user = User()
         form.populate_obj(user)
+        # TODO: Remove driversLicense field form the user table. 
+        user.driverslicense = 0
         db.session.add(user)
         db.session.commit()
         login_user(user)
