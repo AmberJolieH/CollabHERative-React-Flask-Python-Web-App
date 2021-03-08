@@ -11,7 +11,7 @@ const one = showcase => ({
     showcase
 });
 
-export const createShowcase = ({userId, techCategoryId, description, skill, showcaseImgUrl, title, driversLicense}) => async dispatch => {
+export const createShowcase = ({userId, techCategoryId, description, skill, showcaseImgUrl, title}) => async dispatch => {
     const response = await fetch('/api/showcases/create_showcase', {
         method:'POST',
         headers:{
@@ -23,8 +23,7 @@ export const createShowcase = ({userId, techCategoryId, description, skill, show
             skill,
             showcaseImgUrl,
             title,
-            userId,
-            driversLicense
+            userId
         })
     })
    const create = await response.json();
