@@ -12,7 +12,6 @@ class User(db.Model, UserMixin):
     firstname = db.Column(db.String(40), nullable=False)
     lastname = db.Column(db.String(40), nullable=False)
     middleinitial = db.Column(db.String(40))
-    driverslicense = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     githuburl = db.Column(db.String(2000))
@@ -54,7 +53,6 @@ class User(db.Model, UserMixin):
             "firstname": self.firstname,
             "lastname": self.lastname,
             "middle": self.middleinitial,
-            "driverslicense": self.driverslicense,
             "githuburl": self.githuburl,
             "isallies": self.isallies,
             "isrecruiter": self.isrecruiter,

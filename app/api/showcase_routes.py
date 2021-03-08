@@ -17,7 +17,7 @@ def create_showcase():
             techCategoryId=form.data['techCategoryId'],
             description=form.data['description'],
             skill=form.data['skill'],
-            title=form.data['title']
+            title=form.data['title'],
         )
         db.session.add(showcase)
         db.session.commit()

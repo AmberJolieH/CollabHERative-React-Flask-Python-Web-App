@@ -11,6 +11,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+ 
   // const [githuburl, setGithuburl] = useState("")
 
 
@@ -110,7 +111,6 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           value={repeatPassword}
           required={true}
         ></input>
-        
       </div>
        {/* <div>
         <label>Github url:</label>

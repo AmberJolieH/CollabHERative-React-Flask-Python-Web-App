@@ -65,6 +65,8 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    # TODO: Remove driversLicense field form the user table.
+    # form['driverslicense'].data = 0
     if form.validate_on_submit():
         user = User()
         form.populate_obj(user)
