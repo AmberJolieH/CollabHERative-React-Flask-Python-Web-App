@@ -27,11 +27,20 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     setPassword(e.target.value);
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    const user = await dispatch(login('demo@aa.io', 'password'));
+    if (!user.errors) {
+      setAuthenticated(true);
+    }
+  };
+
   if (authenticated) {
     return <Redirect to="/" />;
   }
 
   return (
+    <>
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error) => (
@@ -57,9 +66,14 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           value={password}
           onChange={updatePassword}
         />
+        </div>
         <button type="submit">Login</button>
-      </div>
     </form>
+    <form onSubmit={demoLogin}>
+        <button type='submit'>Demo Login</button>
+      </form>
+    </>
+    
   );
 };
 
