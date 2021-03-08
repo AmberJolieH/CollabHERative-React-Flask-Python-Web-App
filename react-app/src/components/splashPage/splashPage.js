@@ -6,7 +6,7 @@ export default function SplashPage() {
         <div className='landContainer'>
             <div className='land__logo'>
                 <h1>
-                   CollabHerative Logo here
+                   CollabHerative maybe Logo goes here
                 </h1>
             </div>
         </div>
