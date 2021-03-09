@@ -48,6 +48,7 @@ export const signUp = (username, firstname, lastname, email, password) => async 
             password,
             firstname,
             lastname,
+            imgurl
         }),
     });
     const user = await response.json()
@@ -68,10 +69,10 @@ export const logout = () => async (dispatch) => {
 };
 
 const initialState = {
-    user: {
-        email: 'initial@email.com',
-        username: 'Initial',
-    }
+    // user: {
+    //     email: 'initial@email.com',
+    //     username: 'Initial',
+    // }
 };
 
 const sessionReducer = (state = initialState, action) => {

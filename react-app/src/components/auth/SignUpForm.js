@@ -13,6 +13,8 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [repeatPassword, setRepeatPassword] = useState("");
  
   // const [githuburl, setGithuburl] = useState("")
+ // add img url,github link, techcat,skills
+
 
 
   const dispatch = useDispatch();

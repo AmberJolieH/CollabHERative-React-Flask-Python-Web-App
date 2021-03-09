@@ -2,7 +2,7 @@
 import React, {useState} from "react";
 import { jsx } from "@emotion/react";
 import { createShowcase } from "../../store/showcase";
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 
 const CreateShowcase = () => {
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const CreateShowcase = () => {
     const [skill,setSkills] = useState('')
     const [showcaseImgUrl, setshowcaseImgUrl] = useState('')
     const [title, setTitle] = useState('')
-
+    const userId = useSelector(state => state.session.user?.id)
 
 const onSubmit = async (e)=> {
     e.preventDefault()
@@ -21,7 +21,7 @@ const onSubmit = async (e)=> {
         skill:"language",
         showcaseImgUrl,
         title,
-        userId:1
+        userId
     }))
     console.log('test showcase create working', showcase)
 }
