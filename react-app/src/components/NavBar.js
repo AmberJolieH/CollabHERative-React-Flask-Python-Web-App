@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import logo from "../images/CollabHERativelogo2.svg"
-const NavBar = ({ setAuthenticated }) => {
+const NavBar =({ setAuthenticated, authenticated }) => {
   return (
     <nav>
       <ul>
