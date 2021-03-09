@@ -10,6 +10,7 @@ import User from "./components/User";
 import { authenticate } from "./services/auth";
 import ListShowcases from "./components/showcase/ListShowcases"
 
+
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -58,7 +59,7 @@ function App() {
             >
               <ListShowcases/>
             </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
+        <ProtectedRoute path="/users/:userId"  authenticated={authenticated}>
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
