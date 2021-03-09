@@ -13,7 +13,7 @@ const removeUser = () => {
         type: REMOVE_USER,
     };
 };
-//* SIGNUP
+//* LOGIN
 export const login = (email, password) => async (dispatch) => {
     const response = await fetch('/api/auth/login', {
         method: 'POST',
@@ -35,7 +35,7 @@ export const login = (email, password) => async (dispatch) => {
 //     dispatch(setUser(res.data.user));
 //     return res;
 // };
-
+//* SIGNUP
 export const signUp = (username, firstname, lastname, email, password) => async (dispatch) => {
     const response = await fetch("/api/auth/signup", {
         method: "POST",
@@ -55,7 +55,7 @@ export const signUp = (username, firstname, lastname, email, password) => async 
     dispatch(setUser(user));
     return user;
 };
-
+//* LOG-OUT
 export const logout = () => async (dispatch) => {
     const response = await fetch('/api/auth/logout', {
         headers: {
@@ -74,7 +74,7 @@ const initialState = {
     //     username: 'Initial',
     // }
 };
-
+//* REDUCER
 const sessionReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {

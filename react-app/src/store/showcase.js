@@ -1,6 +1,8 @@
+//* ACTION TYPES
 const LOAD = 'showcases/LOAD'
 const ONE = 'showcases/ONE'
 
+//* ACTION CREATIONS
 const load = list => ({
     type: LOAD,
     list
