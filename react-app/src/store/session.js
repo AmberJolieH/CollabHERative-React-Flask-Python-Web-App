@@ -13,7 +13,7 @@ const removeUser = () => {
         type: REMOVE_USER,
     };
 };
-
+//* SIGNUP
 export const login = (email, password) => async (dispatch) => {
     const response = await fetch('/api/auth/login', {
         method: 'POST',
