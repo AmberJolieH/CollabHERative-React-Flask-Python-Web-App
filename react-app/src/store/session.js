@@ -48,7 +48,7 @@ export const signUp = (username, firstname, lastname, email, password) => async 
             password,
             firstname,
             lastname,
-            imgurl
+            // imgurl
         }),
     });
     const user = await response.json()
