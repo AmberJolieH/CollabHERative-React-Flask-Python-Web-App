@@ -11,7 +11,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
- 
+  const [techCategoryId, setTechCategoryId] = useState('')
   // const [githuburl, setGithuburl] = useState("")
  // add img url,github link, techcat,skills
 
@@ -22,7 +22,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await dispatch(sessionActions.signUp(username, firstname, lastname, email, password));
+      const user = await dispatch(sessionActions.signUp(username, firstname, lastname, email, password,techCategoryId));
       if (!user.errors) {
         setAuthenticated(true);
       }
@@ -52,7 +52,21 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+  const updateTechCategoryId = (e) => {
+    setTechCategoryId(e.target.value);
+  };
 
+  const cat = [
+        'UX/UI Design',
+        'Product Marketing/Product Management',
+        'Software (Full Stack/Front End/Back End)',
+        'Cloud Computing',
+        'Cybersecurity',
+        'Data Analytics/Data Science',
+        'Tech Sales/Tech Procurement',
+        'AI/Machine Learning/Automation',
+    ]
+ const [CatName, setCatName] = useState(cat[0])
   if (authenticated) {
     return <Redirect to="/" />;
   }
@@ -114,6 +128,24 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           required={true}
         ></input>
       </div>
+      <label>Select your relative tech field: </label>
+                <select
+                    name="techCatName"
+                    type="text"
+                    value={CatName}
+                    onChange={e => setCatName(e.target.value)}
+                >
+                {cat.map((cat)=> {
+                    return (
+                        <option
+                        key={cat}
+                        value={cat}
+                        >
+                            {cat}
+                        </option>
+                    )
+                })}
+                </select>
        {/* <div>
         <label>Github url:</label>
         <input

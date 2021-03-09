@@ -7,6 +7,7 @@ export default function SplashPage() {
             <div>
                 <h1>
                    CollabHerative maybe Logo goes here
+                   
                 </h1>
             </div>
         </div>

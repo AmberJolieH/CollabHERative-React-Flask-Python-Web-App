@@ -5,6 +5,17 @@ import * as showcaseActions from "../../store/showcase"
 import { useSelector, useDispatch} from "react-redux"
 import {useEffect} from "react"
 
+// const componentMap = {
+// 		'UX/UI Design':
+//         'Product Marketing/Product Management':
+//         'Software (Full Stack/Front End/Back End)':
+//         'Cloud Computing':
+//         'Cybersecurity':
+//         'Data Analytics/Data Science':
+//         'Tech Sales/Tech Procurement':
+//         'AI/Machine Learning/Automation':
+    
+// }
 
 const ListShowcases = ({ events, isFetching = false }) => {
 	const dispatch = useDispatch();

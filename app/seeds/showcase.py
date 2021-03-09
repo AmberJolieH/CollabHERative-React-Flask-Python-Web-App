@@ -23,5 +23,5 @@ def seed_showcases():
 
 
 def undo_showcases():
-    db.session.execute('TRUNCATE showcases CASCADE;')
+    db.session.execute('TRUNCATE showcases RESTART IDENTITY CASCADE;')
     db.session.commit()
