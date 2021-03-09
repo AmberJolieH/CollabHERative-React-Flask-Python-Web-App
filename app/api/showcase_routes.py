@@ -57,15 +57,30 @@ def techCategories(id):
 
 # delete a showcase
 
-@showcase_routes.route('/showcase/<int:id>', methods=['DELETE'])
-def delete_showcase(id):
-    showcase = Showcase.query.get(id)
-    db.session.delete(showcase)
-    db.session.commit()
-    showcases = Showcase.query.all()
-    return {"showcases": [showcase.to_dict() for showcase in showcases]}
+# @showcase_routes.route('/showcase/<int:id>', methods=['DELETE'])
+# @login_required
+# def delete_showcase(id):
+#     """
+#     Delete
+#     """
+#     showcase_delete = Showcase.query.get(id)
+#     if showcase_delete:
+#         db.session.delete(showcase_delete)
+#         db.session.commit()
+#         return "Deleted"
+#     else:
+#         print(f"-------- no showcase found with id {showcaseId} -------- ")
+#         return {"errors": "No showcase found with given id"}
 
-# update a showcase 
-# form w/ same values 
-# route -> put method -> query -> db session commit ** 
+# # update a showcase
+
+
+# @showcase_routes.route('/showcase/<int:id>', methods=["PUT"])
+# @login_required
+# def update_showcase(id):
+#     """
+#     Update 
+#     """
+#     form = CreateShowcase()
+#     form["csrf_token"].data = request.cookies["csrf_token"]
 
