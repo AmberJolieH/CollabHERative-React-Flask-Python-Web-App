@@ -1,15 +1,14 @@
 import React from 'react';
+// import logo from "react-app/src/images/CollabHERativelogo2.svg"
 
-
-export default function SplashPage() {
+const SplashPage = () => {
     return (
         <div>
             <div>
-                <h1>
-                   CollabHerative maybe Logo goes here
-                   
-                </h1>
+                    <h2> test text</h2> {/* <img src={logo} alt="React Logo" style={{ display:"flex", }} /> */}
             </div>
         </div>
     );
 }
+
+export default SplashPage

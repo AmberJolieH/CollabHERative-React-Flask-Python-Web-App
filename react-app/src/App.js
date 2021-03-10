@@ -11,7 +11,7 @@ import User from "./components/User";
 import ListShowcases from "./components/showcase/ListShowcases"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import NavBar from "./components/NavBar";
-
+import SplashPage from "./components/splashPage/splashPage"
 //* STORE/SESSION/AUTH
 import { authenticate } from "./services/auth";
 
@@ -36,10 +36,13 @@ function App() {
 
   return (
     <BrowserRouter>
+    <div>
       <NavBar
             setAuthenticated={setAuthenticated}
             authenticated={authenticated}
           />
+    </div>
+    <div className="test">
       <Switch>
         <Route path="/login" exact={true}>
           <LoginForm
@@ -71,9 +74,10 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <h1>CollabHERative</h1>
+         <SplashPage></SplashPage>
         </ProtectedRoute>
       </Switch>
+    </div>
     </BrowserRouter>
   );
 }

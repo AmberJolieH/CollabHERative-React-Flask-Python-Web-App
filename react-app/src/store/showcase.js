@@ -69,6 +69,8 @@ export const getCategories = (id) => async dispatch => {
 const initialState = {
     // list: []
 };
+
+
 //* REDUCER
 const showcaseReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -101,5 +103,7 @@ const showcaseReducer = (state = initialState, action) => {
     }
 
 };
+
+
 
 export default showcaseReducer;

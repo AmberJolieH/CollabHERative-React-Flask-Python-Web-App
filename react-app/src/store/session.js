@@ -48,7 +48,6 @@ export const signUp = (username, firstname, lastname, email, password) => async 
             password,
             firstname,
             lastname,
-            // imgurl
         }),
     });
     const user = await response.json()
@@ -73,6 +72,31 @@ const initialState = {
     //     email: 'initial@email.com',
     //     username: 'Initial',
     // }
+};
+
+//* PROFILE IMAGE UPLOAD
+
+export const uploadFile = (fileForm) => async (dispatch) => {
+    const {
+        user_id, 
+        username,
+            email,
+            password,
+            firstname,
+            lastname,
+            imgurl,
+           file // this is the file for uploading
+    } = fileForm;
+
+    const form = new FormData();
+    form.append('user_id', user_id);
+    // repeat as necessary  for each required form field
+    form.append('file', file);
+
+    const res = await fetch('/api/<your_api_route>', {
+        method: "POST", 
+        body: form
+    });
 };
 //* REDUCER
 const sessionReducer = (state = initialState, action) => {
