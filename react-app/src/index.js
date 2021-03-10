@@ -8,7 +8,18 @@ import { Provider } from 'react-redux';
 import configureStore from './store';
 
 
-const store = configureStore();
+  const initialState = {
+    burgerMenu: {
+      primary: {
+        isOpen: true
+      },
+      secondary: {
+        isOpen: false
+      }
+    }
+  };
+
+const store = configureStore(initialState);
 
 if (process.env.NODE_ENV !== 'production') {
 

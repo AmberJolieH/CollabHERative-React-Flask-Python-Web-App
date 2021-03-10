@@ -41,6 +41,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   return (
     <>
+    <div className='standard-card' >
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error) => (
@@ -67,11 +68,12 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           onChange={updatePassword}
         />
         </div>
-        <button type="submit">Login</button>
+        <button className='text-button' type="submit">Login</button>
     </form>
     <form onSubmit={demoLogin}>
-        <button type='submit'>Demo Login</button>
+        <button className='text-button'type='submit'>Demo Login</button>
       </form>
+    </div>
     </>
     
   );

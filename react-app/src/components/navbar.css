@@ -1,0 +1,57 @@
+.circlemenu1,circlemenu2,circlemenu3,circlemenu4{
+    background-color: black;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    cursor: pointer;
+    text-decoration:none;
+    transition: .5s ease-in-out
+}
+
+.circlemenu1{
+    top: 5rem;
+    left: 50%;
+
+}
+.circlemenu2{
+    top: 50%;
+    left: 10%;
+    
+}
+.circlemenu3{
+    top: 50%;
+    right: 10%;
+    
+}
+.circlemenu4{
+    bottom: 10%;
+    right: 50%;
+    
+}
+
+.click1{
+background-color: black;
+top:40rem;
+width: 80rem;
+height: 80rem;
+transition: .5s ease-in-out;
+border-radius: 50%;
+}
+
+.click2{
+width: 30rem;
+height: 30rem;
+transition: .5s ease-in-out;
+}
+
+.click3{
+width:30rem;
+height: 30rem;
+transition: .5s ease-in-out;
+}
+
+.click4{
+width: 30rem;
+height: 30rem;
+transition: .5s ease-in-out;
+}

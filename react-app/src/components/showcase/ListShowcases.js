@@ -5,6 +5,17 @@ import * as showcaseActions from "../../store/showcase"
 import { useSelector, useDispatch} from "react-redux"
 import {useEffect} from "react"
 
+// const componentMap = {
+// 		'UX/UI Design':
+//         'Product Marketing/Product Management':
+//         'Software (Full Stack/Front End/Back End)':
+//         'Cloud Computing':
+//         'Cybersecurity':
+//         'Data Analytics/Data Science':
+//         'Tech Sales/Tech Procurement':
+//         'AI/Machine Learning/Automation':
+    
+// }
 
 const ListShowcases = ({ events, isFetching = false }) => {
 	const dispatch = useDispatch();
@@ -12,18 +23,19 @@ const ListShowcases = ({ events, isFetching = false }) => {
 	useEffect(() => {
 		dispatch(showcaseActions.listshowcases())
 	},[dispatch])
-	return (<ul className="listshowcases" style={isFetching ? { opacity: 0.7 } : {}}>
+	return (<div className="standard-card" style={isFetching ? { opacity: 0.7 } : {}}>
+		
 		<h1> this is a test </h1>
 		{Object.values(showcases).map((showcases) => (
-			<li  key={showcases.id}>
+			<a  key={showcases.id}>
 				<h2>{showcases.title}</h2>
 				<Link to={`/showcases/${showcases.id}`}>
 					View Showcase
 				</Link>
-			</li>
+			</a>
 		))}
-
-	</ul>)
+		
+	</div>)
 };
 
 

@@ -13,7 +13,7 @@ const removeUser = () => {
         type: REMOVE_USER,
     };
 };
-
+//* LOGIN
 export const login = (email, password) => async (dispatch) => {
     const response = await fetch('/api/auth/login', {
         method: 'POST',
@@ -35,7 +35,7 @@ export const login = (email, password) => async (dispatch) => {
 //     dispatch(setUser(res.data.user));
 //     return res;
 // };
-
+//* SIGNUP
 export const signUp = (username, firstname, lastname, email, password) => async (dispatch) => {
     const response = await fetch("/api/auth/signup", {
         method: "POST",
@@ -48,14 +48,13 @@ export const signUp = (username, firstname, lastname, email, password) => async 
             password,
             firstname,
             lastname,
-            // imgurl
         }),
     });
     const user = await response.json()
     dispatch(setUser(user));
     return user;
 };
-
+//* LOG-OUT
 export const logout = () => async (dispatch) => {
     const response = await fetch('/api/auth/logout', {
         headers: {
@@ -75,6 +74,31 @@ const initialState = {
     // }
 };
 
+//* PROFILE IMAGE UPLOAD
+
+export const uploadFile = (fileForm) => async (dispatch) => {
+    const {
+        user_id, 
+        username,
+            email,
+            password,
+            firstname,
+            lastname,
+            imgurl,
+           file // this is the file for uploading
+    } = fileForm;
+
+    const form = new FormData();
+    form.append('user_id', user_id);
+    // repeat as necessary  for each required form field
+    form.append('file', file);
+
+    const res = await fetch('/api/<your_api_route>', {
+        method: "POST", 
+        body: form
+    });
+};
+//* REDUCER
 const sessionReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {

@@ -11,8 +11,8 @@ seed_commands = AppGroup('seed')
 
 @seed_commands.command('all')
 def seed():
-    seed_users()
     seed_techcategories()
+    seed_users()
     seed_showcases()
     # Add other seed functions here
 

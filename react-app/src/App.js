@@ -1,20 +1,25 @@
+//* APP SETUP
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+//* COMPONENTS 
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-import NavBar from "./components/NavBar";
-import CreateShowcase from "./components/showcase/createShowcase"
-import ProtectedRoute from "./components/auth/ProtectedRoute";
+import CreateShowcase from "./components/showcase/createShowcase";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
-import { authenticate } from "./services/auth";
 import ListShowcases from "./components/showcase/ListShowcases"
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import NavBar from "./components/NavBar";
+import SplashPage from "./components/splashPage/splashPage"
+//* STORE/SESSION/AUTH
+import { authenticate } from "./services/auth";
 
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
-
+  // const sessionUser = useSelector((state) => state.session.user);
   useEffect(() => {
     (async() => {
       const user = await authenticate();
@@ -31,14 +36,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
+    <div>
+      <NavBar
+            setAuthenticated={setAuthenticated}
+            authenticated={authenticated}
+          />
+    </div>
+    <div className="test">
       <Switch>
-        <Route path="/login" exact={true}>
+        {/* <Route path="/login" exact={true}>
           <LoginForm
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
           />
-        </Route>
+        </Route> */}
         <Route path="/sign-up" exact={true}>
           <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
         </Route>
@@ -63,9 +74,10 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <h1>CollabHERative</h1>
+         <SplashPage></SplashPage>
         </ProtectedRoute>
       </Switch>
+    </div>
     </BrowserRouter>
   );
 }

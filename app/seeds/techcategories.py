@@ -19,5 +19,5 @@ def seed_techcategories():
 
 
 def undo_techcategories():
-    db.session.execute('TRUNCATE techcategories CASCADE;')
+    db.session.execute('TRUNCATE techcategories RESTART IDENTITY CASCADE;')
     db.session.commit()

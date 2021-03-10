@@ -1,1 +1,115 @@
 /* TODO Add site wide styles */
+body {
+    font-family: inter;
+}
+
+.pageContainer{
+	display: grid;
+	grid-template-rows: auto minmax(1200px, 1fr) auto;
+}
+
+.pageItem{
+	grid-row: span 1 /span 1;
+}
+
+.button {
+	padding: 0.5em;
+	text-decoration: none;
+	color: black;
+	font-size: 16px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	background-color: white;
+}
+
+.button:hover{
+	box-shadow: 4px 5px 10px 0px rgba(119, 104, 104, 0.8553);
+}
+.standard-card {
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(255, 254, 254);
+	align-items: center;
+	border-radius: 2rem;
+	padding: 1rem 1rem;
+	color: black;
+	border: 0px;
+	font-size: 1rem;
+	box-shadow: 0 0.25rem 1rem rgba(83, 81, 81, 0.336);
+	width: 30%;
+}
+.standard-card input,
+.standard-card textarea,
+.standard-card select{
+	border: .5px solid rgba(83, 81, 81, 0.336);
+	border-radius: .5rem;
+	padding: .5em;
+	margin: .5rem;
+	text-align: center;
+
+}
+.signupButton {
+	margin: 0px auto 0;
+	line-height: 15px;
+	height: auto;
+	padding: 12px 16px;
+	min-width: 80px;
+	color:rgb(237, 237, 237);
+	background-color: rgb(240, 62, 62);
+	transition: all 0.2s ease;
+	border-style: none;
+	border-radius: 20px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+	font-size: 17px;
+	font-weight: 500;
+	cursor: pointer;
+	outline: none;
+}
+
+.signupButton:hover{
+	box-shadow: 4px 5px 10px 0px rgba(119, 104, 104, 0.8553);
+}
+
+.standard-card-header{
+	font-size: xx-large;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 0.25em;
+	color: #3f3f42;
+	color: var(--dark-blue);
+}
+
+.signup-form p {
+	font-weight: normal;
+	color: gray;
+}
+.text-button{
+	padding: 0.5em;
+	text-decoration: none;
+	color: black;
+	font-size: 13px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	background-color: white;
+}
+.standard-card input{
+	width: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+.standard-card label{
+	flex-direction: column;
+    align-items:center;
+	display: flex;
+	margin-left: 2rem;
+}
+
+.cardheader{
+	margin-Left: 38rem,
+}

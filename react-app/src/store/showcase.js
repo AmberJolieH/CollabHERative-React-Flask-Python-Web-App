@@ -1,6 +1,8 @@
+//* ACTION TYPES
 const LOAD = 'showcases/LOAD'
 const ONE = 'showcases/ONE'
 
+//* ACTION CREATIONS
 const load = list => ({
     type: LOAD,
     list
@@ -11,6 +13,7 @@ const one = showcase => ({
     showcase
 });
 
+//* CREATE SHOWCASE
 export const createShowcase = ({userId, techCategoryId, description, skill, showcaseImgUrl, title}) => async dispatch => {
     const response = await fetch('/api/showcases/create_showcase', {
         method:'POST',
@@ -29,6 +32,8 @@ export const createShowcase = ({userId, techCategoryId, description, skill, show
    const create = await response.json();
    dispatch(one(create))
 }
+
+//* LIST ALL SHOWCASES
 export const listshowcases = () => async dispatch => {
     const response = await fetch('/api/showcases/', {
         method: 'GET',
@@ -39,7 +44,7 @@ export const listshowcases = () => async dispatch => {
     const list = await response.json();
     dispatch(load(list))
 };
-
+//* GET ONE SHOWCASE
 export const getOneshowcase = (id) => async dispatch => {
     const response = await fetch(`/api/showcases/${id}`, {
         method: 'GET',
@@ -50,7 +55,7 @@ export const getOneshowcase = (id) => async dispatch => {
     const showcase = await response.json()
     dispatch(one(showcase))
 };
-
+//* GET BY CATEGORY
 export const getCategories = (id) => async dispatch => {
     const response = await fetch(`/api/categories/${id}`, {
         method: 'GET',
@@ -65,6 +70,8 @@ const initialState = {
     // list: []
 };
 
+
+//* REDUCER
 const showcaseReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD: {
@@ -96,5 +103,7 @@ const showcaseReducer = (state = initialState, action) => {
     }
 
 };
+
+
 
 export default showcaseReducer;
