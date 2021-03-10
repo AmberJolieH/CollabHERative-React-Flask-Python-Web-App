@@ -29,15 +29,18 @@ body {
 .standard-card {
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(255, 254, 254);
+	background-color: rgb(0, 0, 0);
 	align-items: center;
 	border-radius: 2rem;
 	padding: 1rem 1rem;
 	color: black;
 	border: 0px;
 	font-size: 1rem;
-	box-shadow: 0 0.25rem 1rem rgba(83, 81, 81, 0.336);
-	width: 30%;
+	width: 80%;
+	position:"relative";
+	top: 20rem;
+	color: white;
+	
 }
 .standard-card input,
 .standard-card textarea,
@@ -112,4 +115,7 @@ form {
 
 .cardheader{
 	margin-Left: 38rem,
+}
+.home-button-logo{
+align-items: center;
 }

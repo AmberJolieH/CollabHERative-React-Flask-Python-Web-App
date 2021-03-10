@@ -1,24 +1,28 @@
 .circlemenu1,circlemenu2,circlemenu3,circlemenu4{
     background-color: black;
-    width: 25rem;
-    height: 25rem;
-    margin-Top: -20rem;
-    margin-left: -5rem;
+    width: 20rem;
+    height: 20rem;
+    margin-Top: 1rem;
+    margin-left: -8rem;
     border-radius: 50%;
     cursor: pointer;
     text-decoration:none;
-    transition: .5s ease-in-out
-}
-
-.circlemenu1{
-    top: 5rem;
-    left: 50%;
-
+     transition: transform 1s;
+     position:"relative"
 }
 .circlemenu2{
-    top: 50%;
+    background-color: black;
+    width: 20rem;
+    height: 20rem;
+    top: 80%;
     left: 10%;
-    
+    border-radius: 50%;
+    margin-Top: 6rem;
+    margin-left: 22rem;
+    position:"relative";
+    transition: transform 1s;
+    cursor: pointer;
+    text-decoration:none;
 }
 .circlemenu3{
     top: 50%;
@@ -33,17 +37,23 @@
 
 .click1{
 background-color: black;
-top:40rem;
-width: 80rem;
-height: 80rem;
-transition: .5s ease-in-out;
-border-radius: 50%;
-}
-
-.click2{
+top:20rem;
 width: 30rem;
 height: 30rem;
 transition: .5s ease-in-out;
+transform: scale(2);
+/* transition-timing-function: linear; */
+border-radius: 50%;
+left: 20rem;
+}
+
+.click2{
+top:20rem;
+width: 30rem;
+height: 30rem;
+transition: .5s ease-in-out;
+transform: scale(2);
+border-radius: 50%;
 }
 
 .click3{

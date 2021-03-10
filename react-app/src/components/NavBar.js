@@ -5,6 +5,8 @@ import logo from "../images/CollabHERativelogo2.svg"
 import "./navbar.css"
 import halfCircle from "../images/half-circle.svg"
 import LoginForm from "./auth/LoginForm"
+import SignupForm from "./auth/SignUpForm"
+import { OffCanvas, OffCanvasMenu, OffCanvasBody } from "react-offcanvas";
 
 const NavBar = ({ setAuthenticated, authenticated }) => {
   const [c1,setc1] = useState(true)
@@ -17,9 +19,11 @@ const NavBar = ({ setAuthenticated, authenticated }) => {
     
     <nav>
       <div className="nav">
-        <NavLink exact to="/">
-          <img src={logo} alt="React Logo" />
-        </NavLink>
+        <div className="home-button-logo" style={{Left:"30rem", Top:"80rem"}}>
+            <NavLink exact to="/">
+              <img src={logo} alt="React Logo"  />
+            </NavLink>
+          </div>
         {authenticated && (
           <div>
             <div>
@@ -75,23 +79,31 @@ const NavBar = ({ setAuthenticated, authenticated }) => {
                 </div>
                 </>:
                 
-                <> <LoginForm/> </>
+                <> 
+                <div style={{left:"0", position:"relative", top:"5rem"}}>   <LoginForm style /> </div> </>
                 }
 
             </div>
-            <div className={c2?"circlemenu2":"click2"}onClick={()=> setc1(!c2)}></div>
+              <div className={c2?"circlemenu2":"click2"}onClick={()=> setc2(!c2)}>
+                {c2?<><div>
+                    <NavLink
+                      to="/sign-up"
+                      exact={true}
+                      activeClassName="active"
+                      >
+                      Sign Up
+                    </NavLink>
+                  </div>
+                  </>:
+                  <>
+                  <div><SignupForm/></div> </>
+                  }
+              </div>
             <div className={c3?"circlemenu3":"click3"}onClick={()=> setc1(!c3)}></div>
             <div className={c4?"circlemenu4":"click4"}onClick={()=> setc1(!c4)}></div>
             <div>
                 
-                <div className='text-button' >
-                  <NavLink
-                    to="/sign-up"
-                    exact={true}
-                    activeClassName="active">
-                    Sign Up
-                  </NavLink>
-                </div>
+                
               </div>
           </div>
         )}
