@@ -72,7 +72,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form onSubmit={onSignUp} className="standard-card">
       <div>
         <label>User Name</label>
         <input

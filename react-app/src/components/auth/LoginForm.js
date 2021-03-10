@@ -41,14 +41,14 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   return (
     <>
-    <div className='standard-card' >
-    <form onSubmit={onLogin}>
+    <div style={{marginBottom:"22rem"}} >
+    <form onSubmit={onLogin} className="standard-card" >
       <div>
         {errors.map((error) => (
           <div>{error}</div>
         ))}
       </div>
-      <div>
+      <div >
         <label htmlFor="email">Email</label>
         <input
           name="email"
@@ -58,7 +58,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           onChange={updateEmail}
         />
       </div>
-      <div>
+      <div >
         <label htmlFor="password">Password</label>
         <input
           name="password"
