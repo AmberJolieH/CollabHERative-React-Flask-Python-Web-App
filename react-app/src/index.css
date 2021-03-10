@@ -29,7 +29,7 @@ body {
 .standard-card {
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(237, 237, 237);
+	background-color: rgb(255, 254, 254);
 	align-items: center;
 	border-radius: 2rem;
 	padding: 1rem 1rem;
