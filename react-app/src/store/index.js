@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import showcaseReducer from "./showcase";
 import sessionReducer from './session'
+import {reducer as burgerMenu} from 'redux-burger-menu';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
-    showcases: showcaseReducer
+    showcases: showcaseReducer,
+    burgerMenu
 });
 
 let enhancer;
