@@ -14,6 +14,7 @@ import NavBar from "./components/NavBar";
 import SplashPage from "./components/splashPage/splashPage"
 //* STORE/SESSION/AUTH
 import { authenticate } from "./services/auth";
+import SideNav from "./components/SideNav/SideNav"
 
 
 function App() {
@@ -68,13 +69,14 @@ function App() {
               exact={true}
               authenticated={authenticated}
             >
-              <ListShowcases/>
+              {/* <ListShowcases/> */}
             </ProtectedRoute>
         <ProtectedRoute path="/users/:userId"  authenticated={authenticated}>
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
          <SplashPage></SplashPage>
+         <SideNav></SideNav>
         </ProtectedRoute>
       </Switch>
     </div>
