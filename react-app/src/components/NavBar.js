@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import logo from "../images/CollabHERativelogo2.svg"
 import "./navbar.css"
-import halfCircle from "../images/half-circle.svg"
 import LoginForm from "./auth/LoginForm"
 import SignupForm from "./auth/SignUpForm"
-import { OffCanvas, OffCanvasMenu, OffCanvasBody } from "react-offcanvas";
+
 
 const NavBar = ({ setAuthenticated, authenticated }) => {
   const [c1,setc1] = useState(true)
