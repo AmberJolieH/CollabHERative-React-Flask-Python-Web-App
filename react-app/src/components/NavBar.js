@@ -3,116 +3,103 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import logo from "../images/CollabHERativelogo2.svg"
 import "./navbar.css"
-import halfCircle from "../images/half-circle.svg"
 import LoginForm from "./auth/LoginForm"
 import SignupForm from "./auth/SignUpForm"
-import { OffCanvas, OffCanvasMenu, OffCanvasBody } from "react-offcanvas";
+import HomeIcon from '@material-ui/icons/Home';
+import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
+import InsertDriveFileRoundedIcon from '@material-ui/icons/InsertDriveFileRounded';
+import ListShowcases from "./showcase/ListShowcases"
+import { listshowcases } from '../store/showcase';
 
-const NavBar = ({ setAuthenticated, authenticated }) => {
-  const [c1,setc1] = useState(true)
-  const [c2,setc2] = useState(true)
-  const [c3,setc3] = useState(true)
-  const [c4,setc4] = useState(true)
-  return (
-    
-    <>
-    
-    <nav>
-      <div className="nav">
-        <div className="home-button-logo" style={{Left:"30rem", Top:"80rem"}}>
-            <NavLink exact to="/">
-              <img src={logo} alt="React Logo"  />
-            </NavLink>
-          </div>
-        {authenticated && (
-          <div>
-            <div>
-              <NavLink
-                to="/users"
-                exact={true}
-                activeClassName="active">
-                The Community
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                to="/all_showcases"
-                exact={true}
-                activeClassName="active">
-                Project Showcase
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                to="/users/${user.id}"
-                exact={true}
-                activeClassName="active">
-                My Profile
-              </NavLink>
-            </div>
+const NavBar =({ setAuthenticated, authenticated }) => {
+   return (
+     <nav>
+       <div className="navbar-card" style={{alignSelf: "flex-start",
+          display: "flex",
+          flexFlow: "row wrap",
+          alignItems: "center",
+          justifyContent: "space-between",}}>
+         <div>
+             <img src={logo} alt="React Logo" style={{ marginLeft:"1rem", }} />
+           </div>
+           
+           {authenticated && (
+             
+            <div style={{display:"flex", justifyContent: "space-between"}}>
               <div>
-              <NavLink
-                to="/users/${user.id}"
-                exact={true}
-                activeClassName="active">
-                About
+              <NavLink to="/users" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
+                Users
+              </NavLink>
+              </div>
+              <div>
+              <NavLink to="/create_showcase" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
+                Create a Showcase
+              </NavLink>
+            </div>
+            <div>
+              <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
+                view all Showcases
               </NavLink>
             </div>
             <div>
               <LogoutButton setAuthenticated={setAuthenticated} />
             </div>
-          </div>
-        )}
-        {!authenticated && (
-          <div>
-            <div className={c1?"circlemenu1":"click1"} onClick={()=> setc1(!c1)}>
-              {/* <img src={halfCircle} style={{marginTop:"27rem"}}></img> */}
-              {c1?<><div>
-                  <NavLink
-                    to="/login"
-                    exact={true}
-                    activeClassName="active"
-                  >
-                    Login
-                  </NavLink>
-
-                </div>
-                </>:
-                
-                <> 
-                <div style={{left:"0", position:"relative", top:"5rem"}}>   <LoginForm style /> </div> </>
-                }
-
+          
             </div>
-              <div className={c2?"circlemenu2":"click2"}onClick={()=> setc2(!c2)}>
-                {c2?<><div>
-                    <NavLink
-                      to="/sign-up"
-                      exact={true}
-                      activeClassName="active"
-                      >
-                      Sign Up
-                    </NavLink>
-                  </div>
-                  </>:
-                  <>
-                  <div><SignupForm/></div> </>
-                  }
+            
+         )}
+        {!authenticated && (
+          <div className="logged_out" style={{
+          display: "flex",
+          alignItems: "center",
+          marginLeft:"35rem"
+          
+        }}>
+              <div >
+                <NavLink to="/login" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black"}}>
+                  Login
+                </NavLink>
               </div>
-            <div className={c3?"circlemenu3":"click3"}onClick={()=> setc1(!c3)}></div>
-            <div className={c4?"circlemenu4":"click4"}onClick={()=> setc1(!c4)}></div>
-            <div>
-                
-                
+              <div className="signupButton" >
+                <NavLink to="/sign-up" exact={true}activeClassName="active"
+                style={{
+                  borderRadius: "2rem",
+                  padding: "0.02rem",
+                  color: "white",
+                  border: "0px",
+                  textDecoration: "none",
+                  fontSize: "-1rem",
+                  marginLeft: ".5rem"
+                }}>
+                  Sign Up
+                </NavLink>
               </div>
           </div>
-        )}
-      </div>
-    </nav>
-  </>
-  );
-};
-
+         )}
+       </div>
+       <div className="sideNav">
+         <div  style={{ marginLeft:"1.6rem", marginTop:"4rem"}}>
+           <NavLink to="/" exact={true} style={{color:"black"}}>
+             <HomeIcon/>
+           </NavLink>
+         </div>
+         <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
+           <MailOutlineRoundedIcon/>
+         </div>
+         <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
+           <InsertDriveFileRoundedIcon/>
+         </div>
+       </div>
+      
+       <div className="rightNav">
+         <LoginForm/>
+       </div>
+        <div className="centerNav">
+          <ListShowcases/>
+        </div>
+     </nav>
+   );
+ }
 
 export default NavBar
 

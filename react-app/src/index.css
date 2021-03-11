@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 body {
     font-family: inter;
+	background-color:#f2f5f9;
 }
 
 .pageContainer{
@@ -29,17 +30,19 @@ body {
 .standard-card {
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
 	align-items: center;
 	border-radius: 2rem;
-	padding: 1rem 1rem;
+	padding: .5rem;
 	color: black;
 	border: 0px;
 	font-size: 1rem;
-	width: 80%;
+	width: 98%;
 	position:"relative";
 	top: 20rem;
 	color: white;
+	box-shadow: 0 0.25rem 1rem rgba(83, 81, 81, 0.336);
+	height: 7rem
 	
 }
 .standard-card input,
@@ -56,15 +59,15 @@ body {
 	margin: 0px auto 0;
 	line-height: 15px;
 	height: auto;
-	padding: 12px 16px;
+	padding: 10px 10px;
 	min-width: 80px;
 	color:rgb(237, 237, 237);
-	background-color: rgb(240, 62, 62);
+	background-color: rgb(103, 112, 241);
 	transition: all 0.2s ease;
 	border-style: none;
 	border-radius: 20px;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
-	font-size: 17px;
+	font-size: 15px;
 	font-weight: 500;
 	cursor: pointer;
 	outline: none;
@@ -118,4 +121,20 @@ form {
 }
 .home-button-logo{
 align-items: center;
+}
+
+
+.schema-color{
+	background-color: #f2f5f9;
+}
+
+.logged_out{
+	border-radius: 2rem;
+	padding: .5rem;
+	color: black;
+	font-size: 1rem;
+	width: 98%;
+	position:"relative";
+	top: 20rem;
+	height: 7rem
 }

@@ -23,7 +23,7 @@ const ListShowcases = ({ events, isFetching = false }) => {
 	useEffect(() => {
 		dispatch(showcaseActions.listshowcases())
 	},[dispatch])
-	return (<div className="standard-card" style={isFetching ? { opacity: 0.7 } : {}}>
+	return (<div style={isFetching ? { opacity: 0.7 } : {}}>
 		
 		<h1> this is a test </h1>
 		{Object.values(showcases).map((showcases) => (
