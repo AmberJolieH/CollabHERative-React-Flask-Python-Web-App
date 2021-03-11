@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 body {
     font-family: inter;
+	background-color:#f2f5f9;
 }
 
 .pageContainer{
@@ -29,17 +30,19 @@ body {
 .standard-card {
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
 	align-items: center;
 	border-radius: 2rem;
-	padding: 1rem 1rem;
+	padding: .5rem;
 	color: black;
 	border: 0px;
 	font-size: 1rem;
-	width: 80%;
+	width: 98%;
 	position:"relative";
 	top: 20rem;
 	color: white;
+	box-shadow: 0 0.25rem 1rem rgba(83, 81, 81, 0.336);
+	height: 7rem
 	
 }
 .standard-card input,
@@ -118,4 +121,16 @@ form {
 }
 .home-button-logo{
 align-items: center;
+}
+.navbar-card{
+	position: absolute;
+	width: 98%;
+	height: 89px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+}
+
+.schema-color{
+	background-color: #f2f5f9;
 }

@@ -7,111 +7,52 @@ import LoginForm from "./auth/LoginForm"
 import SignupForm from "./auth/SignUpForm"
 
 
-const NavBar = ({ setAuthenticated, authenticated }) => {
-  const [c1,setc1] = useState(true)
-  const [c2,setc2] = useState(true)
-  const [c3,setc3] = useState(true)
-  const [c4,setc4] = useState(true)
-  return (
-    
-    <>
-    
-    <nav>
-      <div className="nav">
-        <div className="home-button-logo" style={{Left:"30rem", Top:"80rem"}}>
-            <NavLink exact to="/">
-              <img src={logo} alt="React Logo"  />
-            </NavLink>
-          </div>
-        {authenticated && (
-          <div>
-            <div>
-              <NavLink
-                to="/users"
-                exact={true}
-                activeClassName="active">
-                The Community
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                to="/all_showcases"
-                exact={true}
-                activeClassName="active">
-                Project Showcase
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                to="/users/${user.id}"
-                exact={true}
-                activeClassName="active">
-                My Profile
-              </NavLink>
-            </div>
-              <div>
-              <NavLink
-                to="/users/${user.id}"
-                exact={true}
-                activeClassName="active">
-                About
-              </NavLink>
-            </div>
-            <div>
-              <LogoutButton setAuthenticated={setAuthenticated} />
-            </div>
-          </div>
-        )}
-        {!authenticated && (
-          <div>
-            <div className={c1?"circlemenu1":"click1"} onClick={()=> setc1(!c1)}>
-              {/* <img src={halfCircle} style={{marginTop:"27rem"}}></img> */}
-              {c1?<><div>
-                  <NavLink
-                    to="/login"
-                    exact={true}
-                    activeClassName="active"
-                  >
-                    Login
-                  </NavLink>
-
-                </div>
-                </>:
-                
-                <> 
-                <div style={{left:"0", position:"relative", top:"5rem"}}>   <LoginForm style /> </div> </>
-                }
-
-            </div>
-              <div className={c2?"circlemenu2":"click2"}onClick={()=> setc2(!c2)}>
-                {c2?<><div>
-                    <NavLink
-                      to="/sign-up"
-                      exact={true}
-                      activeClassName="active"
-                      >
-                      Sign Up
-                    </NavLink>
-                  </div>
-                  </>:
-                  <>
-                  <div><SignupForm/></div> </>
-                  }
-              </div>
-            <div className={c3?"circlemenu3":"click3"}onClick={()=> setc1(!c3)}></div>
-            <div className={c4?"circlemenu4":"click4"}onClick={()=> setc1(!c4)}></div>
-            <div>
-                
-                
-              </div>
-          </div>
-        )}
-      </div>
-    </nav>
-  </>
-  );
-};
-
+const NavBar =({ setAuthenticated, authenticated }) => {
+   return (
+     <nav>
+       <div className="navbar-card" style={{
+          alignSelf: "flex-start",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}>
+         <div>
+           <NavLink to="/" exact={true} activeClassName="active">
+             <img src={logo} alt="React Logo" style={{ display:"flex", }} />
+           </NavLink>
+       </div>
+         <div className="text-button">
+           <NavLink to="/login" exact={true}>
+             Login
+           </NavLink>
+         </div>
+         <div>
+           <NavLink to="/sign-up" exact={true} activeClassName="active">
+             Sign Up
+           </NavLink>
+         </div>
+         <div>
+           <NavLink to="/users" exact={true} activeClassName="active">
+             Users
+           </NavLink>
+         </div>
+           <div>
+           <NavLink to="/create_showcase" exact={true} activeClassName="active">
+             Create a Showcase
+           </NavLink>
+         </div>
+         <div>
+           <NavLink to="/all_showcases" exact={true} activeClassName="active">
+             view all Showcases
+           </NavLink>
+         </div>
+         <div>
+           <LogoutButton setAuthenticated={setAuthenticated} />
+         </div>
+       </div>
+     </nav>
+   );
+ }
 
 export default NavBar
 
