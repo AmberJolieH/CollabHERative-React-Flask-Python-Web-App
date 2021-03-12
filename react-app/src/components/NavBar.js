@@ -44,22 +44,29 @@ const NavBar =({ setAuthenticated, authenticated }) => {
             <div>
               <LogoutButton setAuthenticated={setAuthenticated} />
             </div>
-          
+            <div className="rightNav">
+              <LoginForm setAuthenticated={setAuthenticated}/>
             </div>
+            <div className="centerNav">
+              <ListShowcases/>
+            </div>
+          </div>
             
          )}
         {!authenticated && (
-          <div className="logged_out" style={{
+          <div className="logged_out" style={{alignSelf: "flex-start",
           display: "flex",
+          flexFlow: "row wrap",
           alignItems: "center",
-          marginLeft:"35rem"
-          
-        }}>
+          justifyContent: "space-between",}}>
               <div >
                 <NavLink to="/login" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black"}}>
                   Login
                 </NavLink>
               </div>
+              <div className="rightNav">
+              <LoginForm setAuthenticated={setAuthenticated}/>
+            </div>
               <div className="signupButton" >
                 <NavLink to="/sign-up" exact={true}activeClassName="active"
                 style={{
@@ -94,9 +101,7 @@ const NavBar =({ setAuthenticated, authenticated }) => {
        <div className="rightNav">
          <LoginForm/>
        </div>
-        <div className="centerNav">
-          <ListShowcases/>
-        </div>
+        
      </nav>
    );
  }
