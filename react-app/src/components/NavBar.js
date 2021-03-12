@@ -14,31 +14,30 @@ import { listshowcases } from '../store/showcase';
 const NavBar =({ setAuthenticated, authenticated }) => {
    return (
      <nav>
-       <div className="navbar-card" style={{alignSelf: "flex-start",
+       <div className="top-navbar" style={{alignSelf: "flex-start",
           display: "flex",
           flexFlow: "row wrap",
           alignItems: "center",
           justifyContent: "space-between",}}>
-         <div>
-             <img src={logo} alt="React Logo" style={{ marginLeft:"1rem", }} />
-           </div>
+           <img src={logo} alt="React Logo" style={{ marginLeft:"1rem", marginTop:"0rem", position:"absolute"}} />
+            
            
            {authenticated && (
              
-            <div style={{display:"flex", justifyContent: "space-between"}}>
+            <div  style={{display:"flex", justifyContent: "space-between", marginLeft:"35rem", alignItems:"center"}}>
               <div>
               <NavLink to="/users" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
-                Users
+                Community
               </NavLink>
               </div>
               <div>
               <NavLink to="/create_showcase" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
-                Create a Showcase
+                Create a Project
               </NavLink>
             </div>
             <div>
               <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
-                view all Showcases
+                Project Board
               </NavLink>
             </div>
             <div>
@@ -48,26 +47,27 @@ const NavBar =({ setAuthenticated, authenticated }) => {
               <LoginForm setAuthenticated={setAuthenticated}/>
             </div>
             <div className="centerNav">
-              <ListShowcases/>
+              <ListShowcases setAuthenticated={setAuthenticated}/>
             </div>
           </div>
             
          )}
         {!authenticated && (
-          <div className="logged_out" style={{alignSelf: "flex-start",
+          <div style={{alignSelf: "flex-start",
           display: "flex",
           flexFlow: "row wrap",
           alignItems: "center",
           justifyContent: "space-between",}}>
-              <div >
-                <NavLink to="/login" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black"}}>
+            <div style={{textDecoration:"none",color:"black",display:"flex", justifyContent: "space-between", marginLeft:"55rem", alignItems:"center", marginTop:".5rem"}}>
+              <div>
+                <NavLink to="/login" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black",marginRight:"3rem"}} >
                   Login
                 </NavLink>
               </div>
-              <div className="rightNav">
-              <LoginForm setAuthenticated={setAuthenticated}/>
-            </div>
-              <div className="signupButton" >
+                <div className="rightNav">
+                <LoginForm setAuthenticated={setAuthenticated}/>
+              </div>
+              <div className="signupButton">
                 <NavLink to="/sign-up" exact={true}activeClassName="active"
                 style={{
                   borderRadius: "2rem",
@@ -81,6 +81,7 @@ const NavBar =({ setAuthenticated, authenticated }) => {
                   Sign Up
                 </NavLink>
               </div>
+            </div>
           </div>
          )}
        </div>
@@ -102,8 +103,7 @@ const NavBar =({ setAuthenticated, authenticated }) => {
          <LoginForm/>
        </div>
          <div className="centerNav">
-             
-            </div>
+        </div>
      </nav>
    );
  }
