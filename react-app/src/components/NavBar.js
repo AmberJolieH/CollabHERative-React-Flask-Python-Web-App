@@ -10,7 +10,7 @@ import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
 import InsertDriveFileRoundedIcon from '@material-ui/icons/InsertDriveFileRounded';
 import ListShowcases from "./showcase/ListShowcases"
 import { listshowcases } from '../store/showcase';
-import profilePic from "../images/profile-Amber .svg"
+import profilePic from "../images/amber.svg"
 import FolderIcon from '@material-ui/icons/Folder';
 
 const NavBar =({ setAuthenticated, authenticated }) => {
@@ -44,12 +44,6 @@ const NavBar =({ setAuthenticated, authenticated }) => {
                 </div>
             <div >
               <LogoutButton setAuthenticated={setAuthenticated} />
-            </div>
-            <div className="rightNav">
-              <LoginForm setAuthenticated={setAuthenticated}/>
-            </div>
-            <div className="centerNav">
-              <ListShowcases setAuthenticated={setAuthenticated}/>
             </div>
           </div>
             
@@ -105,6 +99,14 @@ const NavBar =({ setAuthenticated, authenticated }) => {
          <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
            <FolderIcon style={{ color: '#f55645' }}/>
          </div>
+         <div style={{marginLeft:"1rem", marginTop:"7rem"}}>
+           <img src={profilePic} ></img>
+         </div>
+         <div>
+           <p style={{fontSize:"10px",marginLeft:".8rem", marginTop:"1rem", color:"#3D3D3D"}}>
+             Amber Horn
+           </p>
+         </div>
        </div>
       
        <div className="rightNav">
@@ -112,6 +114,7 @@ const NavBar =({ setAuthenticated, authenticated }) => {
        </div>
          <div className="centerNav">
            <img src="https://collabherative.s3.us-east-2.amazonaws.com/login.svg" style={{display:"flex", alignItems:"center", marginLeft:"2rem"}}/>
+           <ListShowcases setAuthenticated={setAuthenticated}/>
         </div>
      </nav>
    );

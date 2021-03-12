@@ -42,7 +42,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   return (
     <>
     <div  >
-    <form onSubmit={onLogin} >
+    <form onSubmit={onLogin} style={{marginTop:"5rem", alignItems:"center"}} >
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -68,10 +68,10 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           onChange={updatePassword}
         />
         </div>
-        <button className='text-button' type="submit">Login</button>
+        <button className='signupButton' type="submit" style={{backgroundColor:"#f55645"}}>Login</button>
     </form>
     <form onSubmit={demoLogin}>
-        <button className='text-button'type='submit'>Demo Login</button>
+        <button className='signupButton'type='submit'style={{backgroundColor:"#feb9c1"}}>Demo</button>
       </form>
     </div>
     </>
