@@ -101,7 +101,9 @@ const NavBar =({ setAuthenticated, authenticated }) => {
        <div className="rightNav">
          <LoginForm/>
        </div>
-        
+         <div className="centerNav">
+             
+            </div>
      </nav>
    );
  }

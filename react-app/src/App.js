@@ -37,13 +37,13 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div>
+   
       <NavBar
             setAuthenticated={setAuthenticated}
             authenticated={authenticated}
           />
-    </div>
-    <div className="test">
+   
+    
       <Switch>
         {/* <Route path="/login" exact={true}>
           <LoginForm
@@ -79,7 +79,6 @@ function App() {
          <SideNav></SideNav>
         </ProtectedRoute>
       </Switch>
-    </div>
     </BrowserRouter>
   );
 }
