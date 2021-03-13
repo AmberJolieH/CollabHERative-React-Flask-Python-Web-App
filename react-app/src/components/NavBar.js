@@ -40,7 +40,7 @@ const NavBar =({ setAuthenticated, authenticated }) => {
                   </NavLink>
                 </div>
                 <div>
-                  <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
+                  <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem", marginRight:"15rem"}}>
                     Project Board
                   </NavLink>
                 </div>

@@ -68,10 +68,10 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           onChange={updatePassword}
         />
         </div>
-        <button className='signupButton' type="submit" style={{backgroundColor:"#f55645"}}>Login</button>
+        <button className='signupButton' type="submit" style={{backgroundColor:"#f55645", marginTop:"1rem"}}>Login</button>
     </form>
     <form onSubmit={demoLogin}>
-        <button className='signupButton'type='submit'style={{backgroundColor:"#feb9c1"}}>Demo</button>
+        <button className='signupButton'type='submit'style={{backgroundColor:"#feb9c1", marginTop:"1rem"}}>Demo</button>
       </form>
     </div>
     </>
