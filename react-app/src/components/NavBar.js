@@ -87,7 +87,7 @@ const NavBar =({ setAuthenticated, authenticated }) => {
          )}
        </div>
        <div className="sideNav">
-         <div  style={{ marginLeft:"1.6rem", marginTop:"4rem"}}>
+         {/* <div  style={{ marginLeft:"1.6rem", marginTop:"4rem"}}>
            <NavLink to="/" exact={true} style={{color:"black"}}>
              <HomeIcon style={{ color: '#3748a3' }} />
            </NavLink>
@@ -115,7 +115,7 @@ const NavBar =({ setAuthenticated, authenticated }) => {
            <p style={{fontSize:"10px",marginLeft:".8rem", marginTop:"-.5rem", color:"#3D3D3D"}}>
              Amber Horn
            </p>
-         </div>
+         </div> */}
        </div>
       
        <div className="rightNav">
@@ -123,10 +123,10 @@ const NavBar =({ setAuthenticated, authenticated }) => {
          <LoginForm setAuthenticated={setAuthenticated}/>
          )} */}
        </div>
-         <div className="centerNav">
+         {/* <div className="centerNav">
            <img src="https://collabherative.s3.us-east-2.amazonaws.com/login.svg" style={{display:"flex", alignItems:"center", marginLeft:"2rem"}}/>
            <ListShowcases setAuthenticated={setAuthenticated}/>
-        </div>
+        </div> */}
      </nav>
    );
  }

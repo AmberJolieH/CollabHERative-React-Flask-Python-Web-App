@@ -41,8 +41,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   return (
     <>
-    <div className="standard-card">
-    <form onSubmit={onLogin} style={{marginTop:"5rem", alignItems:"center"}} >
+    <div className="login-card" style={{padding:"4.2rem"}}>
+    <form onSubmit={onLogin} style={{alignItems:"center"}} >
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -69,9 +69,10 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
         />
         </div>
         <button className='signupButton' type="submit" style={{backgroundColor:"#f55645", marginTop:"1rem"}}>Login</button>
-    </form>
-    <form onSubmit={demoLogin}>
-        <button className='signupButton'type='submit'style={{backgroundColor:"#feb9c1", marginTop:"1rem"}}>Demo</button>
+    
+        <div style={{display:"flex", justifyContent:"center"}} >
+        <button onClick={demoLogin} className='signupButton'type='button'style={{backgroundColor:"#feb9c1", marginTop:"1rem"}}>Demo</button>
+      </div>
       </form>
     </div>
     </>
