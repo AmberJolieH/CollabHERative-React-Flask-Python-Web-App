@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import logo from "../images/newlogo.svg"
 import "./navbar.css"
-import LoginForm from "./auth/LoginForm"
+import LoginForm from "./LoginFormModal"
 import SignupForm from "./auth/SignUpForm"
 import HomeIcon from '@material-ui/icons/Home';
 import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
@@ -58,14 +58,15 @@ const NavBar =({ setAuthenticated, authenticated }) => {
           justifyContent: "space-between",}}>
             <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", marginLeft:"55rem", alignItems:"center", marginTop:".5rem"}}>
              
-              <div>
-                <NavLink to="/login" exact={true} activeClassName="active" style={{textDecoration:"none",color:"#3D3D3D",marginRight:"3rem", marginLeft:""}} >
+              <div >
+                {/* <NavLink to="/login" exact={true} activeClassName="active" style={{textDecoration:"none",color:"#3D3D3D",marginRight:"3rem", marginLeft:""}} >
                   Login
-                </NavLink>
+                </NavLink> */}
+                <LoginForm   setAuthenticated={setAuthenticated}/>
               </div>
-                <div className="rightNav">
+                {/* <div className="rightNav">
                 <LoginForm setAuthenticated={setAuthenticated}/>
-              </div>
+              </div> */}
               
               <div className="signupButton">
                 <NavLink to="/sign-up" exact={true}activeClassName="active"
@@ -118,7 +119,9 @@ const NavBar =({ setAuthenticated, authenticated }) => {
        </div>
       
        <div className="rightNav">
-         <LoginForm/>
+         {/* {!authenticated && (
+         <LoginForm setAuthenticated={setAuthenticated}/>
+         )} */}
        </div>
          <div className="centerNav">
            <img src="https://collabherative.s3.us-east-2.amazonaws.com/login.svg" style={{display:"flex", alignItems:"center", marginLeft:"2rem"}}/>

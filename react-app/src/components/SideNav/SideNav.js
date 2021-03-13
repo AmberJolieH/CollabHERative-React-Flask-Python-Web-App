@@ -9,7 +9,7 @@ import "../navbar.css"
 const SideNav = () => {
     return (
         <div>
-            <div>
+            {/* <div>
                 <div className="sideNav">
          <div  style={{ marginLeft:"1.6rem", marginTop:"4rem"}}>
            <NavLink to="/" exact={true}>
@@ -24,9 +24,9 @@ const SideNav = () => {
          </div>
        </div>
        <div className="centerNav">
-         {/* <LoginForm/> */}
+         <LoginForm/>
        </div>
-            </div>
+            </div> */}
         </div>
     );
 }

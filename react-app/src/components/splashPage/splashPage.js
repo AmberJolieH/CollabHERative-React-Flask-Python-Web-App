@@ -1,12 +1,13 @@
 import React from 'react';
 // import logo from "react-app/src/images/CollabHERativelogo2.svg"
-// import LoginForm from "..LoginForm/auth/LoginForm"
+import LoginForm from "../LoginFormModal"
 
 
-const SplashPage = () => {
+const SplashPage = ({setAuthenticated}) => {
     return (
         <div>
-          
+            
+          {/* <LoginForm setAuthenticated={setAuthenticated}/> */}
         </div>
     );
 }

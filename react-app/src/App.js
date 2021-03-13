@@ -66,10 +66,10 @@ function App() {
         <ProtectedRoute path="/users/:userId"  authenticated={authenticated}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-         <SplashPage></SplashPage>
+        <Route path="/" exact={true} authenticated={authenticated}>
+         <SplashPage setAuthenticated={setAuthenticated}/>
          <SideNav></SideNav>
-        </ProtectedRoute>
+        </Route>
       </Switch>
     </BrowserRouter>
   );

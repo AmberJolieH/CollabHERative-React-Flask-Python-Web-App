@@ -1,51 +1,82 @@
 import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { login } from "../../store/session";
+import {useDispatch} from "react-redux"
 
-function LoginForm() {
-  const dispatch = useDispatch();
-  const [credential, setCredential] = useState("");
-  const [password, setPassword] = useState("");
+const LoginForm = ({ authenticated, setAuthenticated }) => {
+  const dispatch = useDispatch()
   const [errors, setErrors] = useState([]);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const onLogin = async (e) => {
     e.preventDefault();
-    setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
-      (res) => {
-        if (res.data && res.data.errors) setErrors(res.data.errors);
-      }
-    );
+    const user = await dispatch(login(email, password));
+    if (!user.errors) {
+      setAuthenticated(true);
+    } else {
+      setErrors(user.errors);
+    }
   };
 
+  const updateEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const updatePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    const user = await dispatch(login('demo@aa.io', 'password'));
+    if (!user.errors) {
+      setAuthenticated(true);
+    }
+  };
+
+  if (authenticated) {
+    return <Redirect to="/" />;
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+    <>
+    <div className="standard-card">
+    <form onSubmit={onLogin} style={{marginTop:"5rem", alignItems:"center"}} >
+      <div>
+        {errors.map((error) => (
+          <div>{error}</div>
         ))}
-      </ul>
-      <label>
-        Username or Email
+      </div>
+      <div >
+        <label htmlFor="email">Email</label>
         <input
+          name="email"
           type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
+          placeholder="Email"
+          value={email}
+          onChange={updateEmail}
         />
-      </label>
-      <label>
-        Password
+      </div>
+      <div >
+        <label htmlFor="password">Password</label>
         <input
+          name="password"
           type="password"
+          placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
+          onChange={updatePassword}
         />
-      </label>
-      <button type="submit">Log In</button>
+        </div>
+        <button className='signupButton' type="submit" style={{backgroundColor:"#f55645", marginTop:"1rem"}}>Login</button>
     </form>
+    <form onSubmit={demoLogin}>
+        <button className='signupButton'type='submit'style={{backgroundColor:"#feb9c1", marginTop:"1rem"}}>Demo</button>
+      </form>
+    </div>
+    </>
+    
   );
-}
+};
 
 export default LoginForm;

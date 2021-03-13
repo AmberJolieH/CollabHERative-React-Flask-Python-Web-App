@@ -1,6 +1,6 @@
 .top-navbar{
 	position: absolute;
-	width: 96%;
+	width: 1150px;
 	height: 51px;
     margin-left: 1rem;
     margin-top: 1rem;
@@ -11,7 +11,7 @@
 
 .centerNav{
     position: absolute;
-    width: 50%;
+    width: 575px;
     height: 85%;
     margin-top: 5rem;
     margin-left: 7rem;
