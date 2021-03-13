@@ -12,6 +12,8 @@ import ListShowcases from "./showcase/ListShowcases"
 import { listshowcases } from '../store/showcase';
 import profilePic from "../images/amber.svg"
 import FolderIcon from '@material-ui/icons/Folder';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const NavBar =({ setAuthenticated, authenticated }) => {
    return (
@@ -99,11 +101,17 @@ const NavBar =({ setAuthenticated, authenticated }) => {
          <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
            <FolderIcon style={{ color: '#f55645' }}/>
          </div>
-         <div style={{marginLeft:"1rem", marginTop:"7rem"}}>
+         <div>
+           <GitHubIcon style={{ color: '#3748a3', marginLeft:"1.6rem",marginTop:"8rem"}}/>
+         </div>
+         <div>
+           <LinkedInIcon style={{ color: '#3748a3', marginLeft:"1.6rem", marginTop:"0rem" }}/>
+         </div>
+         <div style={{marginLeft:"1rem", marginTop:".2rem"}}>
            <img src={profilePic} ></img>
          </div>
          <div>
-           <p style={{fontSize:"10px",marginLeft:".8rem", marginTop:"1rem", color:"#3D3D3D"}}>
+           <p style={{fontSize:"10px",marginLeft:".8rem", marginTop:"-.5rem", color:"#3D3D3D"}}>
              Amber Horn
            </p>
          </div>
