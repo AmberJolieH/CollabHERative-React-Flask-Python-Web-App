@@ -208,7 +208,7 @@ align-items: center;
 
   .d{
     
-    grid-column: 7 / 10 ;
+    grid-column: 7 / 13 ;
     grid-row: 2 / 8;
     display: grid;
     grid-template-columns: subgrid;

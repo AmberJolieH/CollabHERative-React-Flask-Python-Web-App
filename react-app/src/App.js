@@ -95,7 +95,7 @@ function App() {
       <SideNav></SideNav>
       </div>
     </BrowserRouter>
-    // </div>
+    </div>
   );
 }
 
