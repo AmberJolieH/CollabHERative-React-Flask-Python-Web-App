@@ -56,10 +56,17 @@ function App() {
             <RightNav
             setAuthenticated={setAuthenticated}
             authenticated={authenticated}/>
+            <ProtectedRoute
+              path="/create_showcase"
+              exact={true}
+              authenticated={authenticated}
+            >
+              <CreateShowcase/>
+            </ProtectedRoute>
           </div>
         <div className="b">
           {/* <CenterCard/> */}
-       
+      
        
       <Switch>
         <Route path="/sign-up" exact={true}>
@@ -73,14 +80,14 @@ function App() {
               exact={true}
               authenticated={authenticated}
             >
-              <CreateShowcase/>
+              <CenterCard/>
             </ProtectedRoute>
             <ProtectedRoute
               path="/all_showcases"
               exact={true}
               authenticated={authenticated}
             >
-              {/* <ListShowcases/> */}
+              <ListShowcases/>
             </ProtectedRoute>
         <ProtectedRoute path="/users/:userId"  authenticated={authenticated}>
           <User />

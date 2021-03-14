@@ -4,6 +4,7 @@ import { jsx } from "@emotion/react";
 import * as showcaseActions from "../../store/showcase"
 import { useSelector, useDispatch} from "react-redux"
 import {useEffect} from "react"
+import CenterCard from "../centerCard/centerCard";
 
 // const componentMap = {
 // 		'UX/UI Design':
@@ -24,8 +25,8 @@ const ListShowcases = ({ events, isFetching = false }) => {
 		dispatch(showcaseActions.listshowcases())
 	},[dispatch])
 	return (<div style={isFetching ? { opacity: 0.7 } : {}}>
-		
-		{/* <h1> this is a test </h1>
+		<CenterCard>
+		<h1> this is a test </h1>
 		{Object.values(showcases).map((showcases) => (
 			<a  key={showcases.id}>
 				<h2>{showcases.title}</h2>
@@ -33,8 +34,8 @@ const ListShowcases = ({ events, isFetching = false }) => {
 					View Showcase
 				</Link>
 			</a>
-		))} */}
-		
+		))}
+		</CenterCard>
 	</div>)
 };
 
