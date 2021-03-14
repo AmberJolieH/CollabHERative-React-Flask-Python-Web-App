@@ -54,17 +54,9 @@ const NavBar =({ setAuthenticated, authenticated }) => {
           height:"100%",
           justifyContent: "space-between",}}>
             <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%"}}>
-             
               <div >
-                {/* <NavLink to="/login" exact={true} activeClassName="active" style={{textDecoration:"none",color:"#3D3D3D",marginRight:"3rem", marginLeft:""}} >
-                  Login
-                </NavLink> */}
                 <LoginForm   setAuthenticated={setAuthenticated}/>
               </div>
-                {/* <div className="rightNav">
-                <LoginForm setAuthenticated={setAuthenticated}/>
-              </div> */}
-              
               <div className="signupButton">
                 <NavLink to="/sign-up" exact={true}activeClassName="active"
                 style={{
@@ -83,47 +75,6 @@ const NavBar =({ setAuthenticated, authenticated }) => {
           </div>
          )}
        </div>
-       <div className="sideNav">
-         {/* <div  style={{ marginLeft:"1.6rem", marginTop:"4rem"}}>
-           <NavLink to="/" exact={true} style={{color:"black"}}>
-             <HomeIcon style={{ color: '#3748a3' }} />
-           </NavLink>
-         </div>
-
-         <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
-           <MailOutlineRoundedIcon style={{ color: '#faae43' }}/>
-         </div>
-         <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
-           <InsertDriveFileRoundedIcon style={{ color: '#feb9c1' }}/>
-         </div>
-         <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
-           <FolderIcon style={{ color: '#f55645' }}/>
-         </div>
-         <div>
-           <GitHubIcon style={{ color: '#3748a3', marginLeft:"1.6rem",marginTop:"8rem"}}/>
-         </div>
-         <div>
-           <LinkedInIcon style={{ color: '#3748a3', marginLeft:"1.6rem", marginTop:"0rem" }}/>
-         </div>
-         <div style={{marginLeft:"1rem", marginTop:".2rem"}}>
-           <img src={profilePic} ></img>
-         </div>
-         <div>
-           <p style={{fontSize:"10px",marginLeft:".8rem", marginTop:"-.5rem", color:"#3D3D3D"}}>
-             Amber Horn
-           </p>
-         </div> */}
-       </div>
-      
-       {/* <div className="rightNav">
-         {!authenticated && (
-         <LoginForm setAuthenticated={setAuthenticated}/>
-         )}
-       </div> */}
-         {/* <div className="centerNav">
-           <img src="https://collabherative.s3.us-east-2.amazonaws.com/login.svg" style={{display:"flex", alignItems:"center", marginLeft:"2rem"}}/>
-           <ListShowcases setAuthenticated={setAuthenticated}/>
-        </div> */}
      </nav>
    );
  }
