@@ -22,9 +22,11 @@ const SideNav = () => {
          <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
            <MailOutlineRoundedIcon style={{ color: '#faae43' }}/>
          </div>
+         <NavLink to="/create_showcase" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
          <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
            <InsertDriveFileRoundedIcon style={{ color: '#feb9c1' }}/>
          </div>
+         </NavLink>
          <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
            <FolderIcon style={{ color: '#f55645' }}/>
          </div>

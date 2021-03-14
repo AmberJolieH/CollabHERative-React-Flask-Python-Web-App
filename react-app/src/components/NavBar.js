@@ -15,6 +15,7 @@ import FolderIcon from '@material-ui/icons/Folder';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import logo from "../images/logoNew.svg"
+import CenterCard from './centerCard/centerCard';
 const NavBar =({ setAuthenticated, authenticated }) => {
    return (
      <nav>
