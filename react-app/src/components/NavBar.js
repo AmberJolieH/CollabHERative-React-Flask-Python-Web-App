@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-import logo from "../images/newlogo.svg"
+
 import "./navbar.css"
 import LoginForm from "./LoginFormModal"
 import SignupForm from "./auth/SignUpForm"
@@ -14,23 +14,19 @@ import profilePic from "../images/amber.svg"
 import FolderIcon from '@material-ui/icons/Folder';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-
+import logo from "../images/logoNew.svg"
 const NavBar =({ setAuthenticated, authenticated }) => {
    return (
      <nav>
-       <div className="top-navbar" style={{alignSelf: "flex-start",
-          display: "flex",
-          flexFlow: "row wrap",
-          alignItems: "center",
-          justifyContent: "space-between",}}>
-           <img src={logo} alt="React Logo" style={{ marginLeft:"1rem", marginTop:"0rem", position:"absolute"}} />
-            
+       <div className="top-navbar" style={{display:"flex", alignItems:"center"}} >
+          
+            <img src={logo} alt="React Logo"/>
            
            {authenticated && (
              
-            <div  style={{display:"flex", justifyContent: "space-between", marginLeft:"20rem", alignItems:"center"}}>
+            <div  style={{display:"flex", justifyContent: "space-between", marginLeft:"20rem", alignItems:"center", height:"100%"}}>
                   <div>
-                  <NavLink to="/users" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem", marginLeft:""}}>
+                  <NavLink to="/users" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
                     Community
                   </NavLink>
                   </div>
@@ -51,12 +47,13 @@ const NavBar =({ setAuthenticated, authenticated }) => {
             
          )}
         {!authenticated && (
-          <div style={{alignSelf: "flex-start",
+          <div style={{
           display: "flex",
-          flexFlow: "row wrap",
+          // flexFlow: "row wrap",
           alignItems: "center",
+          height:"100%",
           justifyContent: "space-between",}}>
-            <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", marginLeft:"55rem", alignItems:"center", marginTop:".5rem"}}>
+            <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", marginLeft:"55rem", alignItems:"center", height:"100%"}}>
              
               <div >
                 {/* <NavLink to="/login" exact={true} activeClassName="active" style={{textDecoration:"none",color:"#3D3D3D",marginRight:"3rem", marginLeft:""}} >
@@ -118,11 +115,11 @@ const NavBar =({ setAuthenticated, authenticated }) => {
          </div> */}
        </div>
       
-       <div className="rightNav">
-         {/* {!authenticated && (
+       {/* <div className="rightNav">
+         {!authenticated && (
          <LoginForm setAuthenticated={setAuthenticated}/>
-         )} */}
-       </div>
+         )}
+       </div> */}
          {/* <div className="centerNav">
            <img src="https://collabherative.s3.us-east-2.amazonaws.com/login.svg" style={{display:"flex", alignItems:"center", marginLeft:"2rem"}}/>
            <ListShowcases setAuthenticated={setAuthenticated}/>

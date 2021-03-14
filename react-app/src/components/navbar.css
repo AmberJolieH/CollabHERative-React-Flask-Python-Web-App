@@ -1,9 +1,9 @@
 .top-navbar{
 	position: absolute;
-	width: 1150px;
+	/* width: 1150px;
 	height: 51px;
     margin-left: 1rem;
-    margin-top: 1rem;
+    margin-top: 1rem; */
 	background: #FFFFFF;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
@@ -11,7 +11,7 @@
 
 .centerNav{
     position: absolute;
-    width: 575px;
+    width: 50%;
     height: 85%;
     /* margin-top: 5rem;
     margin-left: 7rem; */
@@ -22,10 +22,10 @@
 
 .rightNav{
   position: absolute;
-    width: 36%;
+    width: 30%;
     height: 85%;
-    margin-top: 5rem;
-    margin-left: 44rem;
+    /* margin-top: 5rem;
+    margin-left: 44rem; */
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -103,16 +103,12 @@ transition: .5s ease-in-out;
 
 .sideNav{
     position: absolute;
-    width: 80px;
-    height: 85%;
-    margin-top: 5rem;
-    margin-left: 1rem;
+    width: 98px;
+    height: 69%;
+     margin-top: 8.3rem; 
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
 
 
-.homeIcon{
-    fill:aqua
-}

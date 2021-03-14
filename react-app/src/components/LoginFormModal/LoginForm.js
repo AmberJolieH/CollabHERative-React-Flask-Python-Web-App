@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import {useDispatch} from "react-redux"
 
+
 const LoginForm = ({ authenticated, setAuthenticated }) => {
   const dispatch = useDispatch()
   const [errors, setErrors] = useState([]);
@@ -48,6 +49,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           <div>{error}</div>
         ))}
       </div>
+       <img src="https://collabherative.s3.us-east-2.amazonaws.com/login.svg" style={{display:"flex", alignItems:"center", marginLeft:"2rem"}}/>
       <div >
         <label htmlFor="email">Email</label>
         <input

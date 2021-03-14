@@ -16,7 +16,7 @@ import SplashPage from "./components/splashPage/splashPage"
 import { authenticate } from "./services/auth";
 import SideNav from "./components/SideNav/SideNav"
 import CenterCard from "./components/centerCard/centerCard";
-
+import RightNav from "./components/rightNav/rightNav"
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -52,9 +52,15 @@ function App() {
             authenticated={authenticated}
           />
           </div>
-        <div className="d">
-          <CenterCard/>
-        </div>
+          <div className="d">
+            <RightNav
+            setAuthenticated={setAuthenticated}
+            authenticated={authenticated}/>
+          </div>
+        <div className="b">
+          {/* <CenterCard/> */}
+       
+       
       <Switch>
         <Route path="/sign-up" exact={true}>
           <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
@@ -84,11 +90,12 @@ function App() {
          
         </Route>
       </Switch>
+       </div>
       <div className="c">
       <SideNav></SideNav>
       </div>
     </BrowserRouter>
-    </div>
+    // </div>
   );
 }
 
