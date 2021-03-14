@@ -6,6 +6,7 @@ import * as sessionActions from './store/session';
 import * as showcaseActions from './store/showcase';
 import { Provider } from 'react-redux';
 import configureStore from './store';
+import ModalProvider from "./context/modal"
 
 
   const initialState = {
@@ -34,7 +35,9 @@ if (process.env.NODE_ENV !== "production") {
 ReactDOM.render(
   <React.StrictMode>
   <Provider store={store}>
+    <ModalProvider>
       <App />
+    </ModalProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

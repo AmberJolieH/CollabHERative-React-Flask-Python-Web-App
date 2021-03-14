@@ -15,7 +15,8 @@ import SplashPage from "./components/splashPage/splashPage"
 //* STORE/SESSION/AUTH
 import { authenticate } from "./services/auth";
 import SideNav from "./components/SideNav/SideNav"
-
+import CenterCard from "./components/centerCard/centerCard";
+import RightNav from "./components/rightNav/rightNav"
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -35,13 +36,31 @@ function App() {
     return null;
   }
 
+  // todo:
+  // myprofile 
+  // all projects
+  //create a project 
+  // all users 
+
+
   return (
+    <div className="wrapper">
     <BrowserRouter>
-   
+    <div className="a">
       <NavBar
             setAuthenticated={setAuthenticated}
             authenticated={authenticated}
           />
+          </div>
+          <div className="d">
+            <RightNav
+            setAuthenticated={setAuthenticated}
+            authenticated={authenticated}/>
+          </div>
+        <div className="b">
+          {/* <CenterCard/> */}
+       
+       
       <Switch>
         <Route path="/sign-up" exact={true}>
           <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
@@ -66,12 +85,17 @@ function App() {
         <ProtectedRoute path="/users/:userId"  authenticated={authenticated}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-         <SplashPage></SplashPage>
-         <SideNav></SideNav>
-        </ProtectedRoute>
+        <Route path="/" exact={true} authenticated={authenticated}>
+         <SplashPage setAuthenticated={setAuthenticated}/>
+         
+        </Route>
       </Switch>
+       </div>
+      <div className="c">
+      <SideNav></SideNav>
+      </div>
     </BrowserRouter>
+    // </div>
   );
 }
 

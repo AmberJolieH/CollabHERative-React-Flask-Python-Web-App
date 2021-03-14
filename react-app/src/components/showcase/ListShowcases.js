@@ -25,7 +25,7 @@ const ListShowcases = ({ events, isFetching = false }) => {
 	},[dispatch])
 	return (<div style={isFetching ? { opacity: 0.7 } : {}}>
 		
-		<h1> this is a test </h1>
+		{/* <h1> this is a test </h1>
 		{Object.values(showcases).map((showcases) => (
 			<a  key={showcases.id}>
 				<h2>{showcases.title}</h2>
@@ -33,7 +33,7 @@ const ListShowcases = ({ events, isFetching = false }) => {
 					View Showcase
 				</Link>
 			</a>
-		))}
+		))} */}
 		
 	</div>)
 };

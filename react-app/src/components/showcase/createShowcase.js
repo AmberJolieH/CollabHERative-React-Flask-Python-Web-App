@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import { jsx } from "@emotion/react";
 import { createShowcase } from "../../store/showcase";
 import {useDispatch, useSelector} from "react-redux"
+import CenterCard from "../centerCard/centerCard"
 
 const CreateShowcase = () => {
     const dispatch = useDispatch();
@@ -39,6 +40,7 @@ const onSubmit = async (e)=> {
  const [CatName, setCatName] = useState(cat[0])
   
  return (
+        <CenterCard>
         <div>
             <h2>Create a showcase</h2>
             <form
@@ -83,6 +85,7 @@ const onSubmit = async (e)=> {
                 <button>post showcase</button>
             </form>
         </div>
+    </CenterCard>
     )
 }
 
