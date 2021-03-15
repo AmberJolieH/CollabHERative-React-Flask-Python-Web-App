@@ -47,7 +47,7 @@ const onSubmit = async (e)=> {
     <div>
             <RightNav>
             <div>
-                <h2 style={{marginLeft:"4rem"}}>Create a showcase</h2>
+                <h2 style={{marginLeft:"5rem"}}>Create a Project</h2>
                 <form style={{padding:"1rem"}}
                 onSubmit={onSubmit}
                     
@@ -59,22 +59,31 @@ const onSubmit = async (e)=> {
                         placeholder="showcase title"
                         value={title}
                         onChange={e => setTitle(e.target.value)}
+                        style={{
+                        borderRadius:"10px", marginTop:".3rem"
+                        }}
                     />
-                        <label>Description: </label>
+                        <label style={{marginTop:"1rem"}}>Description: </label>
                     <input
                         name="description"
                         type="text"
                         placeholder="description of showcase"
                         value={description}
                         onChange={e => setDescription(e.target.value)}
+                        style={{
+                        borderRadius:"10px", marginTop:".3rem"
+                        }}
                     />
                     
-                    <label>Select a relative tech category: </label>
+                    <label style={{marginTop:"1rem"}}>Select a relative tech category: </label>
                     <select
                         name="techCatName"
                         type="text"
                         value={CatName}
                         onChange={e => setCatName(e.target.value)}
+                        style={{
+                        borderRadius:"10px", marginTop:".3rem"
+                        }}
                     >
                     {cat.map((cat)=> {
                         return (
@@ -88,7 +97,7 @@ const onSubmit = async (e)=> {
                     })}
                     </select>
                     
-                    <button className="signupButton" style={{marginTop:"1rem"}}>Create a Project</button>
+                    <button className="signupButton" style={{marginTop:"1rem", backgroundColor:"#FAAE43"}}>Add Project</button>
                 </form>
             </div>
         </RightNav>
