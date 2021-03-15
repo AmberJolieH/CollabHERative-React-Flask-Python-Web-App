@@ -36,11 +36,16 @@ const NavBar =({ setAuthenticated, authenticated }) => {
              
             <div  style={{display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%"}}>
                 <div>
-                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName="active" style={{textDecoration:"none",color:"#3D3D3D", marginRight:"5rem", marginLeft:"10rem"}}>
+                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName="active" style={{textDecoration:"none",color:"#3D3D3D", marginRight:"5rem", marginLeft:"11rem"}}>
                     My Projects
                   </NavLink>
                 </div>
-            <div >
+                <div>
+                  <h4 style={{marginRight:"6rem"}}>
+                    My Opportunities
+                  </h4>
+                </div>
+            <div style={{marginLeft:"5rem"}}>
               <LogoutButton setAuthenticated={setAuthenticated} />
             </div>
           </div>
