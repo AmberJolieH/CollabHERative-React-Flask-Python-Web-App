@@ -3,6 +3,7 @@ import CenterCard from '../centerCard/centerCard';
 // import logo from "react-app/src/images/CollabHERativelogo2.svg"
 import LoginForm from "../LoginFormModal"
 import "../navbar.css"
+import RightNav from '../rightNav/rightNav';
 
 
 const SplashPage = ({setAuthenticated}) => {
@@ -13,6 +14,7 @@ const SplashPage = ({setAuthenticated}) => {
           {/* <LoginForm setAuthenticated={setAuthenticated}/> */}
         </div>
         </CenterCard>
+        
     );
 }
 

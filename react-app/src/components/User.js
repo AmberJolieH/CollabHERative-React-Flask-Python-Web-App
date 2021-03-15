@@ -56,7 +56,7 @@ console.log(usershowcase)
           {usershowcase && usershowcase.map((projects)=> {
               const {title, description, techcategory, id} = projects;
               return(
-                <div style={{display:"flex", justifyContent:"center"}}>
+                <div style={{display:"flex", justifyContent:"center", borderRadius:"20rem"}}>
                     <div className="box"
                         key={id}
                         onClick={() => {

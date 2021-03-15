@@ -47,8 +47,8 @@ const onSubmit = async (e)=> {
     <div>
             <RightNav>
             <div>
-                <h2>Create a showcase</h2>
-                <form
+                <h2 style={{marginLeft:"6rem"}}>Create a showcase</h2>
+                <form style={{padding:"1rem"}}
                 onSubmit={onSubmit}
                     
                     >
@@ -88,7 +88,7 @@ const onSubmit = async (e)=> {
                     })}
                     </select>
                     
-                    <button>post showcase</button>
+                    <button className="signupButton" style={{marginTop:"1rem"}}>Create a Project</button>
                 </form>
             </div>
         </RightNav>
