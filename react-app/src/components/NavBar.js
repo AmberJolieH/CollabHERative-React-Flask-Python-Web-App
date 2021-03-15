@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-
+import {useSelector} from "react-redux"
 import "./navbar.css"
 import LoginForm from "./LoginFormModal"
 import SignupForm from "./auth/SignUpForm"
@@ -16,32 +16,36 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import logo from "../images/logoNew.svg"
 import CenterCard from './centerCard/centerCard';
+
+
 const NavBar =({ setAuthenticated, authenticated }) => {
+  const user = useSelector(state => state.session.user)
+  const [isloaded, setIsLoaded] = useState(false);
+  // useEffect(()=> {
+  //   if (user) setIsLoaded(true)
+  // }, [user])
+
+  // if (!isloaded) return null;
    return (
      <nav>
        <div className="top-navbar" style={{display:"flex", alignItems:"center"}} >
           
             <img src={logo} alt="React Logo"/>
            
-           {authenticated && (
+           { user && authenticated && (
              
             <div  style={{display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%"}}>
-                  <div>
-                  <NavLink to="/users" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
-                    Community
-                  </NavLink>
-                  </div>
-                  <div>
-                  <NavLink to="/create_showcase" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
-                    Create a Project
+                <div>
+                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName="active" style={{textDecoration:"none",color:"#FAAE43", marginRight:"5rem", marginLeft:"11rem"}}>
+                    My Projects
                   </NavLink>
                 </div>
                 <div>
-                  <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem", marginRight:"15rem"}}>
-                    Project Board
-                  </NavLink>
+                  <h4 style={{marginRight:"6rem"}}>
+                    My Opportunities
+                  </h4>
                 </div>
-            <div >
+            <div style={{marginLeft:"5rem"}}>
               <LogoutButton setAuthenticated={setAuthenticated} />
             </div>
           </div>
@@ -53,12 +57,12 @@ const NavBar =({ setAuthenticated, authenticated }) => {
           // flexFlow: "row wrap",
           alignItems: "center",
           height:"100%",
-          justifyContent: "space-between",}}>
-            <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%"}}>
+          justifyContent: "space-between", padding:".5rem"}}>
+            <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%", marginLeft:"35rem",}}>
               <div >
-                <LoginForm   setAuthenticated={setAuthenticated}/>
+                <LoginForm   setAuthenticated={setAuthenticated} authenticated={authenticated}/>
               </div>
-              <div className="signupButton">
+              <div className="signupButton" style={{marginRight:"1rem"}} >
                 <NavLink to="/sign-up" exact={true}activeClassName="active"
                 style={{
                   borderRadius: "2rem",

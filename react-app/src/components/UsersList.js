@@ -16,18 +16,24 @@ function UsersList() {
 
   const userComponents = users.map((user) => {
     return (
-      
-      <li key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
+     
+      <li  style={{listStyle:'none'}} key={user.id}>
+        <NavLink  style={{width:"8%", height:"8%", textDecoration:"none", color:"#3D3D3D"}} to={`/users/${user.id}`}>
+          <div style={{display:"flex", flexWrap:"wrap", alignItems:"center", marginLeft:"5rem"}}>
+          <img style={{width:"30%"}} src={user.imgurl}/>
+          <h2  style={{textDecoration:"none"}}>{user.firstname}</h2>
+          </div>
+          </NavLink>
       </li>
+      
     );
   });
 
   return (
     <CenterCard>
     <>
-      <h1>User List: </h1>
-      <ul>{userComponents}</ul>
+      <h1 style={{marginLeft:"2rem"}}>Our Community: </h1>
+      <ul style={{display:"flex", flexWrap:"wrap", flexDirection:"row"}}>{userComponents}</ul>
     </>
     </CenterCard>
   );

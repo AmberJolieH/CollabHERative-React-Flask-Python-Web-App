@@ -26,15 +26,23 @@ const ListShowcases = ({ events, isFetching = false }) => {
 	},[dispatch])
 	return (<div style={isFetching ? { opacity: 0.7 } : {}}>
 		<CenterCard>
-		<h1> this is a test </h1>
+			
+				
+		<h1 style={{marginLeft:"2rem"}}> Community Project Showcase </h1>
 		{Object.values(showcases).map((showcases) => (
-			<a  key={showcases.id}>
-				<h2>{showcases.title}</h2>
-				<Link to={`/showcases/${showcases.id}`}>
-					View Showcase
-				</Link>
-			</a>
+			<div style={{padding:"1rem", display:"flex", justifyContent:"center"}}>
+				<div className="box">
+				<a  key={showcases.id}>
+					<h2>{showcases.title}</h2>
+					<Link to={`/showcases/${showcases.id}`}>
+						View Project
+					</Link>
+				</a>
+				</div>
+			</div>
 		))}
+			
+		
 		</CenterCard>
 	</div>)
 };

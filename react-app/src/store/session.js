@@ -30,11 +30,18 @@ export const login = (email, password) => async (dispatch) => {
     return user
 };
 
-// export const restoreUser = () => async dispatch => {
-//     const res = await fetch('/api/auth');
-//     dispatch(setUser(res.data.user));
-//     return res;
-// };
+export const restoreUser = () => async dispatch => {
+    const res = await fetch('/api/auth/',{
+        headers:{
+            "Content-Type": "application/json"
+        }
+    });
+    const user = await res.json()
+    if (!user.errors) dispatch(setUser(user));
+    return user
+};
+
+
 //* SIGNUP
 export const signUp = (username, firstname, lastname, email, password) => async (dispatch) => {
     const response = await fetch("/api/auth/signup", {
@@ -68,10 +75,7 @@ export const logout = () => async (dispatch) => {
 };
 
 const initialState = {
-    // user: {
-    //     email: 'initial@email.com',
-    //     username: 'Initial',
-    // }
+    user: null
 };
 
 //* PROFILE IMAGE UPLOAD

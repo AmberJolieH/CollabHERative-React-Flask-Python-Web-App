@@ -42,38 +42,49 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   return (
     <>
-    <div className="login-card" style={{padding:"4.2rem"}}>
+    <div className="login-card" style={{padding:"1rem"}}>
     <form onSubmit={onLogin} style={{alignItems:"center"}} >
       <div>
         {errors.map((error) => (
           <div>{error}</div>
         ))}
-      </div>
-       <img src="https://collabherative.s3.us-east-2.amazonaws.com/login.svg" style={{display:"flex", alignItems:"center", marginLeft:"2rem"}}/>
+      </div >
+      {/* <div style={{width:"5%"}}>
+        <img src="https://collabherative.s3.us-east-2.amazonaws.com/logo_round-5.png"/>
+      </div> */}
+      <div>
+       <img src="https://collabherative.s3.us-east-2.amazonaws.com/logo_round-5.png" style={{display:"flex", alignItems:"center", marginLeft:"4rem", width:"75%"}}/>
+       </div>
       <div >
-        <label htmlFor="email">Email</label>
+        <label  style={{marginRight:"1rem"}}htmlFor="email">Email</label>
         <input
           name="email"
           type="text"
           placeholder="Email"
           value={email}
           onChange={updateEmail}
+          style={{
+            borderRadius:"10px"
+          }}
         />
       </div>
       <div >
-        <label htmlFor="password">Password</label>
+        <label style={{marginRight:"1rem"}} htmlFor="password">Password</label>
         <input
           name="password"
           type="password"
           placeholder="Password"
           value={password}
           onChange={updatePassword}
+           style={{
+            borderRadius:"10px"
+          }}
         />
         </div>
         <button className='signupButton' type="submit" style={{backgroundColor:"#f55645", marginTop:"1rem"}}>Login</button>
     
         <div style={{display:"flex", justifyContent:"center"}} >
-        <button onClick={demoLogin} className='signupButton'type='button'style={{backgroundColor:"#feb9c1", marginTop:"1rem"}}>Demo</button>
+        <button onClick={demoLogin} className='signupButton'type='button'style={{backgroundColor:"#feb9c1", marginTop:".5rem"}}>Demo</button>
       </div>
       </form>
     </div>
