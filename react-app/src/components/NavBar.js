@@ -36,7 +36,7 @@ const NavBar =({ setAuthenticated, authenticated }) => {
              
             <div  style={{display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%"}}>
                 <div>
-                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem", marginRight:"15rem"}}>
+                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName="active" style={{textDecoration:"none",color:"#3D3D3D", padding:"1rem", marginRight:"15rem"}}>
                     My Projects
                   </NavLink>
                 </div>
