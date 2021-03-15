@@ -24,11 +24,11 @@ const SideNav = () => {
          </div>
 
          <div style={{ marginLeft:"2rem", marginTop:"2rem"}}>
-           <MailOutlineRoundedIcon style={{ color: '#636363' }}/>
+           <MailOutlineRoundedIcon style={{ color: '#3748A3' }}/>
          </div>
          <NavLink to="/create_showcase" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
          <div style={{ marginLeft:"2rem", marginTop:"2rem"}}>
-           <InsertDriveFileRoundedIcon style={{ color: '#636363' }}/>
+           <InsertDriveFileRoundedIcon style={{ color: '#FAAE43' }}/>
          </div>
          </NavLink>
          <div style={{ marginLeft:"2rem", marginTop:"2rem"}}>
@@ -36,19 +36,19 @@ const SideNav = () => {
          </div>
          <div style={{ marginLeft:"1rem", marginTop:"2rem"}}>
           <NavLink to="/users" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
-            <GroupIcon style={{ color: '#636363' }}/>
+            <GroupIcon style={{ color: '#3748A3' }}/>
            </NavLink>
          </div>
          <div style={{marginLeft:"1rem", marginTop:"2rem"}} >
            <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"#636363", padding:"1rem", marginRight:"15rem"}}>
-           <DashboardIcon style={{color:"#636363"}}/>
+           <DashboardIcon style={{color:"#FAAE43"}}/>
            </NavLink>
          </div>
          <div style={{ marginLeft:".5rem", marginTop:"2rem"}}>
-           <GitHubIcon style={{ color: '#364dcf', marginLeft:"1.6rem",marginTop:"0rem"}}/>
+           <GitHubIcon style={{ color: '#636363', marginLeft:"1.6rem",marginTop:"0rem"}}/>
          </div>
          <div  style={{marginLeft:".5rem", marginTop:"0rem"}}>
-           <LinkedInIcon style={{ color: '#364dcf', marginLeft:"1.6rem", marginTop:"0rem" }}/>
+           <LinkedInIcon style={{ color: '#636363', marginLeft:"1.6rem", marginTop:"0rem" }}/>
          </div>
          <div style={{marginLeft:"1.3rem", marginTop:"0rem"}}>
            <img src={profilePic} ></img>
