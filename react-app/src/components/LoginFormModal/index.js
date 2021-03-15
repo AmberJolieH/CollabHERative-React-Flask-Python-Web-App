@@ -8,7 +8,7 @@ function LoginFormModal({setAuthenticated, authenticated}) {
 //test to fix heroku
   return (
     <>
-      <button className="signupButton" onClick={() => setShowModal(true)}>Log In</button>
+      <button className="signupButton" style={{marginRight:"1rem"}} onClick={() => setShowModal(true)}>Log In</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
             <LoginForm setAuthenticated={setAuthenticated} authenticated={authenticated}/>

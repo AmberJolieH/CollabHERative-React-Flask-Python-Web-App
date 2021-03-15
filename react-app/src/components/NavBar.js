@@ -57,12 +57,12 @@ const NavBar =({ setAuthenticated, authenticated }) => {
           // flexFlow: "row wrap",
           alignItems: "center",
           height:"100%",
-          justifyContent: "space-between",}}>
-            <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%"}}>
+          justifyContent: "space-between", padding:".5rem"}}>
+            <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%", marginLeft:"35rem",}}>
               <div >
                 <LoginForm   setAuthenticated={setAuthenticated} authenticated={authenticated}/>
               </div>
-              <div className="signupButton">
+              <div className="signupButton" style={{marginRight:"1rem"}} >
                 <NavLink to="/sign-up" exact={true}activeClassName="active"
                 style={{
                   borderRadius: "2rem",

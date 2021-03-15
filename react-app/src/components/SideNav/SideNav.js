@@ -44,11 +44,11 @@ const SideNav = () => {
            <DashboardIcon style={{color:"#636363"}}/>
            </NavLink>
          </div>
-         <div style={{ marginLeft:".5rem", marginTop:"8rem"}}>
-           <GitHubIcon style={{ color: '#636363', marginLeft:"1.6rem",marginTop:"0rem"}}/>
+         <div style={{ marginLeft:".5rem", marginTop:"2rem"}}>
+           <GitHubIcon style={{ color: '#364dcf', marginLeft:"1.6rem",marginTop:"0rem"}}/>
          </div>
          <div  style={{marginLeft:".5rem", marginTop:"0rem"}}>
-           <LinkedInIcon style={{ color: '#636363', marginLeft:"1.6rem", marginTop:"0rem" }}/>
+           <LinkedInIcon style={{ color: '#364dcf', marginLeft:"1.6rem", marginTop:"0rem" }}/>
          </div>
          <div style={{marginLeft:"1.3rem", marginTop:"0rem"}}>
            <img src={profilePic} ></img>
