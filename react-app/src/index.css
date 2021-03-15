@@ -40,7 +40,6 @@ body {
 	width: 98%;
 	position:"relative";
 	top: 20rem;
-	color: white;
 	box-shadow: 0 0.25rem 1rem rgba(83, 81, 81, 0.336);
 	height: 7rem
 	
@@ -171,12 +170,21 @@ align-items: center;
   }
 
   .box {
-    background-color: #444;
-    color: #fff;
+    background-color: rgb(255, 255, 255);
+    color: #3D3D3D;
     border-radius: 5px;
     padding: 20px;
     font-size: 150%;
-
+	box-shadow: 0 0.25rem 1rem rgba(83, 81, 81, 0.336);
+	font-size: 10px;
+	width: 50%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 2rem;
+	margin-top: 2rem;
+	
   }
 
   .box .box {

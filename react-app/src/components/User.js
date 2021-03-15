@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import * as showcaseActions from "./../store/showcase"
+import CenterCard from "./centerCard/centerCard";
 
 function User() {
   const dispatch = useDispatch();
@@ -44,34 +45,38 @@ console.log(usershowcase)
   }
 
   return (
+    <CenterCard>
     <div>
     <ul>
       <a>
-        <strong></strong> {user.username}
+        <strong></strong> {user.username}'s Projects:
       </a>
     </ul>
     <div>
           {usershowcase && usershowcase.map((projects)=> {
               const {title, description, techcategory, id} = projects;
               return(
-                  <div
-                      key={id}
-                      onClick={() => {
-                          history.push(`/showcase/${id}`);
-                      }}
-                      >
-                          <div>
-                              <h3>{title}</h3>
-                              <h3>{description}</h3>
-                              <h3>Area of profession:{techcategory}</h3>
+                <div style={{display:"flex", justifyContent:"center"}}>
+                    <div className="box"
+                        key={id}
+                        onClick={() => {
+                            history.push(`/showcase/${id}`);
+                        }}
+                        >
+                            <div>
+                                <h3> Title: {title}</h3>
+                                <h3>Description: {description}</h3>
+                                <h3>Area of profession:{techcategory}</h3>
 
-                              
-                          </div>
-                    {/* image here */}
+                                
+                            </div>
+                      {/* image here */}
+                    </div>
                   </div>
               )
           })}
       </div>
     </div>
+    </CenterCard>
   )}
 export default User;

@@ -5,9 +5,11 @@ import { createShowcase } from "../../store/showcase";
 import {useDispatch, useSelector} from "react-redux"
 import CenterCard from "../centerCard/centerCard"
 import RightNav from "../rightNav/rightNav"
+import {useHistory} from "react-router-dom"
 
 const CreateShowcase = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [techCategoryId, setTechCategoryId] = useState('')
     const [description, setDescription] = useState('')
     const [skill,setSkills] = useState('')
@@ -25,6 +27,7 @@ const onSubmit = async (e)=> {
         title,
         userId
     }))
+   history.push(`/users/${userId}`)
     console.log('test showcase create working', showcase)
 }
     
@@ -84,6 +87,7 @@ const onSubmit = async (e)=> {
                         )
                     })}
                     </select>
+                    
                     <button>post showcase</button>
                 </form>
             </div>

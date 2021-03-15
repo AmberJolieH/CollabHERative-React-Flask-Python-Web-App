@@ -10,28 +10,42 @@ import profilePic from "../../images/amber.svg"
 import FolderIcon from '@material-ui/icons/Folder';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GroupIcon from '@material-ui/icons/Group';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+
+
 const SideNav = () => {
     return (
     <div className="sideNav">
-         <div  style={{ marginLeft:"1.6rem", marginTop:"4rem"}}>
+         <div  style={{ marginLeft:"1.6rem", marginTop:"1rem"}}>
            <NavLink to="/" exact={true} style={{color:"black"}}>
              <HomeIcon style={{ color: '#3748a3' }} />
            </NavLink>
          </div>
 
-         <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
+         <div style={{ marginLeft:"1.6rem", marginTop:"1rem"}}>
            <MailOutlineRoundedIcon style={{ color: '#faae43' }}/>
          </div>
          <NavLink to="/create_showcase" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
-         <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
+         <div style={{ marginLeft:"1.6rem", marginTop:"1rem"}}>
            <InsertDriveFileRoundedIcon style={{ color: '#feb9c1' }}/>
          </div>
          </NavLink>
-         <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
+         <div style={{ marginLeft:"1.6rem", marginTop:"1rem"}}>
            <FolderIcon style={{ color: '#f55645' }}/>
          </div>
+         <div style={{ marginLeft:"1.6rem", marginTop:"3rem"}}>
+          <NavLink to="/users" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
+            <GroupIcon style={{ color: '#3D3D3D' }}/>
+           </NavLink>
+         </div>
          <div>
-           <GitHubIcon style={{ color: '#3748a3', marginLeft:"1.6rem",marginTop:"8rem"}}/>
+           <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem", marginRight:"15rem"}}>
+           <DashboardIcon/>
+           </NavLink>
+         </div>
+         <div>
+           <GitHubIcon style={{ color: '#3748a3', marginLeft:"1.6rem",marginTop:"0rem"}}/>
          </div>
          <div>
            <LinkedInIcon style={{ color: '#3748a3', marginLeft:"1.6rem", marginTop:"0rem" }}/>
