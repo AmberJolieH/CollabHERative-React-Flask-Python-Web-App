@@ -27,7 +27,7 @@ const NavBar =({ setAuthenticated, authenticated }) => {
 
   // if (!isloaded) return null;
    return (
-     <nav>
+     <nav className="navContainer">
        <div className="top-navbar" style={{display:"flex", alignItems:"center"}} >
           
             <img src={logo} alt="React Logo"/>

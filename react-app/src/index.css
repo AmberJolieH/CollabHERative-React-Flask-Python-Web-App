@@ -166,8 +166,49 @@ align-items: center;
     grid-template-columns:100px repeat(9,1fr);
     grid-template-rows: repeat(7,1fr);
     /* background-color: #fff; */
+	
     color: #444;
   }
+
+  @media (min-width:927px){
+	  .wrapper{
+		  width: 1000px;
+		  margin: 0 auto;
+	  }
+	  .centerNav{
+		  max-width: 475px;
+		  
+
+	  }
+	  .top-Navbar{
+		  max-width: 1038px;
+		  
+	  }
+	  .rightNav{
+		  max-width: 305px;
+		 
+	  }
+  }
+@media(max-width:930px){
+	  .wrapper{
+		  width: 1000px;
+		  margin: 0 auto;
+	  }
+	  .centerNav{
+		  max-width: 475px;
+		  
+
+	  }
+	  .top-Navbar{
+		  max-width: 1038px;
+		  
+	  }
+	  .rightNav{
+		  max-width: 305px;
+		 
+	  }
+  }
+
 
   .box {
     background-color: rgb(255, 255, 255);
