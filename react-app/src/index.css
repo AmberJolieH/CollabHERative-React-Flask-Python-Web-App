@@ -166,8 +166,31 @@ align-items: center;
     grid-template-columns:100px repeat(9,1fr);
     grid-template-rows: repeat(7,1fr);
     /* background-color: #fff; */
+	
     color: #444;
   }
+
+  @media (min-width:1000px){
+	  .wrapper{
+		  width: 900px;
+		  margin: 0 auto;
+	  }
+	  .centerNav{
+		  max-width: 420px;
+		  
+
+	  }
+	  .top-Navbar{
+		  max-width: 1045px;
+		  
+	  }
+	  .rightNav{
+		  max-width: 362px;
+		 
+	  }
+  }
+
+
 
   .box {
     background-color: rgb(255, 255, 255);
