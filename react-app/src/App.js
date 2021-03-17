@@ -69,7 +69,7 @@ function App() {
             </ProtectedRoute>
             <Route path="/" exact={true} authenticated={authenticated}>
          <RightNav setAuthenticated={setAuthenticated} authenticated={authenticated}>
-          <img src="https://collabherative.s3.us-east-2.amazonaws.com/logo_round-2.png" style={{width:"100%", padding:"1rem", boxSizing:"border-box", borderRadius:"2rem"}} />
+          {/* <img src="https://collabherative.s3.us-east-2.amazonaws.com/logo_round-2.png" style={{width:"38%", padding:"1rem", boxSizing:"border-box", borderRadius:"2rem"}} /> */}
           <h1 style={{padding:"1rem", boxSizing:"border-box", borderRadius:"2rem", fontSize:"15px"}}>Building a Community for women in tech to network and succeed!</h1>
          </RightNav>
          

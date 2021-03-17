@@ -170,26 +170,44 @@ align-items: center;
     color: #444;
   }
 
-  @media (min-width:1000px){
+  @media (min-width:927px){
 	  .wrapper{
-		  width: 900px;
+		  width: 1000px;
 		  margin: 0 auto;
 	  }
 	  .centerNav{
-		  max-width: 420px;
+		  max-width: 475px;
 		  
 
 	  }
 	  .top-Navbar{
-		  max-width: 1045px;
+		  max-width: 1038px;
 		  
 	  }
 	  .rightNav{
-		  max-width: 362px;
+		  max-width: 305px;
 		 
 	  }
   }
+@media(max-width:930px){
+	  .wrapper{
+		  width: 1000px;
+		  margin: 0 auto;
+	  }
+	  .centerNav{
+		  max-width: 475px;
+		  
 
+	  }
+	  .top-Navbar{
+		  max-width: 1038px;
+		  
+	  }
+	  .rightNav{
+		  max-width: 305px;
+		 
+	  }
+  }
 
 
   .box {
