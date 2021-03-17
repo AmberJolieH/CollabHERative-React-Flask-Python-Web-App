@@ -17,43 +17,43 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 const SideNav = () => {
     return (
     <div className="sideNav">
-         <div  style={{ marginLeft:"2rem", marginTop:"2rem"}}>
+         <div  style={{ marginLeft:"2.5rem", marginTop:"2rem"}}>
            <NavLink to="/" exact={true} style={{color:"black"}}>
              <HomeIcon style={{ color: '#636363' }} />
            </NavLink>
          </div>
 
-         <div style={{ marginLeft:"2rem", marginTop:"2rem"}}>
-           <MailOutlineRoundedIcon style={{ color: '#3748A3' }}/>
+         <div style={{ marginLeft:"2.5rem", marginTop:"2rem"}}>
+           <MailOutlineRoundedIcon style={{ color: '#636363' }}/>
          </div>
          <NavLink to="/create_showcase" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
-         <div style={{ marginLeft:"2rem", marginTop:"2rem"}}>
-           <InsertDriveFileRoundedIcon style={{ color: '#FAAE43' }}/>
+         <div style={{ marginLeft:"2.5rem", marginTop:"1rem"}}>
+           <InsertDriveFileRoundedIcon style={{ color: '#636363' }}/>
          </div>
          </NavLink>
-         <div style={{ marginLeft:"2rem", marginTop:"2rem"}}>
+         <div style={{ marginLeft:"2.5rem", marginTop:"1rem"}}>
            <FolderIcon style={{ color: '#636363' }}/>
          </div>
-         <div style={{ marginLeft:"1rem", marginTop:"2rem"}}>
+         <div style={{ marginLeft:"1.5rem", marginTop:"2rem"}}>
           <NavLink to="/users" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
-            <GroupIcon style={{ color: '#3748A3' }}/>
+            <GroupIcon style={{ color: '#636363' }}/>
            </NavLink>
          </div>
-         <div style={{marginLeft:"1rem", marginTop:"2rem"}} >
+         <div style={{marginLeft:"1.5rem", marginTop:"2rem"}} >
            <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"#636363", padding:"1rem", marginRight:"15rem"}}>
            <DashboardIcon style={{color:"#FAAE43"}}/>
            </NavLink>
          </div>
-         <div style={{ marginLeft:".5rem", marginTop:"2rem"}}>
-           <GitHubIcon style={{ color: '#636363', marginLeft:"1.6rem",marginTop:"0rem"}}/>
+         <div style={{ marginLeft:".8rem", marginTop:"7rem"}}>
+           <GitHubIcon style={{ color: '#636363', marginLeft:"1.6rem",marginTop:"3rem"}}/>
          </div>
-         <div  style={{marginLeft:".5rem", marginTop:"0rem"}}>
+         <div  style={{marginLeft:".8rem", marginTop:"0rem"}}>
            <LinkedInIcon style={{ color: '#636363', marginLeft:"1.6rem", marginTop:"0rem" }}/>
          </div>
-         <div style={{marginLeft:"1.3rem", marginTop:"0rem"}}>
+         <div style={{marginLeft:"1.5rem", marginTop:"0rem"}}>
            <img src={profilePic} ></img>
          </div>
-         <div style={{fontSize:"10px",marginLeft:"1rem", marginTop:"-.7rem", color:"#636363"}} >
+         <div style={{fontSize:"10px",marginLeft:"1.5rem", marginTop:"-.8rem", color:"#636363"}} >
            <h4>
              Amber Horn
            </h4>
