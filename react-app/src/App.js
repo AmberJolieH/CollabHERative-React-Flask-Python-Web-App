@@ -1,8 +1,8 @@
 //* APP SETUP
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import {useDispatch} from "react-redux"
-
+import {useDispatch} from "react-redux";
+import io from "socket.io-client";
 
 
 //* COMPONENTS 
@@ -23,6 +23,25 @@ import SideNav from "./components/SideNav/SideNav"
 import CenterCard from "./components/centerCard/centerCard";
 import RightNav from "./components/rightNav/rightNav"
 
+//* SOCKETIO SETUP
+  // endpoint variable 
+  let endPoint = "http://localhost:5000"
+  // connect with server using socket.io
+  let socket = io.connect(`${endPoint}`)
+
+
+
+  
+  // todo:
+  
+  // //all projects
+  // //create a project 
+  // //all users 
+  // messages
+  // myprofile -> new component -> update backend
+  // update my profile -> new form / component
+  //  
+
 function App() {
   const dispatch = useDispatch()
   const [authenticated, setAuthenticated] = useState(false);
@@ -42,11 +61,14 @@ function App() {
     return null;
   }
 
-  // todo:
-  // myprofile 
-  // all projects
-  //create a project 
-  // all users 
+//* SOCKETIO 
+// state hooks
+const [messages, setMessages] = useState([
+  "Hello and Welcome"
+])
+
+  
+
 
 
   return (
