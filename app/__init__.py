@@ -4,6 +4,8 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
+from flask_socketio import socketio, send
+
 
 from .models import db, User
 from .api.user_routes import user_routes
@@ -15,9 +17,25 @@ from .config import Config
 
 app = Flask(__name__)
 
+# run app with socketio
+if __name__ == '__name__'
+
 # Setup login manager
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
+
+# socketio setup -> server using socket and fix cors erros
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+# message handler function will be called and send
+# -> message to every client on the server
+
+
+@socketio.on("message")
+def handleMessage(msg):
+    print(msg)
+    send(msg, broadcast=True)
+    return None
 
 
 @login.user_loader
