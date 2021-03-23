@@ -33,6 +33,12 @@ class User(db.Model, UserMixin):
     skills = db.relationship(
         "Skill", secondary="userskills"
     )
+    messages_sent = db.relationship(
+        "DirectMessage", foreign_keys="DirectMessage.senderid", back_populates="sender"
+    )
+    messages_received = db.relationship(
+        "DirectMessage", foreign_keys="DirectMessage.receiverid", back_populates="receiver"
+    )
 
     @property
     def password(self):

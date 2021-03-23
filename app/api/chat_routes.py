@@ -50,19 +50,17 @@ def create_message():
 # DELETE A MESSAGE
 
 
-@chat_routes.route("/<messageId", methods=["DELETE"])
+@chat_routes.route("/<messageId>", methods=["DELETE"])
 @login_required
 def delete_message(messageId):
     """
     Delete message
     """
-
-
-message_to_delete = Message.query.get(messageId)
-if message_to_delete:
-    db.session.delete(message_to_delete)
-    db.session.commit()
-    return "Deleted"
-else:
-    print(f"-------- no message found  -------- ")
-    return {"errors": "No message found with given id"}
+    message_to_delete = Message.query.get(messageId)
+    if message_to_delete:
+        db.session.delete(message_to_delete)
+        db.session.commit()
+        return "Deleted"
+    else:
+        print(f"-------- no message found  -------- ")
+        return {"errors": "No message found with given id"}
