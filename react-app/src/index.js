@@ -29,15 +29,12 @@ if (process.env.NODE_ENV !== 'production') {
   window.showcaseActions = showcaseActions;
 }
 
-if (process.env.NODE_ENV !== "production") {
-  window.store = store;
-}
 ReactDOM.render(
   <React.StrictMode>
   <Provider store={store}>
     <ModalProvider>
-      <App />
-    </ModalProvider>
+          <App />
+      </ModalProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

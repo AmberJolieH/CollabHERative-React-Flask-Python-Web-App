@@ -1,7 +1,9 @@
 //* APP SETUP
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import {useDispatch} from "react-redux"
+import {useDispatch} from "react-redux";
+import io from "socket.io-client";
+
 
 //* COMPONENTS 
 import LoginForm from "./components/auth/LoginForm";
@@ -11,7 +13,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import ListShowcases from "./components/showcase/ListShowcases"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/topNav/NavBar";
 import SplashPage from "./components/splashPage/splashPage"
 import UserProfile from "./components/userProfile/userProfile"
 
@@ -20,6 +22,25 @@ import { restoreUser } from "./store/session";
 import SideNav from "./components/SideNav/SideNav"
 import CenterCard from "./components/centerCard/centerCard";
 import RightNav from "./components/rightNav/rightNav"
+
+//* SOCKETIO SETUP
+  // endpoint variable 
+  let endPoint = "http://localhost:5000"
+  // connect with server using socket.io
+  let socket = io.connect(`${endPoint}`)
+
+
+
+  
+  // todo:
+  
+  // //all projects
+  // //create a project 
+  // //all users 
+  // messages
+  // myprofile -> new component -> update backend
+  // update my profile -> new form / component
+  //  
 
 function App() {
   const dispatch = useDispatch()
@@ -36,15 +57,51 @@ function App() {
     })();
   }, []);
 
+
+
+//* SOCKETIO 
+// state hooks
+const [messages, setMessages] = useState([
+  "Hello and Welcome"]);
+const [message, setMessage] = useState("");
+  
+// this method will call when first time app render and..
+// every time message length changes
+const getMessages = () => {
+  socket.on('message', msg => {
+    setMessages([...messages, msg.msg.message]);
+  });
+};
+
+// componentDidUpdate method as hook (useEffect)
+// this will auto call when message lenght changes
+useEffect(()=>{
+  getMessages();
+},[messages.length]);
+
+
+
+// on change input field this will call 
+const onChange = e =>{
+  setMessage(e.target.value);
+};
+
+//when send button pressed this method called 
+const onClick = () => {
+  if (message !== "") {
+    // when button clicked emit the message to server
+    socket.emit("message", JSON.stringify({message, senderid:2, recieverid:3 }));
+    setMessage("");
+  } else {
+    alert("Please Add A Message")
+    }
+  };
   if (!loaded) {
     return null;
   }
+  // return the view 
+  
 
-  // todo:
-  // myprofile 
-  // all projects
-  //create a project 
-  // all users 
 
 
   return (
@@ -70,7 +127,21 @@ function App() {
             <Route path="/" exact={true} authenticated={authenticated}>
          <RightNav setAuthenticated={setAuthenticated} authenticated={authenticated}>
           {/* <img src="https://collabherative.s3.us-east-2.amazonaws.com/logo_round-2.png" style={{width:"38%", padding:"1rem", boxSizing:"border-box", borderRadius:"2rem"}} /> */}
-          <h1 style={{padding:"1rem", boxSizing:"border-box", borderRadius:"2rem", fontSize:"15px"}}>Building a Community for women in tech to network and succeed!</h1>
+          {/* <h1 style={{padding:"1rem", boxSizing:"border-box", borderRadius:"2rem", fontSize:"15px"}}>Building a Community for women in tech to network and succeed!</h1> */}
+         <div>
+        {/* display each and every message in the state as a for loop */}
+        {messages.length > 0 && messages.map(msg=> (
+          <div>
+            <p>
+              {msg}
+            </p>
+          </div>
+        ))}
+        {/* input field */}
+        <input value={message} name="message" onChange={e => onChange(e)}/>
+        {/* button */}
+        <button onClick={() => onClick()}>Send Message</button>
+      </div>
          </RightNav>
          
         </Route>
@@ -114,6 +185,7 @@ function App() {
        </div>
       <div className="c">
       <SideNav></SideNav>
+      
       </div>
     </BrowserRouter>
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import CenterCard from '../centerCard/centerCard';
 // import logo from "react-app/src/images/CollabHERativelogo2.svg"
 import LoginForm from "../LoginFormModal"
-import "../navbar.css"
+import "../topNav/navbar.css"
 import RightNav from '../rightNav/rightNav';
 import { useParams, useHistory } from "react-router-dom";
 
