@@ -34,3 +34,15 @@ def create_chat():
     """
     form = CreateMessageForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        new_message = Message(
+            senderId=form.data["senderId"],
+            receiverId=form.data["receiverId"],
+            message=form.data["message"],
+        )
+        db.session.add(new_message)
+        db.session.commit()
+        return new_message.to_dict()
+    errors = validation_errors_to_error_messages(form.errors)
+    return {"errors": errors}
