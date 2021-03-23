@@ -21,13 +21,13 @@ const remove = (messageId) => ({
 
 //* REDUX -> THUNK -> JSON FETCH
 
-// export const getMessages = () => async (dispatch) => {
-//   const res = await fetch('/api/chatData');
-//   const json = await res.json();
-//   if (res.ok) {
-//     dispatch(load(json.messages));
-//   }
-// };
+export const getMessages = () => async (dispatch) => {
+  const res = await fetch('/api/chatData');
+  const json = await res.json();
+  if (res.ok) {
+    dispatch(load(json.messages));
+  }
+};
 
 //* CREATE A NEW MESSAGE 
 
