@@ -16,7 +16,7 @@ chat_routes = Blueprint('chat', __name__)
 
 @chat_routes.route("")
 @login_required
-def get_chats():
+def get_messages():
     """
     Get all messages
     """
@@ -28,7 +28,7 @@ def get_chats():
 
 @chat_routes.route("", methods=["POST"])
 @login_required
-def create_chat():
+def create_message():
     """
     Create new message
     """
@@ -46,3 +46,23 @@ def create_chat():
         return new_message.to_dict()
     errors = validation_errors_to_error_messages(form.errors)
     return {"errors": errors}
+
+# DELETE A MESSAGE
+
+
+@chat_routes.route("/<messageId", methods=["DELETE"])
+@login_required
+def delete_message(messageId):
+    """
+    Delete message
+    """
+
+
+message_to_delete = Message.query.get(messageId)
+if message_to_delete:
+    db.session.delete(message_to_delete)
+    db.session.commit()
+    return "Deleted"
+else:
+    print(f"-------- no message found  -------- ")
+    return {"errors": "No message found with given id"}
