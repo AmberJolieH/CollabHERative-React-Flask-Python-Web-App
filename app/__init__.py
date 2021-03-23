@@ -39,13 +39,12 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 def handleMessage(msg):
     msg = json.loads(msg)
     message, senderid, recieverid = msg.values()
-    
 
     message = DirectMessage(message=message, senderid=senderid,
-                     recieverid=recieverid)
+                            recieverid=recieverid)
     db.session.add(message)
     db.session.commit()
-    emit('message', {'msg':message.to_dict(),})
+    emit('message', {'msg': message.to_dict(), })
     print('recieved message' + message.message)
 
 

@@ -32,15 +32,15 @@ import RightNav from "./components/rightNav/rightNav"
 
 
   
-  // todo:
-  
+  // TODO:
   // //all projects
   // //create a project 
   // //all users 
-  // messages
+  // //messages backend 
+  // messeges component
   // myprofile -> new component -> update backend
   // update my profile -> new form / component
-  //  
+  // fix side nav 
 
 function App() {
   const dispatch = useDispatch()
