@@ -12,6 +12,7 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.showcase_routes import showcase_routes
+from .api.chat_routes import chat_routes
 from .seeds import seed_commands
 
 from .config import Config
@@ -35,9 +36,16 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 @socketio.on("message")
 def handleMessage(msg):
-    print(msg)
-    send(msg, broadcast=True)
-    return None
+    msg = json.loads(msg)
+    message, senderid, recieverid = msg.values()
+    
+
+    message = Message(message=message, senderid=senderid,
+                     recieverid=recieverid)
+    db.session.add(message)
+    db.session.commit()
+    emit('message', {'msg':message,})
+    print('recieved message' + message)
 
 
 @login.user_loader
@@ -52,6 +60,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(showcase_routes, url_prefix='/api/showcases')
+app.register_blueprint(chat_routes, url_prefix='/api/chat')
 db.init_app(app)
 Migrate(app, db)
 

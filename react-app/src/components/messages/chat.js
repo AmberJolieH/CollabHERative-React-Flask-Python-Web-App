@@ -5,8 +5,7 @@ import "./../topnav/navbar.css"
 
 
 export default function RealTimeChat(){
-const {connection, setConnection} = useConnectionContext();
-const [messages, setMessages] = 
+// const [messages, setMessages] = 
 
 return(
     <rightNav>
