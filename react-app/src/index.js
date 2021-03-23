@@ -7,7 +7,7 @@ import * as showcaseActions from './store/showcase';
 import { Provider } from 'react-redux';
 import configureStore from './store';
 import ModalProvider from "./context/modal"
-
+import ConnectionProvider from "./context/connectionChat"
 
   const initialState = {
     burgerMenu: {
@@ -36,8 +36,10 @@ ReactDOM.render(
   <React.StrictMode>
   <Provider store={store}>
     <ModalProvider>
-      <App />
-    </ModalProvider>
+      <ConnectionProvider>
+          <App />
+        </ConnectionProvider>
+      </ModalProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

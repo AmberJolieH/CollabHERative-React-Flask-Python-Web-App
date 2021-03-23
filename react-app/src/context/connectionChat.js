@@ -5,7 +5,7 @@ const ConnectionContext = createContext(initalConnection);
 
 export const useConnectionContext = () => useContext(ConnectionContext)
 
-export const ConnectionProvider = ({children}) => {
+const ConnectionProvider = ({children}) => {
     const [connection, setConnection] = useState('');
     
     return (
@@ -14,3 +14,5 @@ export const ConnectionProvider = ({children}) => {
         </ConnectiomContext.Provider>
         )
     }
+
+export default ConnectionProvider;
