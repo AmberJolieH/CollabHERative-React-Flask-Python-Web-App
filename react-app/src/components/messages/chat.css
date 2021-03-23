@@ -101,12 +101,12 @@
   font-size: 0.5rem;
 }
 
-.msg-form {
+.chat-form {
   display: flex;
   margin-top: 0.25rem;
 }
 
-.msg-form__input {
+.chat-form__input {
   border-radius: 0.75rem;
   width: 100%;
   border: none;
@@ -117,19 +117,19 @@
   font-size: 1rem;
 }
 
-.msg-form__input:focus {
+.chat-form__input:focus {
   box-shadow: 0 0 0 3px rgba(13, 51, 223, 0.3);
 }
 
-.msg-form__button, .msg-form-modal__button {
+.chat-form__button, .chat-form-modal__button {
   color: rgba(223, 132, 13, 0.479) !important;
 }
 
-.msg-form__button:hover, .msg-form-modal__button:hover {
+.chat-form__button:hover, .chat-form-modal__button:hover {
   color: rgb(223, 132, 13) !important;
 }
 
-.msg-form__button:active, .msg-form-modal__button:active {
+.chat-form__button:active, .chat-form-modal__button:active {
   color: rgba(223, 132, 13, 0.479) !important;
 }
 
