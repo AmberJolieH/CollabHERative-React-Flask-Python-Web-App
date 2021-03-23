@@ -1,21 +1,21 @@
 import React, {useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from '../auth/LogoutButton';
 import {useSelector} from "react-redux"
 import "./navbar.css"
-import LoginForm from "./LoginFormModal"
-import SignupForm from "./auth/SignUpForm"
+import LoginForm from "../LoginFormModal"
+import SignupForm from "../auth/SignUpForm"
 import HomeIcon from '@material-ui/icons/Home';
 import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
 import InsertDriveFileRoundedIcon from '@material-ui/icons/InsertDriveFileRounded';
-import ListShowcases from "./showcase/ListShowcases"
-import { listshowcases } from '../store/showcase';
-import profilePic from "../images/amber.svg"
+import ListShowcases from "../showcase/ListShowcases"
+import { listshowcases } from '../../store/showcase';
+import profilePic from "../../images/amber.svg"
 import FolderIcon from '@material-ui/icons/Folder';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import logo from "../images/logoNew.svg"
-import CenterCard from './centerCard/centerCard';
+import logo from "../../images/logoNew.svg"
+import CenterCard from '../centerCard/centerCard';
 
 
 const NavBar =({ setAuthenticated, authenticated }) => {

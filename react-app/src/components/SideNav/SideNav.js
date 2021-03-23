@@ -5,7 +5,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
 import InsertDriveFileRoundedIcon from '@material-ui/icons/InsertDriveFileRounded';
 import { NavLink } from 'react-router-dom';
-import "../navbar.css"
+import "../topNav/navbar.css"
 import profilePic from "../../images/amber.svg"
 import FolderIcon from '@material-ui/icons/Folder';
 import GitHubIcon from '@material-ui/icons/GitHub';
