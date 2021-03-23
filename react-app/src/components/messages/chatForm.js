@@ -5,7 +5,7 @@ import { createMessage } from '../../store/messages';
 import { useOtherUserContext } from './index';
 
 
-//Chat form
+//* CHAT INPUT FORM
 export default function ChatForm() {
   const dispatch = useDispatch();
   const [msg, setMsg] = useState('');
