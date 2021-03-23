@@ -16,12 +16,15 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import NavBar from "./components/topNav/NavBar";
 import SplashPage from "./components/splashPage/splashPage"
 import UserProfile from "./components/userProfile/userProfile"
-
-//* STORE/SESSION/AUTH
-import { restoreUser } from "./store/session";
+import Chat from './components/chat'
 import SideNav from "./components/SideNav/SideNav"
 import CenterCard from "./components/centerCard/centerCard";
 import RightNav from "./components/rightNav/rightNav"
+
+//* STORE/SESSION/AUTH
+import { restoreUser } from "./store/session";
+import {chat} from "./store/chat"
+
 
 //* SOCKETIO SETUP
   // endpoint variable 
@@ -37,7 +40,7 @@ import RightNav from "./components/rightNav/rightNav"
   // //create a project 
   // //all users 
   // //messages backend 
-  // messeges component
+  // // messeges component
   // myprofile -> new component -> update backend
   // update my profile -> new form / component
   // fix side nav 
@@ -156,6 +159,14 @@ const onClick = () => {
         </Route>
         <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
           <UsersList/>
+        </ProtectedRoute>
+       
+
+        <ProtectedRoute ProtectedRoute
+          path='/messages'
+          exact={true}
+          authenticated={authenticated}>
+          <Chat/>
         </ProtectedRoute>
         <ProtectedRoute
               path="/create_showcase"

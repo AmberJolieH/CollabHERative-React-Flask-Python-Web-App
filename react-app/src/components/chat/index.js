@@ -1,16 +1,17 @@
 //* IMPORTS
-import {createContext, useContext, useState, useEffect} from 'react';
+import React, {createContext, useContext, useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //* USED COMPONENTS
-import MessageUsersHolder from './MessageUsersHolder';
-import MessageTextsHolder from './MessageTextsHolder';
+import ChatUserWindow from './chatUserWindow';
+import ChatWindow from './chatWindow';
 
 //* REDUX THUNK
 import { getMessages } from '../../store/chat';
 
 //*CSS
 import './chat.css'
+import CenterCard from '../centerCard/centerCard';
 
 // @param otherUser will be selected user at click (to be receiver)
 const OtherUserContext = createContext();
@@ -23,6 +24,7 @@ export default function Messages() {
   const allUsers = useSelector((state) => state.users);
   
   const dispatch = useDispatch();
+
 //* CONTEXT
   const [otherUser, setOtherUser] = useState({ id: null });
 
@@ -42,22 +44,26 @@ export default function Messages() {
   });
 
   return (
-    <>
+    <div>
+      <CenterCard>
+    <div>
       {allUsers && lgdInUser && allMsgsLgdInUser && allMsgsWOtherUser && (
         <OtherUserContext.Provider value={{ otherUser, setOtherUser }}>
           <div className='messages'>
-            <MessageUsersHolder
+            <ChatUserWindow
               allUsers={allUsers}
               lgdInUser={lgdInUser}
               allMsgsLgdInUser={allMsgsLgdInUser}
             />
-            <MessageTextsHolder
+            <chatWindow
               lgdInUser={lgdInUser}
               allMsgsWOtherUser={allMsgsWOtherUser}
             />
           </div>
         </OtherUserContext.Provider>
       )}
-    </>
+    </div>
+    </CenterCard>
+    </div>
   );
 }

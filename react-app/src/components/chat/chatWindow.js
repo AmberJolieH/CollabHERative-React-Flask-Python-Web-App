@@ -7,7 +7,7 @@ import CenterCard from '../centerCard/centerCard';
 import { useOtherUserContext } from './index';
 
 //* FORM
-import ChatForm from './ChatForm';
+import ChatForm from './chatForm';
 
 //* REDUX
 import { deleteMessage } from '../../store/chat';
@@ -50,7 +50,7 @@ export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
   }
 
   return (
-   
+
     <div className='messages__container messages__texts-holder'>
       <h1 className='messages__title'>
         {otherUser.id ? otherUser.username : 'No Conversation Selected'}
@@ -85,7 +85,7 @@ export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
               </div>
             ))}
         </div>
-        <MessageForm />
+        <ChatForm />
       </div>
     </div>
   );
