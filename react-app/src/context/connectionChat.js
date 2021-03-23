@@ -1,18 +1,18 @@
-import React, {useState, createContext, useContext} from "react";
+// import React, {useState, createContext, useContext} from "react";
 
 
-const ConnectionContext = createContext(initalConnection);
+// const ConnectionContext = createContext(initalConnection);
 
-export const useConnectionContext = () => useContext(ConnectionContext)
+// export const useConnectionContext = () => useContext(ConnectionContext)
 
-const ConnectionProvider = ({children}) => {
-    const [connection, setConnection] = useState('');
+// const ConnectionProvider = ({children}) => {
+//     const [connection, setConnection] = useState('');
     
-    return (
-        <ConnectiomContext.Provider value={{connection, setConnection}}>
-            {children}
-        </ConnectiomContext.Provider>
-        )
-    }
+//     return (
+//         <ConnectiomContext.Provider value={{connection, setConnection}}>
+//             {children}
+//         </ConnectiomContext.Provider>
+//         )
+//     }
 
-export default ConnectionProvider;
+// export default ConnectionProvider;
