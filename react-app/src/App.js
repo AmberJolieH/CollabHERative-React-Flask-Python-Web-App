@@ -69,7 +69,7 @@ const [message, setMessage] = useState("");
 // every time message length changes
 const getMessages = () => {
   socket.on('message', msg => {
-    setMessages([...messages, msg]);
+    setMessages([...messages, msg.msg.message]);
   });
 };
 
@@ -90,7 +90,7 @@ const onChange = e =>{
 const onClick = () => {
   if (message !== "") {
     // when button clicked emit the message to server
-    socket.emit("message", message);
+    socket.emit("message", JSON.stringify({message, senderid:2, recieverid:3 }));
     setMessage("");
   } else {
     alert("Please Add A Message")

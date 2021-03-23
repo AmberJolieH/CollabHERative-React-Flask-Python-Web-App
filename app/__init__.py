@@ -5,10 +5,11 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
-from flask_socketio import SocketIO, send
+from flask_socketio import SocketIO, send, emit
+import json
 
 # ROUTES & DB
-from .models import db, User
+from .models import db, User, DirectMessage
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.showcase_routes import showcase_routes
@@ -40,12 +41,12 @@ def handleMessage(msg):
     message, senderid, recieverid = msg.values()
     
 
-    message = Message(message=message, senderid=senderid,
+    message = DirectMessage(message=message, senderid=senderid,
                      recieverid=recieverid)
     db.session.add(message)
     db.session.commit()
-    emit('message', {'msg':message,})
-    print('recieved message' + message)
+    emit('message', {'msg':message.to_dict(),})
+    print('recieved message' + message.message)
 
 
 @login.user_loader

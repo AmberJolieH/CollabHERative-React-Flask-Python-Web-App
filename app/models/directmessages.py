@@ -15,7 +15,7 @@ class DirectMessage (db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "userid": self.userid,
+            "senderid": self.senderid,
             "recieverid":self.recieverid,
             "message":self.message,
             "viewstatus":self.viewstatus,
