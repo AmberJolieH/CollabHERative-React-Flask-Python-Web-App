@@ -1,0 +1,8 @@
+
+.uiButton{
+    color: #636363;
+    box-shadow: 4px 5px 10px 0px rgba(119, 104, 104, 0.8553);
+}
+.uiButton:hover{
+    box-shadow: 4px 5px 10px 0px rgba(119, 104, 104, 0.8553);
+}
