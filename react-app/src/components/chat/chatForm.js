@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createMessage } from '../../store/chat';
 import { useOtherUserContext } from './index';
-
+import './chat.css'
 
 //* CHAT INPUT FORM
 export default function ChatForm() {

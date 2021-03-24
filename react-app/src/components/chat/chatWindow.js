@@ -12,6 +12,8 @@ import ChatForm from './chatForm';
 //* REDUX
 import { deleteMessage } from '../../store/chat';
 
+//*CSS
+import './chat.css'
 
 export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
   const { otherUser } = useOtherUserContext();
@@ -34,8 +36,7 @@ export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
     return `${day}, ${time} ${amPm}`;
   };
 
-  allMsgsWOtherUser.sort((a, b) => b.id - a.id);
-
+  
   if (!otherUser.id) {
     return (
       <div className='messages__container messages__texts-holder'>
@@ -48,7 +49,9 @@ export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
       </div>
     );
   }
-
+  
+  allMsgsWOtherUser.sort((a, b) => b.id - a.id);
+  
   return (
 
     <div className='messages__container messages__texts-holder'>

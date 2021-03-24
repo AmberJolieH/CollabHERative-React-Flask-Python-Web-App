@@ -22,7 +22,7 @@ const remove = (messageId) => ({
 //* REDUX -> THUNK -> JSON FETCH
 
 export const getMessages = () => async (dispatch) => {
-  const res = await fetch('/api/chatData');
+  const res = await fetch('/api/chat');
   const json = await res.json();
   if (res.ok) {
     dispatch(load(json.messages));
@@ -34,7 +34,7 @@ export const getMessages = () => async (dispatch) => {
 export const createMessage = (newMessage) => async (dispatch) => {
   const { senderId, receiverId, message } = newMessage;
 
-  const res = await fetch(`/api/chatData`, {
+  const res = await fetch(`/api/chat`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ export const createMessage = (newMessage) => async (dispatch) => {
 //* DELETE MESSAGE
 
 export const deleteMessage = (messageId) => async (dispatch) => {
-  const res = await fetch(`/api/messages/${messageId}`, {
+  const res = await fetch(`/api/chat/${messageId}`, {
     method: 'DELETE',
   });
   if (res.ok) {

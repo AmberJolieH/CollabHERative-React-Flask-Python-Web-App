@@ -20,7 +20,7 @@ import Chat from './components/chat'
 import SideNav from "./components/SideNav/SideNav"
 import CenterCard from "./components/centerCard/centerCard";
 import RightNav from "./components/rightNav/rightNav"
-
+import SecondChatCard from "./components/chat/secondChatCard";
 //* STORE/SESSION/AUTH
 import { restoreUser } from "./store/session";
 import {chat} from "./store/chat"
@@ -44,7 +44,9 @@ import {chat} from "./store/chat"
   // myprofile -> new component -> update backend
   // update my profile -> new form / component
   // fix side nav 
-
+  // correct top nav space
+  // make json seed data ->> senderid, receiverid, sample messege, is a recuritor?
+  // establish view status , how will this impact in form -> text window?
 function App() {
   const dispatch = useDispatch()
   const [authenticated, setAuthenticated] = useState(false);
@@ -127,6 +129,12 @@ const onClick = () => {
             >
               <CreateShowcase/>
             </ProtectedRoute>
+            <ProtectedRoute
+              path='/chat'
+              exact={true}
+              authenticated={authenticated}>
+          <SecondChatCard/>
+        </ProtectedRoute>
             <Route path="/" exact={true} authenticated={authenticated}>
          <RightNav setAuthenticated={setAuthenticated} authenticated={authenticated}>
           {/* <img src="https://collabherative.s3.us-east-2.amazonaws.com/logo_round-2.png" style={{width:"38%", padding:"1rem", boxSizing:"border-box", borderRadius:"2rem"}} /> */}
@@ -162,7 +170,7 @@ const onClick = () => {
         </ProtectedRoute>
        
 
-        <ProtectedRoute ProtectedRoute
+        <ProtectedRoute
           path='/chat'
           exact={true}
           authenticated={authenticated}>
