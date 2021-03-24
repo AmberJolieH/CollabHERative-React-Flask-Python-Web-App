@@ -50,11 +50,6 @@ export default function Messages() {
       {allUsers && lgdInUser && allMessagesForUser && allMessagesWOtherUser && (
         <OtherUserContext.Provider value={{ otherUser, setOtherUser }}>
           <div className='messages'>
-            <ChatUserWindow
-              allUsers={allUsers}
-              lgdInUser={lgdInUser}
-              allMessagesForUser={allMessagesForUser}
-            />
             <ChatWindow
               lgdInUser={lgdInUser}
               allMessagesWOtherUser={allMessagesWOtherUser}

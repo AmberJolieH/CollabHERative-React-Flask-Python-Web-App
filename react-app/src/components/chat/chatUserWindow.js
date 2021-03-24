@@ -1,6 +1,6 @@
 //* IMPORTS
 import React from 'react';
-import { useOtherUserContext } from './index';
+import { useOtherUserContext1 } from './secondChatCard';
 
 //*CSS
 import './chat.css'
@@ -11,7 +11,7 @@ export default function ChatUserWindow({
   lgdInUser,
   allMessagesForUser,
 }) {
-  const { setOtherUser, otherUser } = useOtherUserContext();
+  const {setOtherUser, otherUser} = useOtherUserContext1();
 
   // chat history -> (only see user history 1 time)
   const set = new Set();
