@@ -9,7 +9,7 @@ import './chat.css'
 export default function ChatUserWindow({
   allUsers,
   lgdInUser,
-  allMessagesForUser,
+  allChatsForUser,
 }) {
   const {setOtherUser, otherUser} = useOtherUserContext1();
 
@@ -17,8 +17,8 @@ export default function ChatUserWindow({
   const set = new Set();
   const previousChatArr = [];
 
-  for (let i = allMessagesForUser.length - 1; i > 0; i--) {
-    let msg = allMessagesForUser[i];
+  for (let i = allChatsForUser.length - 1; i > 0; i--) {
+    let msg = allChatsForUser[i];
     const idToAdd =
       msg.senderId === lgdInUser.id ? msg.receiverId : msg.senderId;
     if (!set.has(idToAdd)) previousChatArr.push(idToAdd);
@@ -27,29 +27,29 @@ export default function ChatUserWindow({
 
   const chatUsers = [];
   previousChatArr.forEach((id) => chatUsers.push(allUsers[id]));
-  if (chatUsers.length === 0) chatUsers.push({ username: 'No message history' });
+  if (chatUsers.length === 0) chatUsers.push({ firstname: 'No message history' });
 
   return (
     <>
       {chatUsers.length > 0 && !!chatUsers[0] && (
-        <div className='messages__container messages__users-holder'>
-          <h1 className='messages__title'>Chats</h1>
+        <div className='chat__container chat__users-holder'>
+          <h1 className='chat__title'>Chats</h1>
           {chatUsers.map((user) => {
             return (
               <div
                 className={
-                  user.username === 'No message history'
-                    ? 'messages__no-msg-history'
+                  user.firstname === 'No chat history'
+                    ? 'chat__no-msg-history'
                     : user.id === otherUser.id
-                    ? 'messages__other-user messages__other-user-active'
-                    : 'messages__other-user'
+                    ? 'chat__other-user chat__other-user-active'
+                    : 'chat__other-user'
                 }
                 key={user.id}
                 onClick={() => {
                   setOtherUser(user);
                 }}
               >
-                {user.username}
+                {user.firstname}
               </div>
             );
           })}

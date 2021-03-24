@@ -76,10 +76,10 @@ const initState = {
     message: '',
     timestamp: '',
     sender: {
-      username: '',
+      firstname: '',
     },
     receiver: {
-      username: '',
+      firstname: '',
     },
   },
 };

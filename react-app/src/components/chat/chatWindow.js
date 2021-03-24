@@ -15,7 +15,7 @@ import { deleteMessage } from '../../store/chat';
 //*CSS
 import './chat.css'
 
-export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
+export default function ChatWindow({ lgdInUser, allChatsWOtherUser }) {
   const { otherUser } = useOtherUserContext();
   const dispatch = useDispatch();
 
@@ -39,9 +39,9 @@ export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
   
   if (!otherUser.id) {
     return (
-      <div className='messages__container messages__texts-holder'>
+      <div className='chat__container chat__texts-holder'>
         <div>
-          <h1 className='messages__title'>No conversation selected</h1>
+          <h1 className='chat__title'>No conversation selected</h1>
           <p style={{ textAlign: 'center' }}>
             click a community member to send a message
           </p>
@@ -50,23 +50,23 @@ export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
     );
   }
   
-  allMsgsWOtherUser.sort((a, b) => b.id - a.id);
+  allChatsWOtherUser.sort((a, b) => b.id - a.id);
   
   return (
 
-    <div className='messages__container messages__texts-holder'>
-      <h1 className='messages__title'>
-        {otherUser.id ? otherUser.username : 'No Conversation Selected'}
+    <div className='chat__container chat__texts-holder'>
+      <h1 className='chat__title'>
+        {otherUser.id ? otherUser.firstname : 'No Conversation Selected'}
       </h1>
-      <div className='messages__texts-and-form'>
-        <div className='messages__texts'>
+      <div className='chat__texts-and-form'>
+        <div className='chat__texts'>
           {otherUser &&
-            allMsgsWOtherUser.map((msg) => (
+            allChatsWOtherUser.map((msg) => (
               <div
                 className={
                   lgdInUser.id === msg.sender.id
-                    ? 'messages__texts__right'
-                    : 'messages__texts__left'
+                    ? 'chat__texts__right'
+                    : 'chat__texts__left'
                 }
                 key={msg.id}
               >
@@ -78,8 +78,8 @@ export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
                         }
                       : {}
                   }
-                  className='single-message-text'
-                  title={msg.sender.username}
+                  className='single-chat-text'
+                  title={msg.sender.firstname}
                   onClick={lgdInUser.id === msg.sender.id ? () => handleDelete(msg) : undefined}
                 >
                   {msg.message}

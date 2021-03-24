@@ -29,7 +29,7 @@ export default function ChatForm() {
 
   return (
     <form onSubmit={onSend} className='chat-form'>
-      <textarea
+      <textarea style={{width:"26rem", display:"flex", alignItems:"center"}}
         value={msg}
         onChange={(e) => {
           setMsg(e.target.value);
@@ -39,7 +39,7 @@ export default function ChatForm() {
         rows={3}
         required
       />
-      <button type='submit' className='chat-form__button'>
+      <button type='submit' className='chat-form__button'> Send
         <i className='fas fa-play fa-2x'></i>
       </button>
     </form>

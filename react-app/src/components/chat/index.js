@@ -7,7 +7,7 @@ import ChatUserWindow from './chatUserWindow';
 import ChatWindow from './chatWindow';
 import ChatForm from './chatForm';
 //* REDUX THUNK
-import { getMessages } from '../../store/chat';
+import { getChats } from '../../store/chat';
 
 //*CSS
 import './chat.css'
@@ -18,9 +18,9 @@ const OtherUserContext = createContext();
 export const useOtherUserContext = () => useContext(OtherUserContext);
 
 //*STORE 
-export default function Messages() {
+export default function Chats() {
   const lgdInUser = useSelector((state) => state.session.user);
-  const allMessages = useSelector((state) => state.chat);
+  const allChats = useSelector((state) => state.chat);
   const allUsers = useSelector((state) => state.users);
   
   const dispatch = useDispatch();
@@ -29,16 +29,16 @@ export default function Messages() {
   const [otherUser, setOtherUser] = useState({ id: null });
 
     useEffect(() => {
-    // dispatch(getMessages());
+    // dispatch(getChats());
   }, [dispatch]);
   
-  const messagesArray = Object.values(allMessages);
-  const allMessagesForUser = messagesArray.filter(
+  const chatsArray = Object.values(allChats);
+  const allChatsForUser = chatsArray.filter(
     (message) =>
       message.senderId === lgdInUser.id || message.receiverId === lgdInUser.id
   );
 
-  const allMessagesWOtherUser = allMessagesForUser.filter((message) => {
+  const allChatsWOtherUser = allChatsForUser.filter((message) => {
     const idToCheck = otherUser.id;
     return message.senderId === idToCheck || message.receiverId === idToCheck;
   });
@@ -46,13 +46,13 @@ export default function Messages() {
   return (
     <div>
       <CenterCard>
-    <div>
-      {allUsers && lgdInUser && allMessagesForUser && allMessagesWOtherUser && (
+    <div style={{padding:"1rem"}}>
+      {allUsers && lgdInUser && allChatsForUser && allChatsWOtherUser && (
         <OtherUserContext.Provider value={{ otherUser, setOtherUser }}>
           <div className='messages'>
             <ChatWindow
               lgdInUser={lgdInUser}
-              allMessagesWOtherUser={allMessagesWOtherUser}
+              allChatsWOtherUser={allChatsWOtherUser}
             />
             <ChatForm/>
           </div>

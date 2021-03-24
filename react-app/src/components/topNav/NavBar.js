@@ -41,9 +41,6 @@ const NavBar =({ setAuthenticated, authenticated }) => {
                   </NavLink>
                 </div>
                 <div>
-                  <h4>
-                    My Opportunities
-                  </h4>
                 </div>
             <div >
               <LogoutButton setAuthenticated={setAuthenticated} />
