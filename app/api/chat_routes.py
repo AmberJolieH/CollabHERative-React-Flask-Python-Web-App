@@ -37,8 +37,8 @@ def create_message():
 
     if form.validate_on_submit():
         new_message = Message(
-            senderId=form.data["senderId"],
-            receiverId=form.data["receiverId"],
+            senderid=form.data["senderId"],
+            receiverid=form.data["receiverId"],
             message=form.data["message"],
         )
         db.session.add(new_message)

@@ -12,10 +12,10 @@ import { getMessages } from '../../store/chat';
 //*CSS
 import './chat.css'
 import CenterCard from '../centerCard/centerCard';
-
+import RightNav from '../rightNav/rightNav'
 // @param otherUser will be selected user at click (to be receiver)
-const OtherUserContext = createContext();
-export const useOtherUserContext = () => useContext(OtherUserContext);
+const OtherUserContext1 = createContext();
+export const useOtherUserContext1 = () => useContext(OtherUserContext1);
 
 //*STORE 
 export default function Messages() {
@@ -45,21 +45,21 @@ export default function Messages() {
 
   return (
     <div>
-      <CenterCard>
+      <RightNav>
     <div>
       {allUsers && lgdInUser && allMessagesForUser && allMessagesWOtherUser && (
-        <OtherUserContext.Provider value={{ otherUser, setOtherUser }}>
+        <OtherUserContext1.Provider value={{ otherUser, setOtherUser }}>
           <div className='messages'>
-            <ChatWindow
+            <ChatUserWindow
+              allUsers={allUsers}
               lgdInUser={lgdInUser}
-              allMessagesWOtherUser={allMessagesWOtherUser}
+              allMessagesForUser={allMessagesForUser}
             />
-            <ChatForm/>
           </div>
-        </OtherUserContext.Provider>
+        </OtherUserContext1.Provider>
       )}
     </div>
-    </CenterCard>
+    </RightNav>
     </div>
   );
 }

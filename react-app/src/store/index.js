@@ -2,12 +2,14 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import showcaseReducer from "./showcase";
 import sessionReducer from './session'
-import {reducer as burgerMenu} from 'redux-burger-menu';
+import chatReducer from "./chat"
+import userReducer from "./users"
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     showcases: showcaseReducer,
-    burgerMenu
+    chat: chatReducer,
+    users: userReducer
 });
 
 let enhancer;

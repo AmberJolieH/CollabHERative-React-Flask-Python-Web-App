@@ -1,9 +1,9 @@
 .messages {
   display: flex;
   padding: 0 1rem;
-  max-width: 1140px;
+  width: 400px;
   height: 95vh;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .messages__container {
@@ -14,11 +14,12 @@
   border-radius: 0.75rem;
   margin: 0.25rem;
   padding: 1rem;
+  width: 400px;
 }
 
 .messages__users-holder {
   display: flex;
-  width: 25%;
+  width: 100%;
   align-items: center;
 }
 
@@ -31,7 +32,7 @@
 .messages__title {
   color: rgba(13, 51, 223, 0.76);
   font-weight: 300;
-  width: fit-content;
+  width: 100%;
   margin: 0 auto;
   background-color: rgb(171, 172, 175);
   margin-bottom: 1rem;
@@ -41,7 +42,7 @@
   background: rgba(223, 132, 13, 0.479);
   border-radius: 0.75rem;
   padding: 0.5rem;
-  width: fill;
+  width: 100%;
   margin: 0 auto 0.25rem;
 }
 
@@ -133,4 +134,11 @@
   color: rgba(223, 132, 13, 0.479) !important;
 }
 
-
+.newWindowChat{
+  position: absolute;
+  width: 529px;
+  height: 732px;
+  background: #F5F5F5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}

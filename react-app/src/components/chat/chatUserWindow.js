@@ -1,20 +1,24 @@
 //* IMPORTS
 import React from 'react';
-import { useOtherUserContext } from './index';
+import { useOtherUserContext1 } from './secondChatCard';
 
-export default function MessageUsersHolder({
+//*CSS
+import './chat.css'
+
+
+export default function ChatUserWindow({
   allUsers,
   lgdInUser,
-  allMsgsLgdInUser,
+  allMessagesForUser,
 }) {
-  const { setOtherUser, otherUser } = useOtherUserContext();
+  const {setOtherUser, otherUser} = useOtherUserContext1();
 
   // chat history -> (only see user history 1 time)
   const set = new Set();
   const previousChatArr = [];
 
-  for (let i = allMsgsLgdInUser.length - 1; i > 0; i--) {
-    let msg = allMsgsLgdInUser[i];
+  for (let i = allMessagesForUser.length - 1; i > 0; i--) {
+    let msg = allMessagesForUser[i];
     const idToAdd =
       msg.senderId === lgdInUser.id ? msg.receiverId : msg.senderId;
     if (!set.has(idToAdd)) previousChatArr.push(idToAdd);
