@@ -30,10 +30,13 @@ const SideNav = () => {
              <HomeIcon style={{ color: '#636363' }} />
            </NavLink>
          </div>
-
-         <div style={{ marginLeft:"2.5rem", marginTop:"2rem"}}>
+        
+         <NavLink to="/chat" exact={true} activeClassName="active" style={{ marginLeft:"2.5rem", marginTop:"2rem"}}>
+           <div style={{ marginLeft:"2.5rem", marginTop:"1rem"}}>
            <MailOutlineRoundedIcon style={{ color: '#636363' }}/>
-         </div>
+            </div>
+           </NavLink>
+        
          <NavLink to="/create_showcase" exact={true} activeClassName="active" style={{textDecoration:"none",color:"black", padding:"1rem"}}>
          <div style={{ marginLeft:"2.5rem", marginTop:"1rem"}}>
            <InsertDriveFileRoundedIcon style={{ color: '#636363' }}/>
@@ -47,9 +50,9 @@ const SideNav = () => {
             <GroupIcon style={{ color: '#636363' }}/>
            </NavLink>
          </div>
-         <div style={{marginLeft:"1.5rem", marginTop:"2rem"}} >
+         <div className=".uiButton" style={{marginLeft:"1.5rem", marginTop:"2rem"}} >
            <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"#636363", padding:"1rem", marginRight:"15rem"}}>
-           <DashboardIcon style={{color:"#FAAE43"}}/>
+           <DashboardIcon/>
            </NavLink>
          </div>
          <div style={{ marginLeft:".8rem", marginTop:"12rem"}}>

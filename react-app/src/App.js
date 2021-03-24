@@ -163,7 +163,7 @@ const onClick = () => {
        
 
         <ProtectedRoute ProtectedRoute
-          path='/messages'
+          path='/chat'
           exact={true}
           authenticated={authenticated}>
           <Chat/>
