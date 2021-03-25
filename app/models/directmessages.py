@@ -28,4 +28,6 @@ class DirectMessage (db.Model):
             "message": self.message,
             "viewstatus": self.viewstatus,
             "timestamp": self.timestamp,
+            "sender": self.sender.to_dict(),
+            "receiver": self.receiver.to_dict()
         }

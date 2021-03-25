@@ -31,8 +31,9 @@ export const getMessages = () => async (dispatch) => {
 
 //* CREATE A NEW MESSAGE 
 
-export const createMessage = (newMessage) => async (dispatch) => {
+export const createChat = (newMessage) => async (dispatch) => {
   const { senderId, receiverId, message } = newMessage;
+  console.log(senderId, receiverId)
 
   const res = await fetch(`/api/chat`, {
     method: 'POST',
@@ -76,15 +77,15 @@ const initState = {
     message: '',
     timestamp: '',
     sender: {
-      username: '',
+      firstname: '',
     },
     receiver: {
-      username: '',
+      firstname: '',
     },
   },
 };
 
-const chatReducer = (state = initState, action) => {
+const chatReducer = (state = null, action) => {
   const newState = { ...state };
 
   switch (action.type) {

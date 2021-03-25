@@ -1,62 +1,65 @@
 //* IMPORTS
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //* USED COMPONENTS
-import ChatUserWindow from './chatUserWindow';
 import ChatWindow from './chatWindow';
 import ChatForm from './chatForm';
 //* REDUX THUNK
-import { getMessages } from '../../store/chat';
-
+import { getUsers } from '../../store/users';
+import {getMessages} from "../../store/chat"
+import {useOtherUserContext} from "../../context/otherUser"
 //*CSS
 import './chat.css'
 import CenterCard from '../centerCard/centerCard';
 
 // @param otherUser will be selected user at click (to be receiver)
-const OtherUserContext = createContext();
-export const useOtherUserContext = () => useContext(OtherUserContext);
+
 
 //*STORE 
-export default function Messages() {
+export default function Chats() {
   const lgdInUser = useSelector((state) => state.session.user);
-  const allMessages = useSelector((state) => state.chat);
+  const allChats = useSelector((state) => state.chat);
   const allUsers = useSelector((state) => state.users);
-  
+  const {otherUser} = useOtherUserContext();
   const dispatch = useDispatch();
 
 //* STATE FOR CONTEXT
-  const [otherUser, setOtherUser] = useState({ id: null });
+  
 
     useEffect(() => {
-    // dispatch(getMessages());
+    dispatch(getUsers());
+    dispatch(getMessages());
   }, [dispatch]);
+
+
   
-  const messagesArray = Object.values(allMessages);
-  const allMessagesForUser = messagesArray.filter(
+  const chatsArray = Object.values(allChats);
+  console.log(chatsArray)
+  const allChatsForUser = chatsArray.filter(
     (message) =>
       message.senderId === lgdInUser.id || message.receiverId === lgdInUser.id
   );
+console.log(allChatsForUser)
 
-  const allMessagesWOtherUser = allMessagesForUser.filter((message) => {
+  const allChatsWOtherUser = allChatsForUser.filter((message) => {
     const idToCheck = otherUser.id;
     return message.senderId === idToCheck || message.receiverId === idToCheck;
   });
-
+  
   return (
     <div>
       <CenterCard>
-    <div>
-      {allUsers && lgdInUser && allMessagesForUser && allMessagesWOtherUser && (
-        <OtherUserContext.Provider value={{ otherUser, setOtherUser }}>
-          <div className='messages'>
+    <div style={{padding:"1rem"}}>
+      {allUsers && lgdInUser && allChatsForUser && allChatsWOtherUser && (
+      <div>
+        <div>
             <ChatWindow
               lgdInUser={lgdInUser}
-              allMessagesWOtherUser={allMessagesWOtherUser}
+              allChatsWOtherUser={allChatsWOtherUser}
             />
-            <ChatForm/>
-          </div>
-        </OtherUserContext.Provider>
+        </div>
+      </div>
       )}
     </div>
     </CenterCard>

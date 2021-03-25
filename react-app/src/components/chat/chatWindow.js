@@ -1,10 +1,10 @@
 //* IMPORTS 
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CenterCard from '../centerCard/centerCard';
 
 //* CONTEXT
-import { useOtherUserContext } from './index';
+import { useOtherUserContext } from '../../context/otherUser';
 
 //* FORM
 import ChatForm from './chatForm';
@@ -15,9 +15,24 @@ import { deleteMessage } from '../../store/chat';
 //*CSS
 import './chat.css'
 
-export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
+export default function ChatWindow({ lgdInUser }) {
   const { otherUser } = useOtherUserContext();
   const dispatch = useDispatch();
+  const allChats = useSelector((state) => state.chat);
+
+
+  const chatsArray = Object.values(allChats);
+  console.log(chatsArray)
+  const allChatsForUser = chatsArray.filter(
+    (message) =>
+      message.senderid === lgdInUser.id || message.receiverid === lgdInUser.id
+  );
+console.log(allChatsForUser)
+
+  const allChatsWOtherUser = allChatsForUser.filter((message) => {
+    const idToCheck = otherUser.id;
+    return message.senderid === idToCheck || message.receiverid === idToCheck;
+  });
 
   const handleDelete = function (msg) {
     const res = window.confirm(`Delete this message? "${msg.message}"`);
@@ -39,9 +54,9 @@ export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
   
   if (!otherUser.id) {
     return (
-      <div className='messages__container messages__texts-holder'>
+      <div className='chat__container chat__texts-holder'>
         <div>
-          <h1 className='messages__title'>No conversation selected</h1>
+          <h1 className='chat__title'>No conversation selected</h1>
           <p style={{ textAlign: 'center' }}>
             click a community member to send a message
           </p>
@@ -50,37 +65,38 @@ export default function ChatWindow({ lgdInUser, allMsgsWOtherUser }) {
     );
   }
   
-  allMsgsWOtherUser.sort((a, b) => b.id - a.id);
+  allChatsWOtherUser.sort((a, b) => b.id - a.id);
+  console.log(allChatsWOtherUser)
   
   return (
 
-    <div className='messages__container messages__texts-holder'>
-      <h1 className='messages__title'>
-        {otherUser.id ? otherUser.username : 'No Conversation Selected'}
+    <div className='chat__container chat__texts-holder'>
+      <h1 className='chat__title'>
+        {otherUser.id ? otherUser.firstname : 'No Conversation Selected'}
       </h1>
-      <div className='messages__texts-and-form'>
-        <div className='messages__texts'>
+      <div className='chat__texts-and-form'>
+        <div className='chat__texts'>
           {otherUser &&
-            allMsgsWOtherUser.map((msg) => (
+            allChatsWOtherUser.map((msg) => (
               <div
                 className={
-                  lgdInUser.id === msg.sender.id
-                    ? 'messages__texts__right'
-                    : 'messages__texts__left'
+                  lgdInUser.id === msg.senderid
+                    ? 'chat__texts__right'
+                    : 'chat__texts__left'
                 }
                 key={msg.id}
               >
                 <p
                   style={
-                    lgdInUser.id === msg.sender.id
+                    lgdInUser.id === msg.senderid
                       ? {
                           background: 'rgba(13, 51, 223, 0.65)',
                         }
                       : {}
                   }
-                  className='single-message-text'
-                  title={msg.sender.username}
-                  onClick={lgdInUser.id === msg.sender.id ? () => handleDelete(msg) : undefined}
+                  className='single-chat-text'
+                  title={msg.sender.firstname}
+                  onClick={lgdInUser.id === msg.senderid ? () => handleDelete(msg) : undefined}
                 >
                   {msg.message}
                 </p>

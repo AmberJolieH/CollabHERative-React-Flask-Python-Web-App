@@ -14,7 +14,7 @@ import profilePic from "../../images/amber.svg"
 import FolderIcon from '@material-ui/icons/Folder';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import logo from "../../images/logoNew.svg"
+import logo from "../../images/logo26.svg"
 import CenterCard from '../centerCard/centerCard';
 
 
@@ -30,22 +30,19 @@ const NavBar =({ setAuthenticated, authenticated }) => {
      <nav className="navContainer">
        <div className="top-navbar" style={{display:"flex", alignItems:"center"}} >
           
-            <img src={logo} alt="React Logo"/>
+            <img src={logo} alt="React Logo" style={{ marginRight:"37rem", padding:"2rem"}}/>
            
            { user && authenticated && (
              
-            <div  style={{display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%"}}>
+            <div>
                 <div>
-                  <NavLink to={`/users/${user.id}`} exact={true} activeClassName="active" style={{textDecoration:"none",color:"#FAAE43", marginRight:"10rem", marginLeft:"10rem"}}>
+                  {/* <NavLink to={`/users/${user.id}`} exact={true} activeClassName="active" style={{textDecoration:"none",color:"#FAAE43", marginRight:"10rem", marginLeft:"10rem"}}>
                     My Projects
-                  </NavLink>
+                  </NavLink> */}
                 </div>
                 <div>
-                  <h4>
-                    My Opportunities
-                  </h4>
                 </div>
-            <div >
+            <div style={{padding:"1rem"}}>
               <LogoutButton setAuthenticated={setAuthenticated} />
             </div>
           </div>
@@ -57,8 +54,8 @@ const NavBar =({ setAuthenticated, authenticated }) => {
           // flexFlow: "row wrap",
           alignItems: "center",
           height:"100%",
-          justifyContent: "space-between", padding:".5rem"}}>
-            <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%", marginLeft:"35rem",}}>
+          justifyContent: "space-between", padding:"10rem"}}>
+            <div style={{textDecoration:"none",color:"#3D3D3D",display:"flex", justifyContent: "space-between", alignItems:"center", height:"100%", padding:"1rem"}}>
               <div >
                 <LoginForm   setAuthenticated={setAuthenticated} authenticated={authenticated}/>
               </div>

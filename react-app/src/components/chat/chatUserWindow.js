@@ -1,6 +1,9 @@
 //* IMPORTS
-import React from 'react';
-import { useOtherUserContext1 } from './secondChatCard';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import { useOtherUserContext } from '../../context/otherUser';
+import { getUsers} from '../../store/users';
+
 
 //*CSS
 import './chat.css'
@@ -9,47 +12,64 @@ import './chat.css'
 export default function ChatUserWindow({
   allUsers,
   lgdInUser,
-  allMessagesForUser,
 }) {
-  const {setOtherUser, otherUser} = useOtherUserContext1();
+
+  const dispatch = useDispatch();
+  const allChats = useSelector((state) => state.chat);
+
+  const {setOtherUser, otherUser} = useOtherUserContext();
+
+
+  const chatsArray = Object.values(allChats);
+  console.log(chatsArray)
+  const allChatsForUser = chatsArray.filter(
+    (message) =>
+      message.senderid === lgdInUser.id || message.receiverid === lgdInUser.id
+  );
+  console.log(allChatsForUser)
+  
 
   // chat history -> (only see user history 1 time)
   const set = new Set();
   const previousChatArr = [];
+  console.log(allChatsForUser)
 
-  for (let i = allMessagesForUser.length - 1; i > 0; i--) {
-    let msg = allMessagesForUser[i];
+  for (let i = allChatsForUser.length - 1; i >= 0; i--) {
+    let msg = allChatsForUser[i];
     const idToAdd =
-      msg.senderId === lgdInUser.id ? msg.receiverId : msg.senderId;
+      msg.senderid === lgdInUser.id ? msg.receiverid : msg.senderid;
     if (!set.has(idToAdd)) previousChatArr.push(idToAdd);
     set.add(idToAdd);
   }
-
+console.log(previousChatArr)
   const chatUsers = [];
   previousChatArr.forEach((id) => chatUsers.push(allUsers[id]));
-  if (chatUsers.length === 0) chatUsers.push({ username: 'No message history' });
+  console.log(chatUsers)
+  if (chatUsers.length === 0) chatUsers.push({ firstname: 'No message history' });
 
   return (
     <>
       {chatUsers.length > 0 && !!chatUsers[0] && (
-        <div className='messages__container messages__users-holder'>
-          <h1 className='messages__title'>Chats</h1>
+        <div className='chat__container chat__users-holder'>
+          <h1 className='chat__title'>Chats</h1>
           {chatUsers.map((user) => {
+            console.log(user)
             return (
               <div
                 className={
-                  user.username === 'No message history'
-                    ? 'messages__no-msg-history'
+                  user.firstname === 'No chat history'
+                    ? 'chat__no-msg-history'
                     : user.id === otherUser.id
-                    ? 'messages__other-user messages__other-user-active'
-                    : 'messages__other-user'
+                    ? 'chat__other-user chat__other-user-active'
+                    : 'chat__other-user'
                 }
                 key={user.id}
                 onClick={() => {
                   setOtherUser(user);
+                  console.log(otherUser)
                 }}
               >
-                {user.username}
+                {user.firstname}
               </div>
             );
           })}
