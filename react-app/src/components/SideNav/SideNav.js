@@ -55,7 +55,7 @@ const SideNav = () => {
            <DashboardIcon/>
            </NavLink>
          </div>
-         <div style={{ marginLeft:".8rem", marginTop:"12rem"}}>
+         <div style={{ marginLeft:".8rem", marginTop:"10rem"}}>
            <a href="https://github.com/AmberJolieH" >
            <GitHubIcon style={{ color: '#636363', marginLeft:"1.6rem",marginTop:"3rem"}}/>
            </a>

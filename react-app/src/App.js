@@ -41,12 +41,17 @@ import {chat} from "./store/chat"
   // //all users 
   // //messages backend 
   // // messeges component
-  // myprofile -> new component -> update backend
-  // update my profile -> new form / component
-  // fix side nav 
-  // correct top nav space
-  // make json seed data ->> senderid, receiverid, sample messege, is a recuritor?
-  // establish view status , how will this impact in form -> text window?
+  // //fix side nav 
+  // //correct top nav space
+  //// make json seed data ->> senderid, receiverid, sample messege, is a recuritor?
+  
+  //update my profile - style add content
+  // make seed data projects with photos
+  // my job postings page
+  // projects example on create a project
+  // click on individual project and see details 
+
+
 function App() {
   const dispatch = useDispatch()
   const [authenticated, setAuthenticated] = useState(false);
@@ -137,22 +142,7 @@ const onClick = () => {
         </ProtectedRoute>
             <Route path="/" exact={true} authenticated={authenticated}>
          <RightNav setAuthenticated={setAuthenticated} authenticated={authenticated}>
-          {/* <img src="https://collabherative.s3.us-east-2.amazonaws.com/logo_round-2.png" style={{width:"38%", padding:"1rem", boxSizing:"border-box", borderRadius:"2rem"}} /> */}
-          {/* <h1 style={{padding:"1rem", boxSizing:"border-box", borderRadius:"2rem", fontSize:"15px"}}>Building a Community for women in tech to network and succeed!</h1> */}
-         <div>
-        {/* display each and every message in the state as a for loop */}
-        {messages.length > 0 && messages.map(msg=> (
-          <div>
-            <p>
-              {msg}
-            </p>
-          </div>
-        ))}
-        {/* input field */}
-        <input value={message} name="message" onChange={e => onChange(e)}/>
-        {/* button */}
-        <button onClick={() => onClick()}>Send Message</button>
-      </div>
+          <h2 style={{padding:"1rem"}}>Current Job Postings:</h2>
          </RightNav>
          
         </Route>
