@@ -5,7 +5,7 @@ import LoginForm from "../LoginFormModal"
 import "../topNav/navbar.css"
 import RightNav from '../rightNav/rightNav';
 import { useParams, useHistory } from "react-router-dom";
-
+import center from "../../images/center2.svg"
 
 const SplashPage = ({setAuthenticated}) => {
   const [user, setUser] = useState({});
@@ -24,35 +24,35 @@ const SplashPage = ({setAuthenticated}) => {
   }, [userId]);
     return (
       <CenterCard>
-        <div style={{marginLeft:"5rem"}}>
-           
-           <div style={{marginTop:"2rem"}} >
+        <div style={{marginLeft:"0"}}>
+           <img src={center} style={{}}/>
+           {/* <div style={{marginTop:"2rem"}} >
             <img src="https://collabherative.s3.us-east-2.amazonaws.com/logo_round-3.png" style={{width:"40%"}}/>
-        </div>
+        </div> */}
         <div>
-        <h1>
+        {/* <h1>
           Demo User
-        </h1>
+        </h1> */}
        </div>
         <div>
-          <h2>
+          {/* <h2>
           Software Engineer
-          </h2>
+          </h2> */}
         </div>
         <div>
-          <h3>
+          {/* <h3>
           Skills: 
-          </h3>
+          </h3> */}
         </div>
         <div>
-          <text style={{fontSize:"12px"}}>
+          {/* <text style={{fontSize:"12px"}}>
             <bold>Languages:</bold> Javascript, C, Typescript,Python, HTML, CSS,
             Databases: SQL, PostgreSQL,MongoDB, SQLAlchemy
             Frameworks: React,Redux,SLS(C##),Docker,Node.JS & Express.JS
             Operating Systems: MacOSX, Windows
             Collaboration Tools: Git, Slack
             Creative Tools: AutoCad, Maya, 3Ds Max, Blendr, Adobe Illustrator, Figma
-          </text>
+          </text> */}
           
         </div>
         </div>
