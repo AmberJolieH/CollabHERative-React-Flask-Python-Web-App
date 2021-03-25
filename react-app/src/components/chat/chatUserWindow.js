@@ -69,7 +69,10 @@ console.log(previousChatArr)
                   console.log(otherUser)
                 }}
               >
+                <div style={{display:"flex", alignItems:"center"}}>
+                <img src={user.imgurl} style={{width:"45%", padding:"1rem"}}/>
                 {user.firstname}
+                </div>
               </div>
             );
           })}

@@ -104,7 +104,9 @@ console.log(allChatsForUser)
               </div>
             ))}
         </div>
-        <ChatForm />
+        <div>
+        <ChatForm  />
+        </div>
       </div>
     </div>
   );
