@@ -21,6 +21,7 @@ import SideNav from "./components/SideNav/SideNav"
 import CenterCard from "./components/centerCard/centerCard";
 import RightNav from "./components/rightNav/rightNav"
 import SecondChatCard from "./components/chat/secondChatCard";
+import right from "./images/right.svg"
 //* STORE/SESSION/AUTH
 import { restoreUser } from "./store/session";
 import {chat} from "./store/chat"
@@ -142,7 +143,8 @@ const onClick = () => {
         </ProtectedRoute>
             <Route path="/" exact={true} authenticated={authenticated}>
          <RightNav setAuthenticated={setAuthenticated} authenticated={authenticated}>
-          <h2 style={{padding:"1rem"}}>Current Job Postings:</h2>
+          <img src={right}/>
+          {/* <h2 style={{padding:"1rem"}}>Current Job Postings:</h2> */}
          </RightNav>
          
         </Route>
