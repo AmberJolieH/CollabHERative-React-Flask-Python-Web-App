@@ -1,6 +1,9 @@
 //* IMPORTS
-import React from 'react';
-import { useOtherUserContext1 } from './secondChatCard';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import { useOtherUserContext } from '../../context/otherUser';
+import { getUsers} from '../../store/users';
+
 
 //*CSS
 import './chat.css'
@@ -9,24 +12,39 @@ import './chat.css'
 export default function ChatUserWindow({
   allUsers,
   lgdInUser,
-  allChatsForUser,
 }) {
-  const {setOtherUser, otherUser} = useOtherUserContext1();
+
+  const dispatch = useDispatch();
+  const allChats = useSelector((state) => state.chat);
+
+  const {setOtherUser, otherUser} = useOtherUserContext();
+
+
+  const chatsArray = Object.values(allChats);
+  console.log(chatsArray)
+  const allChatsForUser = chatsArray.filter(
+    (message) =>
+      message.senderid === lgdInUser.id || message.receiverid === lgdInUser.id
+  );
+  console.log(allChatsForUser)
+  
 
   // chat history -> (only see user history 1 time)
   const set = new Set();
   const previousChatArr = [];
+  console.log(allChatsForUser)
 
-  for (let i = allChatsForUser.length - 1; i > 0; i--) {
+  for (let i = allChatsForUser.length - 1; i >= 0; i--) {
     let msg = allChatsForUser[i];
     const idToAdd =
-      msg.senderId === lgdInUser.id ? msg.receiverId : msg.senderId;
+      msg.senderid === lgdInUser.id ? msg.receiverid : msg.senderid;
     if (!set.has(idToAdd)) previousChatArr.push(idToAdd);
     set.add(idToAdd);
   }
-
+console.log(previousChatArr)
   const chatUsers = [];
   previousChatArr.forEach((id) => chatUsers.push(allUsers[id]));
+  console.log(chatUsers)
   if (chatUsers.length === 0) chatUsers.push({ firstname: 'No message history' });
 
   return (
@@ -35,6 +53,7 @@ export default function ChatUserWindow({
         <div className='chat__container chat__users-holder'>
           <h1 className='chat__title'>Chats</h1>
           {chatUsers.map((user) => {
+            console.log(user)
             return (
               <div
                 className={
@@ -47,6 +66,7 @@ export default function ChatUserWindow({
                 key={user.id}
                 onClick={() => {
                   setOtherUser(user);
+                  console.log(otherUser)
                 }}
               >
                 {user.firstname}

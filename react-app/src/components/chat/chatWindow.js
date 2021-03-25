@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import CenterCard from '../centerCard/centerCard';
 
 //* CONTEXT
-import { useOtherUserContext } from './index';
+import { useOtherUserContext } from '../../context/otherUser';
 
 //* FORM
 import ChatForm from './chatForm';
@@ -51,6 +51,7 @@ export default function ChatWindow({ lgdInUser, allChatsWOtherUser }) {
   }
   
   allChatsWOtherUser.sort((a, b) => b.id - a.id);
+  console.log(allChatsWOtherUser)
   
   return (
 

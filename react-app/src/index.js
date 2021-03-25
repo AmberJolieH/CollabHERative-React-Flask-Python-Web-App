@@ -7,6 +7,7 @@ import * as showcaseActions from './store/showcase';
 import { Provider } from 'react-redux';
 import configureStore from './store';
 import ModalProvider from "./context/modal"
+import OtherUserProvider from "./context/otherUser"
 
 
   const initialState = {
@@ -33,7 +34,9 @@ ReactDOM.render(
   <React.StrictMode>
   <Provider store={store}>
     <ModalProvider>
+      <OtherUserProvider>
           <App />
+      </OtherUserProvider>
       </ModalProvider>
     </Provider>
   </React.StrictMode>,

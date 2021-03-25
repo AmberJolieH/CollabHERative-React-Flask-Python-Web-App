@@ -20,7 +20,7 @@ export const addUser = (user) => ({
 });
 
 //* REDUX THUNK 
-//TODO: make json seed data ->> senderid, receiverid, sample messege, is a recuritor?
+//  //make json seed data ->> senderid, receiverid, sample messege, is a recuritor?
 
 export const getUsers = ()=> async(dispatch) =>{
     const res = await fetch('/api/users/');
@@ -49,7 +49,7 @@ const userReducer = (state = initState, action) => {
     switch (action.type) {
         case LOAD_USERS:
             for (let user of action.users) {
-                newState[user.if] = user;
+                newState[user.id] = user;
             }
             return newState;
         case LOAD_USER:

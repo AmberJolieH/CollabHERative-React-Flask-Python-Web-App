@@ -3,9 +3,9 @@ from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired, Length
 
 
-class CreateMessageForm(FlaskForm):
-    senderId = IntegerField("senderId", validators=[DataRequired()])
-    receiverId = IntegerField("receiverId", validators=[DataRequired()])
+class CreateChatForm(FlaskForm):
+    senderId = IntegerField("senderid", validators=[DataRequired()])
+    receiverId = IntegerField("receiverid", validators=[DataRequired()])
     message = StringField(
         "message",
         validators=[

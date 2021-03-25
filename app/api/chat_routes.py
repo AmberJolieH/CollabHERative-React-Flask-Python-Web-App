@@ -1,7 +1,8 @@
 # IMPORTS
-from app.models import DirectMessage
+from app.models import DirectMessage, db
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
+from app.forms import CreateChatForm
 # BLUEPRINT
 chat_routes = Blueprint('chat', __name__)
 
@@ -20,7 +21,7 @@ def get_messages():
     """
     Get all messages
     """
-    messages = Message.query.all()
+    messages = DirectMessage.query.all()
     return {"messages": [message.to_dict() for message in messages]}
 
 # CREATE A NEW MESSAGE
@@ -32,11 +33,11 @@ def create_message():
     """
     Create new message
     """
-    form = CreateMessageForm()
+    form = CreateChatForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        new_message = Message(
+        new_message = DirectMessage(
             senderid=form.data["senderId"],
             receiverid=form.data["receiverId"],
             message=form.data["message"],
@@ -56,7 +57,7 @@ def delete_message(messageId):
     """
     Delete message
     """
-    message_to_delete = Message.query.get(messageId)
+    message_to_delete = DirectMessage.query.get(messageId)
     if message_to_delete:
         db.session.delete(message_to_delete)
         db.session.commit()

@@ -1,8 +1,8 @@
 //* IMPORTS 
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createMessage } from '../../store/chat';
-import { useOtherUserContext } from './index';
+import { createChat } from '../../store/chat';
+import { useOtherUserContext } from '../../context/otherUser';
 import './chat.css'
 
 //* CHAT INPUT FORM
@@ -11,12 +11,13 @@ export default function ChatForm() {
   const [msg, setMsg] = useState('');
 
   const { otherUser } = useOtherUserContext();
+   console.log(otherUser)
   const lgdInUserId = useSelector((state) => state.session.user.id);
 
   const onSend = async function (e) {
     e.preventDefault();
     const msgOrErrors = await dispatch(
-      createMessage({
+      createChat({
         senderId: lgdInUserId,
         receiverId: otherUser.id,
         message: msg,
