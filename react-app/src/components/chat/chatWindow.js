@@ -90,7 +90,9 @@ console.log(allChatsForUser)
                   style={
                     lgdInUser.id === msg.senderid
                       ? {
-                          background: 'rgba(13, 51, 223, 0.65)',
+                          background: 'rgba(13, 51, 223, 0.3)',
+                          borderRadius:"2rem",
+
                         }
                       : {}
                   }
@@ -104,7 +106,9 @@ console.log(allChatsForUser)
               </div>
             ))}
         </div>
-        <ChatForm />
+        <div>
+        <ChatForm  />
+        </div>
       </div>
     </div>
   );

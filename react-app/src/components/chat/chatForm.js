@@ -30,7 +30,7 @@ export default function ChatForm() {
 
   return (
     <form onSubmit={onSend} className='chat-form'>
-      <textarea style={{width:"26rem", display:"flex", alignItems:"center"}}
+      <textarea style={{width:"22rem", display:"flex", alignItems:"center"}}
         value={msg}
         onChange={(e) => {
           setMsg(e.target.value);
