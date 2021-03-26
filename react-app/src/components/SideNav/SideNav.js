@@ -51,7 +51,7 @@ const SideNav = () => {
            </NavLink>
          </div>
          <div className=".uiButton" style={{marginLeft:"1.5rem", marginTop:"2rem"}} >
-           <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"#636363", padding:"1rem", marginRight:"15rem"}}>
+           <NavLink to="/all_showcases" exact={true} activeClassName="active" style={{textDecoration:"none",color:"white", padding:"1rem", marginRight:"15rem"}}>
            <DashboardIcon/>
            </NavLink>
          </div>
@@ -66,7 +66,9 @@ const SideNav = () => {
            </a>
          </div>
          <div style={{marginLeft:"1.5rem", marginTop:"0rem"}}>
+           <NavLink to="/all_showcases" exact={true} activeClassName="active">
            <img src={profilePic} ></img>
+           </NavLink>
          </div>
          <div style={{fontSize:"10px",marginLeft:"1.5rem", marginTop:"-.8rem", color:"#636363"}} >
            <h4>

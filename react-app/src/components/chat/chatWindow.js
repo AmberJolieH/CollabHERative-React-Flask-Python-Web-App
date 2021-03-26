@@ -56,9 +56,10 @@ console.log(allChatsForUser)
     return (
       <div className='chat__container chat__texts-holder'>
         <div>
-          <h1 className='chat__title'>No conversation selected</h1>
+          <h3 className='chat__title'>PLEASE SELECT A CONVERSATION</h3>
+          <hr/>
           <p style={{ textAlign: 'center' }}>
-            click a community member to send a message
+             PLEASE CLICK A COMMUNITY MEMBER TO SEND A MESSAGE
           </p>
         </div>
       </div>

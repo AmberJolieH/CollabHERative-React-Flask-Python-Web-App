@@ -24,6 +24,8 @@ import SecondChatCard from "./components/chat/secondChatCard";
 import right from "./images/right.svg"
 import projectExample from "./images/center3.svg"
 import jobs from "./images/jobs.svg"
+import AboutAmber from "./components/amber/about"
+
 //* STORE/SESSION/AUTH
 import { restoreUser } from "./store/session";
 import {chat} from "./store/chat"
@@ -127,11 +129,19 @@ const onClick = () => {
           />
           </div>
           <div className="d">
-            <RightNav
+            {/* <RightNav
             setAuthenticated={setAuthenticated}
-            authenticated={authenticated}/>
+            authenticated={authenticated}/> */}
             <ProtectedRoute
               path="/create_showcase"
+              exact={true}
+              authenticated={authenticated}
+            >
+              <CreateShowcase/>
+              
+            </ProtectedRoute>
+            <ProtectedRoute
+              path="/all_showcases"
               exact={true}
               authenticated={authenticated}
             >
@@ -148,11 +158,15 @@ const onClick = () => {
          <RightNav setAuthenticated={setAuthenticated} authenticated={authenticated}>
           <img src={right}/>
          </RightNav>
+        </Route>
+
          <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
-          <UsersList/>
+          <RightNav>
+            <img src={jobs}/>
+          </RightNav>
+          
           
         </ProtectedRoute>
-        </Route>
           </div>
         <div className="b">
       <Switch>
@@ -177,14 +191,15 @@ const onClick = () => {
               authenticated={authenticated}
             >
               <CenterCard> <img src={projectExample}/></CenterCard>
-            </ProtectedRoute>
-            <ProtectedRoute
+        </ProtectedRoute>
+        <ProtectedRoute
               path="/all_showcases"
               exact={true}
               authenticated={authenticated}
             >
-              <ListShowcases/>
-            </ProtectedRoute>
+              <AboutAmber/>
+              {/* <ListShowcases/> */}
+        </ProtectedRoute>
         <ProtectedRoute path="/users/:userId"  authenticated={authenticated}>
           <User />
         </ProtectedRoute>

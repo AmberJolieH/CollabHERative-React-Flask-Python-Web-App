@@ -6,7 +6,7 @@ import center from "../../images/center2.svg"
 const AboutAmber = () => {
     return(
          <CenterCard>
-        <img src={center} style={{}}/>
+        {/* <img src={center} style={{}}/> */}
         </CenterCard>
     )
 };
