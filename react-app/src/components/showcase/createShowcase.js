@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux"
 import CenterCard from "../centerCard/centerCard"
 import RightNav from "../rightNav/rightNav"
 import {useHistory} from "react-router-dom"
-
+import New from "../../images/imgcolors.svg"
 const CreateShowcase = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -100,6 +100,8 @@ const onSubmit = async (e)=> {
                     
                     <button className="signupButton" style={{marginTop:"1rem", backgroundColor:"#FAAE43"}}>Add Project</button>
                 </form>
+            <img style={{width:"80%", marginLeft:"2rem", marginTop:"3rem"}} src={New}/>
+
             </div>
         </RightNav>
     </div>
