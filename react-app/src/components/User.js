@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import * as showcaseActions from "./../store/showcase"
 import CenterCard from "./centerCard/centerCard";
+import projects from "../images/center3.svg"
+import RightNav from "./rightNav/rightNav";
+
 
 function User() {
   const dispatch = useDispatch();
@@ -47,7 +50,8 @@ console.log(usershowcase)
   return (
     <CenterCard>
     <div>
-    <ul>
+       <img src={projects}/>
+    {/* <ul>
       <a>
         <strong></strong> {user.username}'s Projects:
       </a>
@@ -70,12 +74,12 @@ console.log(usershowcase)
 
                                 
                             </div>
-                      {/* image here */}
+                     
                     </div>
                   </div>
               )
           })}
-      </div>
+      </div> */}
     </div>
     </CenterCard>
   )}

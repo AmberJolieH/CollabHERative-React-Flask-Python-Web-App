@@ -147,7 +147,6 @@ const onClick = () => {
             <Route path="/" exact={true} authenticated={authenticated}>
          <RightNav setAuthenticated={setAuthenticated} authenticated={authenticated}>
           <img src={right}/>
-          {/* <h2 style={{padding:"1rem"}}>Current Job Postings:</h2> */}
          </RightNav>
          <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
           <UsersList/>
@@ -156,9 +155,6 @@ const onClick = () => {
         </Route>
           </div>
         <div className="b">
-          {/* <CenterCard/> */}
-      
-       
       <Switch>
         <Route path="/sign-up" exact={true}>
           <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
