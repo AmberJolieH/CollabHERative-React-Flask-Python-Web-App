@@ -263,3 +263,5 @@ align-items: center;
     grid-template-columns: subgrid;
     grid-template-rows: subgrid;
   }
+
+  hr { background-color: #c0bcbc; height: 1px; border: 0; }

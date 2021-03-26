@@ -22,9 +22,14 @@ import CenterCard from "./components/centerCard/centerCard";
 import RightNav from "./components/rightNav/rightNav"
 import SecondChatCard from "./components/chat/secondChatCard";
 import right from "./images/right.svg"
+import projectExample from "./images/jobs2.svg"
+import jobs from "./images/jobs.svg"
+import AboutGallery from "./components/amber/aboutGallery"
+
 //* STORE/SESSION/AUTH
 import { restoreUser } from "./store/session";
 import {chat} from "./store/chat"
+import About from "./components/amber/about";
 
 
 //* SOCKETIO SETUP
@@ -125,15 +130,24 @@ const onClick = () => {
           />
           </div>
           <div className="d">
-            <RightNav
+            {/* <RightNav
             setAuthenticated={setAuthenticated}
-            authenticated={authenticated}/>
+            authenticated={authenticated}/> */}
             <ProtectedRoute
               path="/create_showcase"
               exact={true}
               authenticated={authenticated}
             >
               <CreateShowcase/>
+              
+            </ProtectedRoute>
+            <ProtectedRoute
+              path="/all_showcases"
+              exact={true}
+              authenticated={authenticated}
+            >
+              <About/>
+              
             </ProtectedRoute>
             <ProtectedRoute
               path='/chat'
@@ -144,21 +158,25 @@ const onClick = () => {
             <Route path="/" exact={true} authenticated={authenticated}>
          <RightNav setAuthenticated={setAuthenticated} authenticated={authenticated}>
           <img src={right}/>
-          {/* <h2 style={{padding:"1rem"}}>Current Job Postings:</h2> */}
          </RightNav>
-         
         </Route>
+
+         <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
+          <RightNav>
+            <img src={jobs}/>
+          </RightNav>
+          
+          
+        </ProtectedRoute>
           </div>
         <div className="b">
-          {/* <CenterCard/> */}
-      
-       
       <Switch>
         <Route path="/sign-up" exact={true}>
           <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
         </Route>
         <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
           <UsersList/>
+          
         </ProtectedRoute>
        
 
@@ -173,15 +191,16 @@ const onClick = () => {
               exact={true}
               authenticated={authenticated}
             >
-              <CenterCard/>
-            </ProtectedRoute>
-            <ProtectedRoute
+              <CenterCard> <img src={projectExample}/></CenterCard>
+        </ProtectedRoute>
+        <ProtectedRoute
               path="/all_showcases"
               exact={true}
               authenticated={authenticated}
             >
-              <ListShowcases/>
-            </ProtectedRoute>
+              <AboutGallery/>
+              {/* <ListShowcases/> */}
+        </ProtectedRoute>
         <ProtectedRoute path="/users/:userId"  authenticated={authenticated}>
           <User />
         </ProtectedRoute>

@@ -32,7 +32,8 @@ function UsersList() {
   return (
     <CenterCard>
     <>
-      <h1 style={{marginLeft:"2rem"}}>Our Community: </h1>
+      <h3 style={{marginLeft:"9rem"}}> OUR COMMUNITY </h3>
+      <hr/>
       <ul style={{display:"flex", flexWrap:"wrap", flexDirection:"row"}}>{userComponents}</ul>
     </>
     </CenterCard>

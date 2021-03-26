@@ -51,7 +51,8 @@ console.log(previousChatArr)
     <>
       {chatUsers.length > 0 && !!chatUsers[0] && (
         <div className='chat__container chat__users-holder'>
-          <h1 className='chat__title'>Chats</h1>
+          <h3 className='chat__title'>CONVERSATIONS</h3>
+          <hr/>
           {chatUsers.map((user) => {
             console.log(user)
             return (

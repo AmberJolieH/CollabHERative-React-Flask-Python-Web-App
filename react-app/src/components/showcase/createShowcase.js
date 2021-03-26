@@ -47,7 +47,8 @@ const onSubmit = async (e)=> {
     <div>
             <RightNav>
             <div>
-                <h2 style={{marginLeft:"5rem"}}>Create a Project</h2>
+                <h3 style={{marginLeft:"4rem"}}>ADD A PROJECT</h3>
+                <hr/>
                 <form style={{padding:"1rem"}}
                 onSubmit={onSubmit}
                     
