@@ -22,13 +22,14 @@ import CenterCard from "./components/centerCard/centerCard";
 import RightNav from "./components/rightNav/rightNav"
 import SecondChatCard from "./components/chat/secondChatCard";
 import right from "./images/right.svg"
-import projectExample from "./images/center3.svg"
+import projectExample from "./images/jobs2.svg"
 import jobs from "./images/jobs.svg"
-import AboutAmber from "./components/amber/about"
+import AboutGallery from "./components/amber/aboutGallery"
 
 //* STORE/SESSION/AUTH
 import { restoreUser } from "./store/session";
 import {chat} from "./store/chat"
+import About from "./components/amber/about";
 
 
 //* SOCKETIO SETUP
@@ -145,7 +146,7 @@ const onClick = () => {
               exact={true}
               authenticated={authenticated}
             >
-              <CreateShowcase/>
+              <About/>
               
             </ProtectedRoute>
             <ProtectedRoute
@@ -197,7 +198,7 @@ const onClick = () => {
               exact={true}
               authenticated={authenticated}
             >
-              <AboutAmber/>
+              <AboutGallery/>
               {/* <ListShowcases/> */}
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId"  authenticated={authenticated}>

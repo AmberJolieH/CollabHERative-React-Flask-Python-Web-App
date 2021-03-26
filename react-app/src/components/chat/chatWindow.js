@@ -75,6 +75,7 @@ console.log(allChatsForUser)
       <h1 className='chat__title'>
         {otherUser.id ? otherUser.firstname : 'No Conversation Selected'}
       </h1>
+      <hr/>
       <div className='chat__texts-and-form'>
         <div className='chat__texts'>
           {otherUser &&

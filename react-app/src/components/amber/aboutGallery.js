@@ -1,15 +1,14 @@
 import React, { useState, useEffect} from 'react';
 import AboutMeCard from '../amber/aboutMeCard';
-import vrcc from "../../images/VRCC.gif"
+import aboutAmber from "../../images/aboutAmber4.svg"
 
 
-const About = () => {
+const AboutGallery = () => {
     return(
          <AboutMeCard>
-        {/* <h2>test amber x</h2> */}
-        <img src={vrcc}/>
+        <img src={aboutAmber} />
         </AboutMeCard>
     )
 };
 
-export default About;
+export default AboutGallery;
