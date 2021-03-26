@@ -17,6 +17,7 @@
   width: 55%;
   padding:2rem;
   height: fit-content;
+  /* overflow-y: scroll; */
 }
 
 .chat__users-holder {
@@ -32,6 +33,7 @@
   width: 80%;
   justify-content: space-between;
   height:600px;
+  /* overflow-y: scroll; */
 
 }
 
@@ -73,10 +75,8 @@
 }
 
 .chat__texts {
-  overflow: scroll;
+  overflow-y: scroll;
   max-height: 70vh;
-  display: flex;
-  flex-direction: column-reverse;
 }
 
 .chat__texts__right {
@@ -99,7 +99,7 @@
 
 .single-chat-text {
   background-color: rgba(177, 187, 231, 0.3);
-  border-radius: 5rem;
+  border-radius: 1rem;
   width: fit-content;
   padding: 0.35rem;
   box-sizing: content-box;
@@ -120,7 +120,6 @@
 
 .chat-form__input {
   border-radius: 0.75rem;
-  width: 65%;
   border: 1.5px solid #303030;
   outline: black;
   resize: none;
@@ -129,7 +128,7 @@
   background-color:#F6F6F6;
   font-family: 'Montserrat', sans-serif;
   height:2rem;
-  box-shadow: inset 0px -4px 4px rgba(0, 0, 0, 0.24), inset 0px 6px 8px rgba(0, 0, 0, 0.56), inset 0px -4px 5px rgba(255, 255, 255, 0.24);
+  /* box-shadow: inset 0px -4px 4px rgba(0, 0, 0, 0.24), inset 0px 6px 8px rgba(0, 0, 0, 0.56), inset 0px -4px 5px rgba(255, 255, 255, 0.24); */
 }
 
 .chat-form__input:focus {

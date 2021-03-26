@@ -22,6 +22,8 @@ import CenterCard from "./components/centerCard/centerCard";
 import RightNav from "./components/rightNav/rightNav"
 import SecondChatCard from "./components/chat/secondChatCard";
 import right from "./images/right.svg"
+import projectExample from "./images/center3.svg"
+import jobs from "./images/jobs.svg"
 //* STORE/SESSION/AUTH
 import { restoreUser } from "./store/session";
 import {chat} from "./store/chat"
@@ -134,6 +136,7 @@ const onClick = () => {
               authenticated={authenticated}
             >
               <CreateShowcase/>
+              
             </ProtectedRoute>
             <ProtectedRoute
               path='/chat'
@@ -146,7 +149,10 @@ const onClick = () => {
           <img src={right}/>
           {/* <h2 style={{padding:"1rem"}}>Current Job Postings:</h2> */}
          </RightNav>
-         
+         <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
+          <UsersList/>
+          
+        </ProtectedRoute>
         </Route>
           </div>
         <div className="b">
@@ -159,6 +165,7 @@ const onClick = () => {
         </Route>
         <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
           <UsersList/>
+          
         </ProtectedRoute>
        
 
@@ -173,7 +180,7 @@ const onClick = () => {
               exact={true}
               authenticated={authenticated}
             >
-              <CenterCard/>
+              <CenterCard> <img src={projectExample}/></CenterCard>
             </ProtectedRoute>
             <ProtectedRoute
               path="/all_showcases"

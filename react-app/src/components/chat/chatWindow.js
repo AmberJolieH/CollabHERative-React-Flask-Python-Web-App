@@ -65,7 +65,7 @@ console.log(allChatsForUser)
     );
   }
   
-  allChatsWOtherUser.sort((a, b) => b.id - a.id);
+  allChatsWOtherUser.sort((a, b) => a.id - b.id);
   console.log(allChatsWOtherUser)
   
   return (

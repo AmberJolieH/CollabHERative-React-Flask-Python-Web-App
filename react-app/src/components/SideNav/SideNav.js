@@ -70,7 +70,7 @@ const SideNav = () => {
          </div>
          <div style={{fontSize:"10px",marginLeft:"1.5rem", marginTop:"-.8rem", color:"#636363"}} >
            <h4>
-             Amber Horn
+             
            </h4>
          </div> 
        </div>
