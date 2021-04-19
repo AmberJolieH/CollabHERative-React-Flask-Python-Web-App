@@ -59,7 +59,7 @@ console.log(allChatsForUser)
           <h3 className='chat__title'>PLEASE SELECT A CONVERSATION</h3>
           <hr/>
           <p style={{ textAlign: 'center' }}>
-             PLEASE CLICK A COMMUNITY MEMBER TO SEND A MESSAGE
+             PLEASE CLICK A MEMBER TO SEND A MESSAGE
           </p>
         </div>
       </div>
