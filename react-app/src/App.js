@@ -56,7 +56,7 @@ import About from "./components/amber/about";
   // my job postings page
   // projects example on create a project
   // click on individual project and see details 
-  // heroku updated 4/19/21
+  // heroku updated 4/19/21 - 2x
 
 
 function App() {
