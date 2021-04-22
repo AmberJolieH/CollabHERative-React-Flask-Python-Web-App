@@ -35,6 +35,10 @@ import About from "./components/amber/about";
 //* SOCKETIO SETUP
   // endpoint variable 
   let endPoint = "http://localhost:5000"
+
+  if (process.env.NODE_ENV === "production") {
+    endPoint = "https://collabherative.herokuapp.com" 
+  }
   // connect with server using socket.io
   let socket = io.connect(`${endPoint}`)
 
